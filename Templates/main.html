@@ -140,7 +140,7 @@
 									
 										<label for="con" class="col-lg-3 control-label">Contraseña: </label>
 										<div class="col-lg-9">
-											<input type="password" class="form-control" id="con" placeholder="Contraseña" name="contra" required pattern="^[a-zA-Z0-9_\.\-\@]{8,15}" />
+											<input type="password" class="form-control" id="con" placeholder="Contraseña" name="contra" required pattern="^[a-zA-Z0-9_\.\-\@]{8,17}" />
 										</div>
 									</div>
 									<button class="btn btn-lg btn-block btn-primary" type="submit">Entrar</button>
@@ -169,31 +169,31 @@
 									<div class="form-group">
 										<label for="nom" class="col-lg-3 control-label">Nombre Completo</label>
 										<div class="col-lg-9">
-											<input type="text" class="form-control" id="nom" placeholder="Nombre de Completo"/>
+											<input type="text" class="form-control" id="nom" placeholder="Nombre de Completo" required pattern="^[a-zA-Z]{3,20}"/>
 										</div>
 									</div>
 									<div class="form-group">
 										<label for="num" class="col-lg-3 control-label">Número de cuenta</label>
 										<div class="col-lg-9">
-											<input type="text" class="form-control" id="num" placeholder="Número de cuenta"/>
+											<input type="text" class="form-control" id="num" placeholder="Número de cuenta" required pattern="^[0-9]{9}"/>
 										</div>
 									</div>
 									<div class="form-group">
 										<label for="gru" class="col-lg-3 control-label">Grupo</label>
 										<div class="col-lg-9">
-											<input type="text" class="form-control" id="gru" placeholder="Grupo"/>
+											<input type="text" class="form-control" id="gru" placeholder="Grupo" required pattern="^[0-9]{3}"/>
 										</div>
 									</div>
 									<div class="form-group">
 										<label for="con" class="col-lg-3 control-label">Contraseña: </label>
 										<div class="col-lg-9">
-											<input type="password" class="form-control" id="con" placeholder="Contraseña"/>
+											<input type="password" class="form-control" id="con" placeholder="Contraseña" required pattern="^[a-zA-Z0-9_\.\-\@]{8,17}"/>
 										</div>
 									</div>
 									<div class="form-group">
 										<label for="cond" class="col-lg-3 control-label">Repetir Contraseña: </label>
 										<div class="col-lg-9">
-											<input type="password" class="form-control" id="cond" placeholder="Contraseña"/>
+											<input type="password" class="form-control" id="cond" placeholder="Contraseña" required pattern="^[a-zA-Z0-9_\.\-\@]{8,17}"/>
 										</div>
 									</div>
 									<button class="btn btn-lg btn-block btn-primary" type="submit">Registrarse</button>
