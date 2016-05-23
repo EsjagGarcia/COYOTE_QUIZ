@@ -1,0 +1,28 @@
+
+body{
+	position:relative;
+	background-image: url("../Sources/Resources/fond-azul.jpg");
+	background-size: 10000px 1500px;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+.container{
+	background-color:#F7F7F7;
+}
+nav#part-top{
+	background-color:#c79810;
+}
+#part-bottom{
+	background-color:#c79810;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+#imag-unam{
+	padding-top:10px;
+}
+#conten-main{
+	padding-top:70px;
+}
+#fr, #fa{
+	height:500px;
+}

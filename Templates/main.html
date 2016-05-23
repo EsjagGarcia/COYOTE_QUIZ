@@ -9,65 +9,32 @@
 		
 		<link href="../Documents/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
 		<link rel="shortcut icon" href="../Sources/Resources/prepa 6.jpg" type="image/png"/>
-		
-		<style>
-			body{
-				position:relative;
-				background-image: url("../../Resoulces/fond-azul.jpg");
-				background-size: 10000px 1500px;
-				background-repeat: no-repeat;
-				background-attachment: fixed;
-			}
-			.container{
-				background-color:#F7F7F7;
-			}
-			nav#part-top{
-				background-color:#c79810;
-			}
-			#part-bottom{
-				background-color:#c79810;
-				border-top-left-radius: 10px;
-				border-top-right-radius: 10px;
-			}
-			#imag-unam{
-				padding-top:10px;
-			}
-			#conten-main{
-				padding-top:70px;
-			}
-			#fr, #fa{
-				height:500px;
-			}
-		</style>
+		<link href="../Style/stylemain.css"  rel="stylesheet" type="text/css">
 	</head>
 	<body data-spy="scroll" data-target="#navegacion">
 		<div class="container">
-			
 			<header>
 				<nav class="navbar navbar-default navbar-fixed-top" role="navegation" id="part-top">
-				<div class="row">
-				<div class="col-lg-5 col-lg-offset-1 col-md-7 col-md-offset-1 col-sm-7 col-sm-offset-1">
-				
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navegacion">
-							<span class="sr-only">Mostrar navegación</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-						<a href="#" class="navbar-brand" id="imag-unam"><img alt="Brand" src="../Sources/Resources/esc-unam.png" height="140%"/></a>
-						<p class="navbar-text">UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO</p>
+					<div class="row">
+						<div class="col-lg-5 col-lg-offset-1 col-md-7 col-md-offset-1 col-sm-7 col-sm-offset-1">
+							<div class="navbar-header">
+								<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navegacion">
+									<span class="sr-only">Mostrar navegación</span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+								<a href="#" class="navbar-brand" id="imag-unam"><img alt="Brand" src="../Sources/Resources/esc-unam.png" height="140%"/></a>
+								<p class="navbar-text">UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO</p>
+							</div>	
+						</div>	
+						<div class="col-lg-4 col-lg-offset-2 col-md-4 col-sm-4">
+							<div class="collapse navbar-collapse" id="navegacion">
+									<button type="button" class="btn btn-primary navbar-btn" data-toggle="modal" data-target="#iniciar"> Iniciar Sesión </button>
+									<button type="button" class="btn btn-primary navbar-btn" data-toggle="modal" data-target="#registrar"> Registrarse </button>
+							</div>
+						</div>	
 					</div>
-					
-				</div>	
-				<div class="col-lg-4 col-lg-offset-2 col-md-4 col-sm-4">
-					<div class="collapse navbar-collapse" id="navegacion">
-							<button type="button" class="btn btn-warning navbar-btn" data-toggle="modal" data-target="#iniciar"> Iniciar Sesión </button>
-							<button type="button" class="btn btn-warning navbar-btn" data-toggle="modal" data-target="#registrar"> Registrarse </button>
-					</div>
-				</div>	
-					
-				</div>
 				</nav>
 			</header>
 			<div class="main" id="conten-main">
@@ -98,14 +65,14 @@
 									</div>
 								</div>
 							</div>
-						<a class="left carousel-control" href="#carouselimg" role="button" data-slide="prev">
-							<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-							<span class="sr-only">Anterior</span>
-						</a>
-						<a class="right carousel-control" href="#carouselimg" role="button" data-slide="next">
-							<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-							<span class="sr-only">Siguiente</span>
-						</a>
+							<a class="left carousel-control" href="#carouselimg" role="button" data-slide="prev">
+								<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+								<span class="sr-only">Anterior</span>
+							</a>
+							<a class="right carousel-control" href="#carouselimg" role="button" data-slide="next">
+								<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+								<span class="sr-only">Siguiente</span>
+							</a>
 					</div>
 				</div>
 			</div>
@@ -113,7 +80,7 @@
 		<div class="row">
 			<div class="col-lg-12 navbar-fixed-bottom">
 				<footer class="text-center" id="part-bottom">
-					Hecho en méxico. Todos los derechos reservados.
+					Hecho en México. Todos los derechos reservados.
 					<br/>
 					Créditos.
 				</footer>
@@ -140,17 +107,16 @@
 									
 										<label for="con" class="col-lg-3 control-label">Contraseña: </label>
 										<div class="col-lg-9">
-											<input type="password" class="form-control" id="con" placeholder="Contraseña" name="contra" required pattern="^[a-zA-Z0-9_\.\-\@]{8,17}" />
+											<input type="password" class="form-control" id="con" placeholder="Contraseña" name="contra" required pattern="^[a-zA-Z0-9_\.\-\@]{8,15}"/>
 										</div>
 									</div>
-									<button class="btn btn-lg btn-block btn-primary" type="submit">Entrar</button>
+									<button class="btn btn-lg btn-block btn-primary" id="f1" type="submit">Entrar</button>
 								</form>
 							</div>
 						</div>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-						
 					</div>
 				</div>
 			</div>
@@ -165,39 +131,39 @@
 					<div class="modal-body">
 						<div class="row">
 							<div class="col-lg-12 col-xs-12">
-								<form class="form-horizontal" method="GET">
+								<form class="form-horizontal" method="POST" action="registro_alumno.php" >
 									<div class="form-group">
 										<label for="nom" class="col-lg-3 control-label">Nombre Completo</label>
 										<div class="col-lg-9">
-											<input type="text" class="form-control" id="nom" placeholder="Nombre de Completo" required pattern="^[a-zA-Z]{3,20}"/>
+											<input type="text" class="form-control" id="nombre" placeholder="Nombre de Completo"  required pattern="^[a-zA-Z ñáéíóú]{3,30}"/>
 										</div>
 									</div>
 									<div class="form-group">
 										<label for="num" class="col-lg-3 control-label">Número de cuenta</label>
 										<div class="col-lg-9">
-											<input type="text" class="form-control" id="num" placeholder="Número de cuenta" required pattern="^[0-9]{9}"/>
+											<input type="text" class="form-control" id="numero" placeholder="Número de cuenta"  required pattern="^[0-9]{9}"/>
 										</div>
 									</div>
 									<div class="form-group">
 										<label for="gru" class="col-lg-3 control-label">Grupo</label>
 										<div class="col-lg-9">
-											<input type="text" class="form-control" id="gru" placeholder="Grupo" required pattern="^[0-9]{3}"/>
+											<input type="text" class="form-control" id="grupo" placeholder="Grupo"  required pattern="^[0-9]{3}"/>
 										</div>
 									</div>
 									<div class="form-group">
 										<label for="con" class="col-lg-3 control-label">Contraseña: </label>
 										<div class="col-lg-9">
-											<input type="password" class="form-control" id="con" placeholder="Contraseña" required pattern="^[a-zA-Z0-9_\.\-\@]{8,17}"/>
+											<input type="password" class="form-control" id="contra" placeholder="Contraseña"  required pattern="^[a-zA-Z0-9_\.\-\@]{8,17}"/>
 										</div>
 									</div>
 									<div class="form-group">
 										<label for="cond" class="col-lg-3 control-label">Repetir Contraseña: </label>
 										<div class="col-lg-9">
-											<input type="password" class="form-control" id="cond" placeholder="Contraseña" required pattern="^[a-zA-Z0-9_\.\-\@]{8,17}"/>
+											<input type="password" class="form-control" id="sena" placeholder="Contraseña"  required pattern="^[a-zA-Z0-9_\.\-\@]{8,17}"/>
 										</div>
 									</div>
-									<button class="btn btn-lg btn-block btn-primary" type="submit">Registrarse</button>
-								</form>
+									<button class="btn btn-lg btn-block btn-primary" id="registrarse"type="submit">Registrarse</button>
+									</form>
 							</div>
 						</div>
 					</div>
@@ -209,14 +175,7 @@
 		</div>
 		<script src="../Documents/jquery.js"></script>
 		<script src="../Documents/bootstrap/js/bootstrap.min.js"></script>
-		<script>
-			var sizew=$(window).height()-110;
-			console.log(sizew);
-			$("#conten-main").height(sizew);
-			$(window).resize(function(){
-				sizew=$(window).height()-110;
-				$("#conten-main").height(sizew);
-			});
+		<script type="text/javascript" src="main.js">
 		</script>
 	</body>
 </html>
