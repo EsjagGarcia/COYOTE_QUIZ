@@ -1,0 +1,204 @@
+<!DOCTYPEhtml>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+		<meta name="viewpiort" content="width=device-width, initial-scale=1"/>
+		
+		<title>Coyote quiz</title>
+		
+		<link href="../Documents/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+		<link rel="shortcut icon" href="../Sources/Resources/prepa 6.jpg" type="image/png"/>
+		<link href="../Style/stylemain.css"  rel="stylesheet" type="text/css">
+	</head>
+	<body data-spy="scroll" data-target="#navegacion">
+		<div class="container">
+			<header>
+				<nav class="navbar navbar-default navbar-fixed-top" role="navegation" id="part-top">
+					<div class="row">
+						<div class="col-lg-5 col-lg-offset-1 col-md-7 col-md-offset-1 col-sm-7 col-sm-offset-1">
+							<div class="navbar-header">
+								<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navegacion">
+									<span class="sr-only">Mostrar navegación</span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+								<a href="#" class="navbar-brand" id="imag-unam"><img alt="Brand" src="../Sources/Resources/esc-unam.png" height="140%"/></a>
+								<p class="navbar-text">UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO</p>
+							</div>	
+						</div>	
+						<div class="col-lg-4 col-lg-offset-2 col-md-4 col-sm-4">
+							<div class="collapse navbar-collapse" id="navegacion">
+									<button type="button" class="btn btn-primary navbar-btn" data-toggle="modal" data-target="#iniciar"> Iniciar Sesión </button>
+									<button type="button" class="btn btn-primary navbar-btn" data-toggle="modal" data-target="#registrar"> Registrarse </button>
+							</div>
+						</div>	
+					</div>
+				</nav>
+			</header>
+			<div class="main" id="conten-main">
+				<div class="row">
+					<div class="col-lg-10 col-lg-offset-1">
+							<div id="carouselimg" class="carousel slide" data-ride="carousel">
+								<ol class="carousel-indicators">
+									<li data-target="#carouselimg" data-slide-to="0" class="active"></li>
+									<li data-target="#carouselimg" data-slide-to="1"></li>
+									<!--<li data-target="#carousel-example-generic" data-slide-to="2"></li>-->
+								</ol>
+								<div class="carousel-inner" role="listbox">
+									<div class="item active" height="100px">
+										<div style="text-align:center;">
+											<img src="../Sources/Resources/fond-rojo.jpg" alt="fondo rojo" id="fr"/>
+										</div>
+										<div class="carousel-caption">
+											<h2>Pantalla de color rojo</h2>
+										</div>
+									</div>
+									<div class="item">
+										<div style="text-align:center;">
+											<img src="../Sources/Resources/fond-amarillo.jpg" alt="fondo amarillo" id="fa"/> 
+										</div>
+										<div class="carousel-caption">
+											<h2>Pantalla de color amarillo</h2>
+										</div>
+									</div>
+								</div>
+							</div>
+							<a class="left carousel-control" href="#carouselimg" role="button" data-slide="prev">
+								<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+								<span class="sr-only">Anterior</span>
+							</a>
+							<a class="right carousel-control" href="#carouselimg" role="button" data-slide="next">
+								<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+								<span class="sr-only">Siguiente</span>
+							</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-12 navbar-fixed-bottom">
+				<footer class="text-center" id="part-bottom">
+					Hecho en México. Todos los derechos reservados.
+					<br/>
+					Créditos.
+				</footer>
+			</div>
+		</div>
+		<div class="modal fade" id="iniciar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h3 class="modal-title" id="myModalLabel">Iniciar Sesión</h3>
+					</div>
+					<div class="modal-body">
+						<div class="row">
+							<div class="col-lg-12 col-xs-12">
+								<form class="form-horizontal" method="GET" action="ejemplo.php">
+									<div class="form-group">
+										<label for="nomu" class="col-lg-3 control-label">Nombre de Usuario:</label>
+										<div class="col-lg-9">
+											<input type="text" class="form-control" id="nomu" placeholder="Nombre de Usuario" name="nom-usuario" required pattern="^[a-zA-Z0-9]{5,10}"/>
+										</div>
+									</div>
+									<div class="form-group">
+									
+										<label for="con" class="col-lg-3 control-label">Contraseña: </label>
+										<div class="col-lg-9">
+											<input type="password" class="form-control" id="con" placeholder="Contraseña" name="contra" required pattern="^[a-zA-Z0-9_\.\-\@]{8,15}" />
+										</div>
+									</div>
+									<button class="btn btn-lg btn-block btn-primary" type="submit">Entrar</button>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal fade" id="registrar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h3 class="modal-title" id="myModalLabel">Registrarse <small>Únicamente como estudiante</small></h3>
+					</div>
+					<div class="modal-body">
+						<div class="row">
+							<div class="col-lg-12 col-xs-12">
+								<form class="form-horizontal" method="POST" action="registro_alumno.php" >
+									<div class="form-group">
+										<label for="nom" class="col-lg-3 control-label">Nombre Completo</label>
+										<div class="col-lg-9">
+											<input type="text" class="form-control" id="nombre" placeholder="Nombre de Completo"  required pattern="^[a-zA-Z ñáéíóú]{3,30}"/>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="num" class="col-lg-3 control-label">Número de cuenta</label>
+										<div class="col-lg-9">
+											<input type="text" class="form-control" id="numero" placeholder="Número de cuenta"  required pattern="^[0-9]{9}"/>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="gru" class="col-lg-3 control-label">Grupo</label>
+										<div class="col-lg-9">
+											<input type="text" class="form-control" id="grupo" placeholder="Grupo"  required pattern="^[0-9]{3}"/>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="con" class="col-lg-3 control-label">Contraseña: </label>
+										<div class="col-lg-9">
+											<input type="password" class="form-control" id="contra" placeholder="Contraseña"  required pattern="^[a-zA-Z0-9_\.\-\@]{8,17}"/>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="cond" class="col-lg-3 control-label">Repetir Contraseña: </label>
+										<div class="col-lg-9">
+											<input type="password" class="form-control" id="sena" placeholder="Contraseña"  required pattern="^[a-zA-Z0-9_\.\-\@]{8,17}"/>
+										</div>
+									</div>
+									<button class="btn btn-lg btn-block btn-primary" id="registrarse"type="submit">Registrarse</button>
+									</form>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../Documents/jquery.js"></script>
+		<script src="../Documents/bootstrap/js/bootstrap.min.js"></script>
+		<script>
+			$("#sena").focus(function() {
+				$("#sena").mouseout(function() {
+					var contra=$("#contra").val();
+					var sena=$("#sena").val();
+						if (contra == sena)
+						{
+							$(this).parent().children(':nth-child(2)').remove();
+							$(this).parent().append('<div class="alert alert-success" role="alert"><strong>Bien</strong> Tus datos contraseñas coinciden</div>');
+						}
+						else
+						{
+							$(this).parent().children(':nth-child(2)').remove();
+							$(this).parent().append('<div class="alert alert-danger" role="alert"><strong>Error</strong> Tus contraseñas no coinciden</div>');
+						}				
+				});
+			});
+			var sizew=$(window).height()-110;
+			console.log(sizew);
+			$("#conten-main").height(sizew);
+			$(window).resize(function(){
+				sizew=$(window).height()-110;
+				$("#conten-main").height(sizew);
+			});
+		</script>
+	</body>
+</html>
