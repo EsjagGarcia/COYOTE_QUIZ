@@ -6,7 +6,7 @@
 			if (contra == sena)
 			{
 				$(this).parent().children(':nth-child(2)').remove();
-				$(this).parent().append('<div class="alert alert-success" role="alert"><strong>Bien</strong> Tus datos contraseñas coinciden</div>');
+				$(this).parent().append('<div class="alert alert-success" role="alert"><strong>Bien</strong> Tus contraseñas coinciden</div>');
 			}
 			else
 			{
