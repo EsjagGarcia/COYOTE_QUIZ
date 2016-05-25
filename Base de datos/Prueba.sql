@@ -16,37 +16,41 @@ CREATE TABLE ALUMNOS (
 	USUARIO_NOMBRE varchar(20),
 	USUARIO_KEY int NOT NULL,
 	ALUMNO_GRUPO int,
+	ALUMNO_CONTRASENIA varchar(15),
 	ALUMNO_PUNTAJE int,
 	ALUMNO_PARTIDAS int,
-	PRIMARY KEY (USUARIO_NOMBRE)
+	PRIMARY KEY (USUARIO_KEY)
 );
-INSERT INTO ALUMNOS VALUES('Margarito Lopez','M@rgarito','315115879','501','3','5');
+INSERT INTO ALUMNOS VALUES('Margarito Lopez','M@rgarito','315115879','501','123456789','3','5');
 /* -- */
 
 CREATE TABLE PROFESORES (
 	USUARIO_KEY int NOT NULL,
 	USUARIO_NOMBRE varchar(20),
+	PROFESOR_CONTRASENIA varchar(15),
 	PROFESOR_ASIGNATURA varchar(15),
 	PROFESOR_PREPA int,
-	PRIMARY KEY (USUARIO_NOMBRE)
+	PRIMARY KEY (USUARIO_KEY)
 );
-INSERT INTO PROFESORES VALUES('201','Luis Enrique','historia','historia');
+INSERT INTO PROFESORES VALUES('201','Luis Enrique','pepe13','historia','historia');
 /* -- */
 
 CREATE TABLE COORDINADORES (
 	USUARIO_KEY int NOT NULL,
 	USUARIO_NOMBRE varchar(20),
-	PRIMARY KEY (USUARIO_NOMBRE)
+	CORDI_CONTRASENIA varchar(15),
+	PRIMARY KEY (USUARIO_KEY)
 );
-INSERT INTO COORDINADORES VALUES('301','El coordi');
+INSERT INTO COORDINADORES VALUES('301','El coordi','1234');
 /* -- */
 
 CREATE TABLE ADMINS (
 	USUARIO_KEY int NOT NULL,
 	USUARIO_NOMBRE varchar(20),
-	PRIMARY KEY (USUARIO_NOMBRE)
+	ADMI_CONTRASENIA varchar(15),
+	PRIMARY KEY (USUARIO_KEY)
 );
-INSERT INTO ADMINS VALUES('401','Dios');
+INSERT INTO ADMINS VALUES('401','Dios','hola');
 /* -- */
 
 CREATE TABLE PREGUNTAS (
@@ -60,7 +64,7 @@ CREATE TABLE PREGUNTAS (
 );
 INSERT INTO PREGUNTAS VALUES(1,'¿Cuál de los siguentes es un conjunto vacío?','{}','vacío','{f}','{{}}');
 INSERT INTO PREGUNTAS VALUES(2,'¿Cual es el nombre de la "chicharronera"?','Fromula general para la factorizacion de un trinomio de segundo grado',
-'NO se','no exite en matematicas','Producto notable de segundo grado');
+'NO se','no existe en matematicas','Producto notable de segundo grado');
 INSERT INTO PREGUNTAS VALUES(3,'¿Cuál de los siguetes incisos es el producto notable  de (a + b) (a – b)?','a2 – b2','a+b','a-b','2a+2b');
 INSERT INTO PREGUNTAS VALUES(4,'¿Cuál es un numero imaginario?','imaginario','ai^2','ai','a');
 INSERT INTO PREGUNTAS VALUES(5,'Se dice que ____ son densos en los enteros','Reales','Enteros','Imaginarios','Negativos');
