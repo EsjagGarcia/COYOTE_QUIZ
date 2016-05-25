@@ -52,5 +52,12 @@ CREATE TABLE ADMINS (
 	PRIMARY KEY (USUARIO_KEY)
 );
 INSERT INTO ADMINS VALUES('401','Dios','hola');
-
-
+/* -- */
+CREATE TABLE PREGUNTAS (
+	PREGUNTA varchar(100),
+	RESPUESTA_uno varchar(30),
+	RESPUESTA_dos varchar(30),
+	RESPUESTA_tres varchar(30),
+	RESPUESTA_correcta varchar(30),
+	PRIMARY KEY (RESPUESTA_correcta)
+);
