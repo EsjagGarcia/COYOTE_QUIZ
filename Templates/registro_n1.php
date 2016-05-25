@@ -9,8 +9,8 @@ if($contra==$sena)
 {
 	$link=mysqli_connect("localhost","Ramon","escuelaenp6","proyectof");
 	$tildes = $link->query("SET NAMES 'utf8'");
-	$SQL='INSERT INTO usuarios (USUARIOS_TYPE,USUARIO_NOMBRE,USUARIO_KEY) values (1,"'.$usuario.'",'.$numero.')';
-	$SQL2='INSERT INTO alumnos (ESTUDIANTE_NOMBRE,ALUMNO_GRUPO,ALUMNO_CONTRASENIA,ALUMNO_PUNTAJE,ALUMNO_PARTIDAS) VALUES ("'.$nombre.'",'.$grupo.',"'.$contra.'",0,0)';
+	$SQL='INSERT INTO usuarios (USUARIOS_TYPE,USUARIO_NOMBRE,USUARIO_KEY,USUARIO_CONTRASENIA) values (1,"'.$usuario.'",'.$numero.',"'.$contra.'")';
+	$SQL2='INSERT INTO alumnos (ESTUDIANTE_NOMBRE,USUARIO_NOMBRE,USUARIO_KEY,ALUMNO_GRUPO,ALUMNO_PUNTAJE,ALUMNO_PARTIDAS) VALUES ("'.$nombre.'","'.$usuario.'",'.$numero.','.$grupo.',0,0)';
 	mysqli_query($link,$SQL);
 	mysqli_query($link,$SQL2);
 	header('location:main.html');
