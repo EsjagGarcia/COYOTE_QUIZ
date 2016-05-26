@@ -112,13 +112,13 @@
 									<div class="form-group">
 										<label for="nomu" class="col-lg-3 control-label">Nombre de Usuario:</label>
 										<div class="col-lg-9">
-											<input type="text" class="form-control" id="nomu" placeholder="Nombre de Usuario" name="nom-usuario" required pattern="^[A-z0-9]{5,10}"/>
+											<input type="text" class="form-control" id="nomu" placeholder="Nombre de Usuario" name="nom-usuario" required pattern="^[\wÑñ]{3,20}"/>
 										</div>
 									</div>
 									<div class="form-group">
 										<label for="con" class="col-lg-3 control-label">Contraseña: </label>
 										<div class="col-lg-9">
-											<input type="password" class="form-control" id="con" placeholder="Contraseña" name="contra" required pattern="^[a-zA-Z0-9_\.\-\@]{8,15}"/>
+											<input type="password" class="form-control" id="con" placeholder="Contraseña" name="contra" required pattern="^[a-zA-Z0-9_\.\-\@]{8,17}"/>
 										</div>
 									</div>
 									<button class="btn btn-lg btn-block btn-primary" id="entrar" type="submit">Entrar</button>
@@ -152,7 +152,7 @@
 									<div class="form-group">
 										<label for="nom" class="col-lg-3 control-label">Nombre Usuario</label>
 										<div class="col-lg-9">
-											<input type="text" class="form-control" id="usuario" placeholder="Nombre de Usuario"  required pattern="^[a-zA-Z ñáéíóú]{3,15}" name="usuarion"/>
+											<input type="text" class="form-control" id="usuario" placeholder="Nombre de Usuario"  required pattern="^[\wÑñ]{3,20}" name="usuarion"/>
 										</div>
 									</div>
 									<div class="form-group">

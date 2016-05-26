@@ -182,19 +182,19 @@
 									<div class="form-group">
 										<label for="nom" class="col-lg-3 control-label">Nombre de Usuario: </label>
 										<div class="col-lg-9">
-											<input type="text" class="form-control" id="usuario" placeholder="Nombre de Usuario"  required pattern="^[a-zA-Z ñáéíóú]{3,15}" name="usuarion"/>
+											<input type="text" class="form-control" id="usuario" placeholder="Nombre de Usuario"  required pattern="^[\wÑñ]{3,20}" name="usuarion"/>
 										</div>
 									</div>
 									<div class="form-group">
-										<label for="num" class="col-lg-3 control-label">Número de cuenta</label>
+										<label for="num" class="col-lg-3 control-label">RFC</label>
 										<div class="col-lg-9">
-											<input type="number" class="form-control" id="numero" placeholder="Número de cuenta" required pattern="^[0-9]{9}" name="numero"/>
+											<input type="number" class="form-control" id="numero" placeholder="RFC" required pattern="^[0-9]{9}" name="numero"/>
 										</div>
 									</div>
 									<div class="form-group">
 										<label for="gru" class="col-lg-3 control-label">Asignatura: </label>
 										<div class="col-lg-9">
-											<input type="text" class="form-control" id="grupo" placeholder="Asignatura"  required pattern="^[a-záéíóúñ]{3,30}" name="asig"/>
+											<input type="text" class="form-control" id="grupo" placeholder="Asignatura"  required pattern="^[a-zA-Z ñáéíóú]{5,15}" name="asig"/>
 										</div>
 									</div>
 									<div class="form-group">
@@ -238,7 +238,7 @@
 									<div class="form-group">
 									<label for="nom" class="col-lg-3 control-label">Nombre usuario: </label>
 										<div class="col-lg-9">
-											<input type="text" class="form-control" id="usuario" name="usuario" placeholder="Nombre de Usuario"  required pattern="^[a-zA-Z0-9_/./-/@]{3,20}"/>
+											<input type="text" class="form-control" id="usuario" name="usuario" placeholder="Nombre de Usuario"  required pattern="^[\wÑñ]{3,20}"/>
 										</div>
 									</div>
 									<div class="form-group">
@@ -272,13 +272,13 @@
 									<div class="form-group">
 										<label for="con" class="col-lg-3 control-label">Contraseña: </label>
 										<div class="col-lg-9">
-											<input type="password" class="form-control" id="contra"name="contra" placeholder="Contraseña"  required pattern="^[a-zA-Z0-9_\.\-\@]{8,15}"/>
+											<input type="password" class="form-control" id="contra"name="contra" placeholder="Contraseña"  required pattern="^[a-zA-Z0-9_\.\-\@]{8,17}"/>
 										</div>
 									</div>
 									<div class="form-group">
 										<label for="cond" class="col-lg-3 control-label">Repetir Contraseña: </label>
 										<div class="col-lg-9">
-											<input type="password" class="form-control" id="sena" name="sena" placeholder="Contraseña"  required pattern="^[a-zA-Z0-9_\.\-\@]{8,15}"/>
+											<input type="password" class="form-control" id="sena" name="sena" placeholder="Contraseña"  required pattern="^[a-zA-Z0-9_\.\-\@]{8,17}"/>
 										</div>
 									</div>
 									<button class="btn btn-lg btn-block btn-primary" id="registrarse"type="submit">Registrarse</button>
