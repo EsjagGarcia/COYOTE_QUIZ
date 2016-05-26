@@ -1,9 +1,67 @@
+<!DOCTYPEhtml>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+		<meta name="viewpiort" content="width=device-width, initial-scale=1"/>
+		
+		<title>Coyote quiz</title>
+		
+		<link href="../Documents/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+		<link rel="shortcut icon" href="../Sources/Resources/prepa 6.jpg" type="image/png"/>
+		<link href="../Style/stylemain.css"  rel="stylesheet" type="text/css">
+	</head>
+	<body data-spy="scroll" data-target="#navegacion">
+	<?php
+		SESSION_START();
+		SESSION_UNSET();
+		SESSION_DESTROY();
+	?>
+		<div class="container">
+			<header>
+				<nav class="navbar navbar-default navbar-fixed-top" role="navegation" id="part-top">
+					<div class="row">
+						<div class="col-lg-5 col-lg-offset-1 col-md-7 col-md-offset-1 col-sm-7 col-sm-offset-1">
+							<div class="navbar-header">
+								<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navegacion">
+									<span class="sr-only">Mostrar navegación</span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+								<a href="#" class="navbar-brand" id="imag-unam"><img alt="Brand" src="../Sources/Resources/esc-unam.png" height="140%"/></a>
+								<p class="navbar-text" id="text">UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO</p>
+							</div>	
+						</div>	
+						<div class="col-lg-4 col-lg-offset-2 col-md-4 col-sm-4">
+							<div class="collapse navbar-collapse" id="navegacion">
+									<button type="button" class="btn btn-primary navbar-btn" data-toggle="modal" data-target="#iniciar"> Iniciar Sesión </button>
+									<button type="button" class="btn btn-primary navbar-btn" data-toggle="modal" data-target="#registrar"> Registrarse </button>
+							</div>
+						</div>	
+					</div>
+				</nav>
+			</header>
+		
+		
+		
+		
+		<script src="../Documents/jquery.js"></script>
+		<script src="../Documents/bootstrap/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="main.js">
+		</script>
+	</body>
+</html>
+
+
+
+
 		<div class="modal fade" id="registrar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h3 class="modal-title" id="myModalLabel">Registrarse <small>Únicamente como estudiante</small></h3>
+						<h3 class="modal-title" id="myModalLabel">Registrar profesor. </h3>
 					</div>
 					<div class="modal-body">
 						<div class="row">
@@ -20,13 +78,17 @@
 										<div class="col-lg-9">
 											<input type="text" class="form-control" id="numero" name="numero" placeholder="RFC"  required pattern="^[a-zA-Z0-9]{12,13}"/>
 										</div>
+									</div>
+									<div class="form-group">
 										<label for="num" class="col-lg-3 control-label">Asignatura:</label>
 										<div class="col-lg-9">
-											<input type="text" class="form-control" id="asignatura" name="asignatura" placeholder="Clave de la asignatura"  required pattern="^[0-9]{3,7}"/>
+											<input type="text" class="form-control" id="asignatura" name="asignatura" placeholder="Clave de la asignatura"  required pattern="^[a-zA-Z ñáéíóú]{5,15}"/>
 										</div>
-										<label for="num" class="col-lg-3 control-label">Preparatoria en la que imparte clase:</label>
+									</div>
+									<div class="form-group">
+										<label for="num" class="col-lg-3 control-label">Preparatoria:</label>
 										<div class="col-lg-9">
-											<select name="prepa">
+											<select class="form-control" name="prepa">
 											<option value="1">Preparatoria 1 "Gabino Barreda"</option>
 											<option value="2">Preparatoria 2 "Erasmo C.Quinto"</option>
 											<option value="3">Preparatoria 3 "Justo Sierra"</option>
