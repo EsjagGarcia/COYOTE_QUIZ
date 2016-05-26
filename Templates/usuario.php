@@ -24,7 +24,42 @@
 	</head>
 	<body data-spy="scroll" data-target="#navegacion">
 		<div class="container" id="cuer">
-			<header>
+		<?php
+		SESSION_START();
+		
+		$enlace=mysqli_connect("localhost","Ramon","escuelaenp6","proyectof");
+		htmlspecialchars($_POST['nom-usuario']);
+		htmlspecialchars($_POST['contra']);
+		mysqli_real_escape_string($enlace,$_POST['nom-usuario']);
+		mysqli_real_escape_string($enlace,$_POST['contra']);
+		if(!$enlace)
+		{
+			echo "No se pudo conectar".mysqli_connect_error();
+		}
+		else
+		{
+			$tildes = $enlace->query("SET NAMES 'utf8'");
+			$consulta='SELECT * FROM usuarios WHERE USUARIO_NOMBRE="'.$_POST['nom-usuario'].'" && USUARIO_CONTRASENIA="'.$_POST['contra'].'"';
+			$res=mysqli_query($enlace, $consulta);
+			$arre=array();
+			while($row=mysqli_fetch_assoc($res))
+			{
+				foreach($row as $re)
+				{
+					$arre[]=$re;
+				}
+			}
+			mysqli_close($enlace);
+		}
+		if(!empty($arre))
+		{
+			$_SESSION['tipo']=$arre[0];
+			$_SESSION['usuario']=$arre[1];
+			$_SESSION['key']=$arre[2];
+		}
+		if(isset($_SESSION['tipo']) && isset($_SESSION['usuario']) && isset($_SESSION['key']))
+		{
+			echo '<header>
 				<nav class="navbar navbar-default navbar-fixed-top" role="navegation" id="part-top">
 					<div class="row">
 						<div class="col-lg-5 col-lg-offset-1 col-md-5 col-md-offset-1 col-sm-5 col-sm-offset-1">
@@ -40,32 +75,29 @@
 							</div>	
 						</div>	
 						<div class="col-lg-5 col-lg-offset-1 col-md-5 col-sm-6">
-							<div class="collapse navbar-collapse" id="navegacion">
-							<?php
-								$nomu='alumno';
-								$con='hola';
-								if($nomu=='alumno')
+							<div class="collapse navbar-collapse" id="navegacion">';
+								if($_SESSION['tipo']=='1')
 								{
 									echo '<button type="button" class="btn btn-primary navbar-btn"> Jugar </button>';
 									echo ' <button type="button" class="btn btn-primary navbar-btn"> Puntajes </button>';
 								}
 								else
 								{
-									if($nomu=='profesor')
+									if($_SESSION['tipo']=='2')
 									{
 										echo '<button type="button" class="btn btn-primary navbar-btn"> Preguntas </button>';
 										echo ' <button type="button" class="btn btn-primary navbar-btn"> Puntajes de alumnos </button>';
 									}
 									else
 									{
-										if($nomu=='coordinador')
+										if($_SESSION['tipo']=='3')
 										{
 											echo '<button type="button" class="btn btn-primary navbar-btn"> Cuentas </button>';
 											echo ' <button type="button" class="btn btn-primary navbar-btn"> Preguntas </button>';
 										}
 										else
 										{
-											if($nomu=='administrador')
+											if($_SESSION['tipo']=='4')
 											{
 												echo '<button type="button" class="btn btn-primary navbar-btn"> Cuentas </button>';
 												echo ' <button type="button" class="btn btn-primary navbar-btn"> Usuarios </button>';
@@ -74,15 +106,14 @@
 										}
 									}
 								}
-							?>
-							<span class="btn-group">
+							echo '<span class="btn-group">
 								<button type="button" class="btn btn-primary navbar-btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> <span class="caret"></span>
 								</button>
 								<ul class="dropdown-menu">
 									<li><a href="#">Diseño de página</a></li>
 									<li><a href="#">Información personal</a></li>
 									<li role="separator" class="divider"></li>
-									<li><a href="./main.html"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Cerrar Sesión</a></li>
+									<li><a href="./main.php"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Cerrar Sesión</a></li>
 								</ul>
 							</span>
 							</div>
@@ -97,18 +128,24 @@
 					<div class="row">
 						<div class="col-lg-3" id="izquierda">
 						
-						</div>
-						<?php
+						</div>';
 							echo '<div class="jumbotron col-lg-7 col-lg-offset-1">
-								<h1>Hola, '.$nomu.'.</h1>
+								<h1>Hola, '.$_SESSION['usuario'].'.</h1>
 								<p>Bienvenido al portal de alumnos de alumnos de la Escuela Nacional Preparatoria más famosa</p>
-							</div>';
-						?>
+							</div>
 					</div>
-			</div>
+			</div>';
+			}
+			else
+			{
+				echo '<div class="row">
+							<div class="jumbotron col-lg-7 col-lg-offset-1">
+								<h1>Inicie sesión correctamente.</h1>
+							</div>
+					</div>';
+			}
 			
-			
-			
+		?>
 			
 			
 			
