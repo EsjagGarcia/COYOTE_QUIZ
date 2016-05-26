@@ -1,8 +1,9 @@
 <?php
-$usuario=$_POST['usuario'];
+$usuario=$_POST['usuarion'];
 $numero=$_POST['numero'];
 $contra=$_POST['contra'];
 $sena=$_POST['sena'];
+$asig=$_POST['asig'];
 	$ch=str_split($contra);
 	$contrasena="";
 	for($x=0;$x<5;$x++)
@@ -61,16 +62,17 @@ $sena=$_POST['sena'];
 
 if($contra==$sena)
 {
-	$link=MySQLi_connect("localhost","root","","proyectof");
+	$link=mysqli_connect("localhost","root","","proyectof");
 	$tildes = $link->query("SET NAMES 'utf8'");
-	$SQL="INSERT INTO USUARIOS(`USUARIOS_TYPE`,`USUARIO_NOMBRE`,`USUARIO_KEY`,`USUARIO_CONTRASENIA`)
-	values ('3','$usuario','$numero','$contrasena');";
-	$SQL2='INSERT INTO COORDINADORES (`USUARIO_NOMBRE`,`USUARIO_KEY`,`USUARIO_CONTRASENIA`) VALUES ('.$usuario.','.$numero.','.$contrasena.')';
-	$resultado=MySQL_query($link,$SQL);
-	header('location:administrador.html');
+	$SQL='INSERT INTO USUARIOS(USUARIOS_TYPE,USUARIO_NOMBRE,USUARIO_KEY,USUARIO_CONTRASENIA,COLOR) values (3,"'.$usuario.'",'.$numero.',"'.$contrasena.'","#c79810")';
+	$SQL2='INSERT INTO COORDINADORES(USUARIO_NOMBRE,USUARIO_KEY,ASIGNATURA) VALUES ("'.$usuario.'",'.$numero.',"'.$asig.'")';
+	mysqli_query($link,$SQL);
+	mysqli_query($link,$SQL2);
+	mysqli_close($link);
+	header('location:./usuario.php');
 }
 else
 {
-	header('location:administrador.html');
+	header('location:./usuario.php');
 }
 ?>
