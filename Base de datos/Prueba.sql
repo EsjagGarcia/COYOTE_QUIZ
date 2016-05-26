@@ -55,13 +55,13 @@ INSERT INTO ADMINS VALUES('401','Dios','hola');
 
 CREATE TABLE MATEMATICAS (
 	MATERIA varchar(15),
-	INDICADOR int(2),
+	INDICADOR int NOT NULL AUTO_INCREMENT,
 	PREGUNTA varchar(100),
 	RESPUESTA_correcta varchar(30),
 	RESPUESTA_uno varchar(30),
 	RESPUESTA_dos varchar(30),
 	RESPUESTA_tres varchar(30),
-	PRIMARY KEY (RESPUESTA_correcta)
+	PRIMARY KEY(INDICADOR)
 );
 INSERT INTO MATEMATICAS VALUES('matematicas',1,'¿Cuál de los siguentes es un conjunto vacío?','{}','vacío','{f}','{{}}');
 INSERT INTO MATEMATICAS VALUES('matematicas',2,'¿Cual es el nombre de la "chicharronera"?','Fromula general para la factorizacion de un trinomio de segundo grado',
@@ -69,8 +69,7 @@ INSERT INTO MATEMATICAS VALUES('matematicas',2,'¿Cual es el nombre de la "chicha
 INSERT INTO MATEMATICAS VALUES('matematicas',3,'¿Cuál de los siguetes incisos es el producto notable  de (a + b) (a – b)?','a2 – b2','a+b','a-b','2a+2b');
 INSERT INTO MATEMATICAS VALUES('matematicas',4,'¿Cuál es un numero imaginario?','imaginario','ai^2','ai','a');
 INSERT INTO MATEMATICAS VALUES('matematicas',5,'Se dice que ____ son densos en los enteros','Reales','Enteros','Imaginarios','Negativos');
-INSERT INTO MATEMATICAS VALUES('matematicas',6,'El conjunto a tine a numeros del 1 al 1323 y el conjunto b tiene las letras a y b,¿cual es su interseccion?','{}','a yb',
-'todos los numeros','Imaginarios');
+INSERT INTO MATEMATICAS VALUES('matematicas',6,'El conjunto a tine a numeros del 1 al 1323 y el conjunto b tiene las letras a y b,¿cual es su interseccion?','{ }','a yb','todos los numeros','Imaginarios');
 INSERT INTO MATEMATICAS VALUES('matematicas',7,'¿Cual es el producto de notable de (a+b)^2?','a^2+2ab+b^2','a^2+b^2','a+b+a+b','a*2+b*2');
 INSERT INTO MATEMATICAS VALUES('matematicas',8,'Valor de : 4!','24','96','16','8');
 INSERT INTO MATEMATICAS VALUES('matematicas',9,'El valor de : a^2/a','a','a^2','1','0');
