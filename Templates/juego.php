@@ -50,7 +50,6 @@ echo 	'</script>';
 							$si = 1;
 					if($si < 1)
 					{
-						echo "Hola";
 						if(!isset($_SESSION['preguntas'.$c.'']))
 								$_SESSION['pregunta'.$c.''] = 0;
 						$sabe[] = $c;
@@ -58,15 +57,13 @@ echo 	'</script>';
 						echo "<br/>";
 						$na = mysqli_fetch_array($search);
 						$pregunta = $na['PREGUNTA'];
+						$_SESSION['pregunta'.$c.''] = $pregunta;
 						$comprob = 0;
-						echo $comprob;
 						foreach($_SESSION as $xa)
 							if($xa == $pregunta)
 								$comprob = 1;
-						echo $comprob;
 						if($comprob == 1)
 						{
-							echo $pregunta."<br/>";
 							$comprob = 0;
 							$r_1 = $na['RESPUESTA_correcta'];
 							$r_2 = $na['RESPUESTA_uno'];
@@ -75,12 +72,9 @@ echo 	'</script>';
 							$ñ = 0;
 						
 							echo $_SESSION['pregunta'.$c.''];
-							print_r($_SESSION);
-							
-							$_SESSION['pregunta'.$c.''] = $pregunta;
 							
 							$hola = array();
-							echo "<input type='radio' value='c' name='res'/>".$r_1."<br/>";
+							echo "<br/><input type='radio' value='c' name='res'/>".$r_1."<br/>";
 							echo "<input type='radio' value='n' name='res'/>".$r_2."<br/>";
 							echo "<input type='radio' value='n' name='res'/>".$r_3."<br/>";
 							echo "<input type='radio' value='n' name='res'/>".$r_4."<br/>";
