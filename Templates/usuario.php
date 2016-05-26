@@ -35,9 +35,7 @@
 		mysqli_real_escape_string($enlace,$_POST['nom-usuario']);
 		mysqli_real_escape_string($enlace,$_POST['contra']);
 		if(!mysqli_select_db($enlace,'proyectof'))
-		{
 			echo "No se pudo conectar".mysqli_connect_error();
-		}
 		else
 		{
 			$tildes = $enlace -> query("SET NAMES 'utf8'");
