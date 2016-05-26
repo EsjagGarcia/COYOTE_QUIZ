@@ -29,22 +29,22 @@
 		SESSION_START();
 		if(isset($_POST['nom-usuario']) && isset($_POST['contra']))
 		{
-		$enlace=mysqli_connect("localhost","Ramon","escuelaenp6","proyectof");
+		$enlace = mysqli_connect("localhost","root");
 		htmlspecialchars($_POST['nom-usuario']);
 		htmlspecialchars($_POST['contra']);
 		mysqli_real_escape_string($enlace,$_POST['nom-usuario']);
 		mysqli_real_escape_string($enlace,$_POST['contra']);
-		if(!$enlace)
+		if(!mysqli_select_db($enlace,'proyectof'))
 		{
 			echo "No se pudo conectar".mysqli_connect_error();
 		}
 		else
 		{
-			$tildes = $enlace->query("SET NAMES 'utf8'");
-			$consulta='SELECT * FROM usuarios WHERE USUARIO_NOMBRE="'.$_POST['nom-usuario'].'" && USUARIO_CONTRASENIA="'.$_POST['contra'].'"';
-			$res=mysqli_query($enlace, $consulta);
-			$arre=array();
-			while($row=mysqli_fetch_assoc($res))
+			$tildes = $enlace -> query("SET NAMES 'utf8'");
+			$consulta =  'SELECT * FROM usuarios WHERE USUARIO_NOMBRE="'.$_POST['nom-usuario'].'" && USUARIO_CONTRASENIA="'.$_POST['contra'].'"';
+			$res = mysqli_query($enlace, $consulta);
+			$arre = array();
+			while($row = mysqli_fetch_assoc($res))
 			{
 				foreach($row as $re)
 				{
