@@ -1,9 +1,10 @@
-<?php
+﻿<?php
 echo '<!DOCTYPE html>
 		<head>
 			<title> COYOTE_QUIZ </title>
 		</head>
 		<body>';
+		echo '<div id="contador"></div>';
 		if(!isset($_POST['materia']))
 		{
 echo		'<form action="juego.php" method="POST">
@@ -17,33 +18,40 @@ echo		'<form action="juego.php" method="POST">
 		{
 			$conect = mysqli_connect("localhost","root");
 			$cat = $_POST['materia'];
-			echo $cat;
 			if(mysqli_select_db($conect,"juego"))
 			{
-				$comprobacion = "SELECT pregunta FROM preguntas WHERE materia = '$cat';";
-				$result = mysqli_query($conect,$comprobacion);
-				print_r($result);
-				echo "<br/>";
-				if (mysqli_num_rows($result) > 0)
-					echo "Exite al menos un registro";
-				else
-					echo "No existen registros";
-					
 				$c = rand(1,12);
 				$search = mysqli_query($conect,"SELECT * FROM preguntas WHERE indicador LIKE $c;");
+				print_r($search);
 				echo "<br/>";
 				$na = mysqli_fetch_array($search);
-				echo "<br/>";
-				//$n = mysqli_fetch_row($s);
 				print_r($na);
 				//$name = $na['nombre'];
-				
 			}
 			else
 			{
 				echo "algo no va bien";
 			}
 		}
-echo 	'<body>
+		
+echo 	'<body>';
+	echo '<script>';
+
+	echo '
+	alert ("funciona");
+var segundos = 0;
+function contar(){
+	if(segundos >= 30)
+	{
+		document.getElementById("contador").innerHTML = "se agoto el tiempo";
+	}
+	 else 
+	 {
+		segundos++;
+		document.getElementById("contador").innerHTML = "Tienes: " + segundos + " segundos.";
+	}
+}
+setInterval("contar()",1000);';
+echo '</script>
 	</html>';
 ?>
