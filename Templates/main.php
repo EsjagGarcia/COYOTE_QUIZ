@@ -30,7 +30,7 @@
 									<span class="icon-bar"></span>
 								</button>
 								<a href="#" class="navbar-brand" id="imag-unam"><img alt="Brand" src="../Sources/Resources/esc-unam.png" height="140%"/></a>
-								<p class="navbar-text">UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO</p>
+								<p class="navbar-text" id="text">UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO</p>
 							</div>	
 						</div>	
 						<div class="col-lg-4 col-lg-offset-2 col-md-4 col-sm-4">
@@ -84,14 +84,17 @@
 		</div>
 		<div class="row">
 			<div class="col-lg-12 navbar-fixed-bottom">
-				<footer class="text-center" id="part-bottom">
+				<footer class="texblack text-center" id="part-bottom">
+				<div class="row">
+					<div class="col-xs-6 col-xs-offset-2">
 					Hecho en México. Todos los derechos reservados.
 					<br/>
 					Créditos.
-					<br/>
+					</div>
+					<div class="col-xs-3">
 					<script type="text/javascript" src="http://counter10.freecounter.ovh/private/countertab.js?c=be4eea864ac19ffe185b34c27b8e1bf6"> </script>
-        
-					
+					</div>
+				</div>
 				</footer>
 			</div>
 		</div>
