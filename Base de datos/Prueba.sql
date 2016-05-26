@@ -62,10 +62,10 @@ CREATE TABLE MATEMATICAS (
 	MATERIA varchar(15),
 	INDICADOR int NOT NULL AUTO_INCREMENT,
 	PREGUNTA varchar(100),
-	RESPUESTA_correcta varchar(30),
-	RESPUESTA_uno varchar(30),
-	RESPUESTA_dos varchar(30),
-	RESPUESTA_tres varchar(30),
+	RESPUESTA_correcta varchar(40),
+	RESPUESTA_uno varchar(40),
+	RESPUESTA_dos varchar(40),
+	RESPUESTA_tres varchar(40),
 	PRIMARY KEY(INDICADOR)
 );
 INSERT INTO MATEMATICAS VALUES('matematicas',1,'¿Cuál de los siguentes es un conjunto vacío?','{}','vacío','{f}','{{}}');

@@ -10,7 +10,7 @@ echo '<!DOCTYPE html>
 		{
 echo		'<form action="juego.php" method="POST">
 				<select name="materia">
-					<option> Matemáticas </option>
+					<option> Matematicas </option>
 				</select>
 				<input type="submit" value="Empezar"/>
 			</form>';
@@ -19,17 +19,18 @@ echo		'<form action="juego.php" method="POST">
 		{
 echo 	'<script>';
 echo		'var segundos = 0;
+			setInterval("contar()",1000	);
 			function contar(){
-				if(segundos >= 360)
+				if(segundos >= 30)
 				{
 					document.getElementById("contador").innerHTML = "se agoto el tiempo";
+					
 				}
 				else 
 				{
 					segundos++;
 					document.getElementById("contador").innerHTML = "Tienes: " + segundos + " segundos.";
 				}
-				setInterval("contar()",1000);
 			}';
 echo 	'</script>';
 			
@@ -37,54 +38,58 @@ echo 	'</script>';
 			$cat = $_POST['materia'];
 			if(mysqli_select_db($conect,"juego"))
 			{
+				session_start();
 				$max = 1;
 				$sabe = array();
-				/*do
-				{*/
+				//do
+				//{
 					$si = 0;
 					$c = rand(1,12);
-					echo "<br/>";
 					foreach($sabe as $value)
 						if($value == $c)
 							$si = 1;
 					if($si < 1)
 					{
-						$comp = 0;
-						/*while($comp != 1)
-						{*/
-							$sabe[] = $c;
-							$search = mysqli_query($conect,"SELECT * FROM matematicas WHERE indicador = $c");
-							echo "<br/>";
-							$na = mysqli_fetch_array($search);
-							$pregunta = $na['PREGUNTA'];
+						echo "Hola";
+						if(!isset($_SESSION['preguntas'.$c.'']))
+								$_SESSION['pregunta'.$c.''] = 0;
+						$sabe[] = $c;
+						$search = mysqli_query($conect,"SELECT * FROM $cat WHERE indicador = $c");
+						echo "<br/>";
+						$na = mysqli_fetch_array($search);
+						$pregunta = $na['PREGUNTA'];
+						$comprob = 0;
+						echo $comprob;
+						foreach($_SESSION as $xa)
+							if($xa == $pregunta)
+								$comprob = 1;
+						echo $comprob;
+						if($comprob == 1)
+						{
 							echo $pregunta."<br/>";
+							$comprob = 0;
 							$r_1 = $na['RESPUESTA_correcta'];
 							$r_2 = $na['RESPUESTA_uno'];
 							$r_3 = $na['RESPUESTA_dos'];
 							$r_4 = $na['RESPUESTA_tres'];
 							$ñ = 0;
+						
+							echo $_SESSION['pregunta'.$c.''];
+							print_r($_SESSION);
+							
+							$_SESSION['pregunta'.$c.''] = $pregunta;
+							
 							$hola = array();
-							/*while($ñ < 5)
-							{
-								$algo = 1;
-								$x = rand(1,4);
-								foreach($hola as $a)
-									if($x == $a)
-										$algo = 1;
-								if($algo != 1)
-								{*/
-									//$hola[] = $x;
-									echo "<input type='radio' value='c' name='res'/>".$r_1."<br/>";
-									echo "<input type='radio' value='n' name='res'/>".$r_2."<br/>";
-									echo "<input type='radio' value='n' name='res'/>".$r_3."<br/>";
-									echo "<input type='radio' value='n' name='res'/>".$r_4."<br/>";
-									$ñ++;
-								//}
-							//}
+							echo "<input type='radio' value='c' name='res'/>".$r_1."<br/>";
+							echo "<input type='radio' value='n' name='res'/>".$r_2."<br/>";
+							echo "<input type='radio' value='n' name='res'/>".$r_3."<br/>";
+							echo "<input type='radio' value='n' name='res'/>".$r_4."<br/>";
+							$ñ++;
 							$max++;
+						}
 					}
 				/*}
-				while($max < 13);*/
+				while($max < 10);*/
 			}
 			else
 				echo "algo no va bien";
