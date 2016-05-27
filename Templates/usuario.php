@@ -25,108 +25,23 @@
 	</head>
 	<body data-spy="scroll" data-target="#navegacion">
 		<div class="container" id="cuer">
-		
-		
-		
-		
-		
-		
-		
-		
 		<?php
 		SESSION_START();
 		if(isset($_POST['nom-usuario']) && isset($_POST['contra']))
 		{
-		$enlace = mysqli_connect("localhost","root","","prueba");
-		htmlspecialchars($_POST['nom-usuario']);
-		htmlspecialchars($_POST['contra']);
-		mysqli_real_escape_string($enlace,$_POST['nom-usuario']);
-		mysqli_real_escape_string($enlace,$_POST['contra']);
-		
-		
-		
-		
-		
-		
-		$con=$_POST['contra'];
-	$ch=str_split($con);
-	$cade="";
-	for($x=0;$x<5;$x++)
-	{
-		$wi=rand(0,9);
-		$cade=$cade.$wi;
-	}
-	$carac=0;
-	foreach($ch as $p)
-	{
-		$nu=ord($p);
-		$carac+=$nu;
-	}
-	$cade=$cade.$carac;
-	for($x=0;$x<strlen($con);$x++)
-	{
-		$wi=(ord($ch[$x])>>1)-4;
-		$cade=$cade.chr($wi);
-	}
-	
-	$cad=array();
-	$arreglo=array();
-	$cont=strlen($con);
-	for($i=0;$i<$cont;$i++)
-	{
-		$car=substr($con,$i,1);
-		array_push($cad,$car);
-	}
-	$mul=ceil($cont/5);
-	$contadorpal=0;
-	for($x=0;$x<$mul;$x++)
-	{
-		$eje=array();
-		for($y=0;$y<5;$y++)
-		{
-			if($contadorpal<$cont)
-				array_push($eje,$cad[$y]);
-			else
-				array_push($eje,'');
-			$contadorpal++;
-		}
-		array_push($arreglo,$eje);
-		for($g=0;$g<5;$g++)
-			if($cad!='\0')
-				array_shift($cad);
-	}
-	$grr=array();
-	for($y=0;$y<5;$y++)
-		for($x=0;$x<$mul;$x++)
-			array_push($grr,$arreglo[$x][$y]);
-	$grr=implode("",$grr);
-
-	$h='Texto: '.$con.'<br/>playfair("'.$grr.'",5)';
-	$cant=ceil(strlen($grr)/2);
-	$cade=$cade.substr($grr,0,$cant);
-	
-	
-	
-	$largura= strlen($cade);
-	$contrasenia=substr($cade, 5, $largura);
-		
-		
-		
-		
-		
-		if(!mysqli_select_db($enlace,'prueba'))
+			$enlace = mysqli_connect("localhost","root");
+			htmlspecialchars($_POST['nom-usuario']);
+			htmlspecialchars($_POST['contra']);
+			mysqli_real_escape_string($enlace,$_POST['nom-usuario']);
+			mysqli_real_escape_string($enlace,$_POST['contra']);
+		if(!mysqli_select_db($enlace,'juego'))
 		{
 			echo "No se pudo conectar".mysqli_connect_error();
 		}
 		else
 		{
-			$usuariocade='SELECT USUARIO_CONTRASENIA FROM usuarios WHERE USUARIO_NOMBRE="'.$_POST['nom-usuario'].'"';
-			$usuariocontra = mysqli_query($enlace, $usuariocade);
-			$usuariolargura= strlen($usuariocontra);
-			$usuariocontrasenia=substr($usuariocade, 5, $usuariolargura);
 			$tildes = $enlace -> query("SET NAMES 'utf8'");
-			//Según yo la consulta ahora debería ser sólo WHERE USUARIO_NOMBRE="'.$_POST['nom-usuario'].'" y gracias a la consulta de arriba con php manejar contrasenia y usuario contrasenia
-			$consulta =  'SELECT * FROM usuarios WHERE USUARIO_NOMBRE="'.$_POST['nom-usuario'].'" && USUARIO_CONTRASENIA="'.$con.'"';
+			$consulta =  'SELECT * FROM usuarios WHERE USUARIO_NOMBRE="'.$_POST['nom-usuario'].'" && USUARIO_CONTRASENIA="'.$_POST['contra'].'"';
 			$res = mysqli_query($enlace, $consulta);
 			$arre = array();
 			while($row = mysqli_fetch_assoc($res))
@@ -167,7 +82,7 @@
 							<div class="collapse navbar-collapse" id="navegacion">';
 								if($_SESSION['tipo']=='1')
 								{
-									echo '<button type="button" class="btn btn-primary navbar-btn"> Jugar </button>';
+									echo '<button type="button" class="btn btn-primary navbar-btn"><a href="juego_menu.php"> Jugar </a> </button>';
 									echo ' <button type="button" class="btn btn-primary navbar-btn"> Puntajes </button>';
 								}
 								else
@@ -176,14 +91,13 @@
 									{
 										echo '<button type="button" class="btn btn-primary navbar-btn" data-toggle="modal" data-target="#regis_preg"> Preguntas </button>';
 										echo ' <button type="button" class="btn btn-primary navbar-btn"> Puntajes de alumnos </button>';
-										echo ' <button type="button" class="btn btn-primary navbar-btn"> Puntajes de alumnos </button>';
 									}
 									else
 									{
 										if($_SESSION['tipo']=='3')
 										{
 											echo '<button type="button" class="btn btn-primary navbar-btn" data-toggle="modal" data-target="#regis_prof"> Registrar Profesores </button>';
-											echo ' <a href="./coor_preguntas.php"><button type="button" class="btn btn-primary navbar-btn"> Preguntas </button></a>';
+											echo ' <button type="button" class="btn btn-primary navbar-btn"> Preguntas </button>';
 										}
 										else
 										{
@@ -260,31 +174,31 @@
 							<div class="col-lg-12 col-xs-12">
 								<form class="form-horizontal" method="POST" action="./registro_cordinador.php" >
 									<div class="form-group">
-										<label for="nombre" class="col-lg-3 control-label">Nombre Completo: </label>
+										<label for="nom" class="col-lg-3 control-label">Nombre Completo: </label>
 										<div class="col-lg-9">
 											<input type="text" class="form-control" id="nombre" placeholder="Nombre Completo"  required pattern="^[a-zA-Z ñáéíóú]{3,60}" name="nombre"/>
 										</div>
 									</div>
 									<div class="form-group">
-										<label for="usuario" class="col-lg-3 control-label">Nombre de Usuario: </label>
+										<label for="nom" class="col-lg-3 control-label">Nombre de Usuario: </label>
 										<div class="col-lg-9">
 											<input type="text" class="form-control" id="usuario" placeholder="Nombre de Usuario"  required pattern="^[a-zA-Z ñáéíóú]{3,15}" name="usuarion"/>
 										</div>
 									</div>
 									<div class="form-group">
-										<label for="numero" class="col-lg-3 control-label">Número de cuenta</label>
+										<label for="num" class="col-lg-3 control-label">Número de cuenta</label>
 										<div class="col-lg-9">
-											<input type="text" class="form-control" id="numero" placeholder="Número de cuenta" required pattern="^[0-9]{9}" name="numero"/>
+											<input type="number" class="form-control" id="numero" placeholder="Número de cuenta" required pattern="^[0-9]{9}" name="numero"/>
 										</div>
 									</div>
 									<div class="form-group">
 										<label for="gru" class="col-lg-3 control-label">Asignatura: </label>
 										<div class="col-lg-9">
-											<input type="text" class="form-control" id="gru" placeholder="Asignatura"  required pattern="^[a-záéíóúñ]{3,30}" name="asig"/>
+											<input type="text" class="form-control" id="grupo" placeholder="Asignatura"  required pattern="^[a-záéíóúñ]{3,30}" name="asig"/>
 										</div>
 									</div>
 									<div class="form-group">
-										<label for="contra" class="col-lg-3 control-label">Contraseña: </label>
+										<label for="con" class="col-lg-3 control-label">Contraseña: </label>
 										<div class="col-lg-9">
 											<input type="password" class="form-control" id="contra" placeholder="Contraseña"  required pattern="^[a-zA-Z0-9_\.\-\@]{8,17}" name="contra"/>
 										</div>
