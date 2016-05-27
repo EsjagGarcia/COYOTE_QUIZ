@@ -64,8 +64,8 @@ echo 		'</script>';
 			
 			if(mysqli_select_db($conect,"juego"))
 			{
-			  if($conr == 0)
-			  {
+			  //if($conr == 0)
+			  //{
 				$max = 1;
 				$sabe = array();
 					$si = 0;
@@ -102,10 +102,10 @@ echo 		'</script>';
 						if($comprob == 1)
 						{
 							// Despliega las preguntas
-						$arresp=array ();
-						$pip1=0;
-						$b=0;
-						do {
+						  $arresp=array ();
+						  $pip1=0;
+						  $b=0;
+						  do {
 							$pip1=0;
 							$i43=count($arresp);
 							$x43=rand (1,4);
@@ -162,8 +162,8 @@ echo 		'</script>';
 									$arresp[$b]=4;
 								}
 							}
-						}
-						while ($b!=4);
+						  }
+						  while ($b!=4);
 							$comprob = 0;
 							print_r($arresp);
 							echo '<br/>';
@@ -190,6 +190,8 @@ echo 		'</script>';
 									echo '<input type="radio" name="res" value="n" class="res"/>'.$cuatro.'<br/>';
 								}
 							}
+							print_r($arresp);
+							
 							$ñ = 0;
 							
 							// Va agregando los valores de repetición
@@ -232,7 +234,13 @@ echo						'<script>
 							</script>';
 						}
 					}
-			  }
+					else
+					{
+echo					'<script>
+							location.reload(true);
+						</script>';
+					}
+			  //}
 			}
 			// Error al establecer la conexión
 			
