@@ -77,7 +77,7 @@
 											}
 										}
 									}
-								echo '<span class="btn-group">
+								echo ' <span class="btn-group">
 									<button type="button" class="btn btn-primary navbar-btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> <span class="caret"></span>
 									</button>
 									<ul class="dropdown-menu">
@@ -100,9 +100,9 @@
 				$result=mysqli_query($con, $queria);
 				$n=0;
 
+						echo "<div class='row'><div class='col-lg-12 col-md-12 col-xs-12' id='tablapreg'>";
 						echo "<table class='table table-hover table-bordered'><tr class='info'>";
 						echo "<th>Asignatura</th><th> Unidad</th><th>Pregunta</th><th>Respuesta correcta</th><th>Respuesta1</th><th>Respuesta2</th><th>Respuesta3</th><th>Eliminar</th><th>Agregar</th><br></tr>";
-
 						while ($renglon=mysqli_fetch_assoc($result))
 						{
 						echo "<tr>";
@@ -119,6 +119,7 @@
 						$n++;
 						}
 						echo "</table>";
+						echo "</div></div>";
 				}
 				else
 				{
@@ -128,6 +129,7 @@
 								</div>
 						</div>';
 				}
+				mysqli_close($con);
 			?>
 		</div>
 		<div class="modal fade" id="regis_prof" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
