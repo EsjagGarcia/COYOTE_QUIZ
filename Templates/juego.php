@@ -1,11 +1,13 @@
 ﻿<?php
 echo '<!DOCTYPE html>
 		<head>
+		<meta charset="UTF-8-BOM">
+			<script src="../Documents/jquery.js"/></script>
 			<title> COYOTE_QUIZ </title>
 		</head>
-		<meta charset="UTF-8-BOM">
 		<body>';
 		echo '<div id="contador"></div>';
+		setcookie("error",0,time()+48000);	
 		if(!isset($_POST['materia']))
 		{
 echo		'<form action="juego.php" method="POST">
@@ -19,12 +21,13 @@ echo		'<form action="juego.php" method="POST">
 		{
 echo 	'<script>';
 echo		'var segundos = 0;
-			setInterval("contar()",1000	);
+			var intervalo = setInterval("contar()",1000	);
 			function contar(){
 				if(segundos >= 30)
 				{
-					document.getElementById("contador").innerHTML = "se agoto el tiempo";
-					
+					//document.getElementById("contador").innerHTML = "Se agoto el tiempo";
+					clearInterval(intervalo);
+					location.reload(true);
 				}
 				else 
 				{
@@ -74,13 +77,26 @@ echo 	'</script>';
 							echo $_SESSION['pregunta'.$c.''];
 							
 							$hola = array();
-							echo "<br/><input type='radio' value='c' name='res'/>".$r_1."<br/>";
-							echo "<input type='radio' value='n' name='res'/>".$r_2."<br/>";
-							echo "<input type='radio' value='n' name='res'/>".$r_3."<br/>";
-							echo "<input type='radio' value='n' name='res'/>".$r_4."<br/>";
+							echo '<br/><input type="radio" value="c" id="c" name="res"/>'.$r_1.'<br/>
+							<input type="radio" value="n" name="res"/>'.$r_2.'<br/>
+							<input type="radio" value="n" name="res"/>'.$r_3.'<br/>
+							<input type="radio" value="n" name="res"/>'.$r_4.'<br/>
+							<div id="u"></div>';
+echo						'<script>
+								$("#c").change(function(){
+									if(document.cookie = undefined)
+										document.cookie = 1;
+									else
+									{
+										document.cookie ++;
+										$("#u").innerHTML = document.cookie+"Bien";
+									}
+								});
+							</script>';
 							$ñ++;
 							$max++;
 						}
+						echo $_COOKIE['error'];
 					}
 				/*}
 				while($max < 10);*/
