@@ -41,7 +41,7 @@
 										<span class="icon-bar"></span>
 										<span class="icon-bar"></span>
 									</button>
-									<a href="#" class="navbar-brand" id="imag-unam"><img alt="Brand" src="../Sources/Resources/esc-unam.png" height="140%"/></a>
+									<a href="./usuario.php" class="navbar-brand" id="imag-unam"><img alt="Brand" src="../Sources/Resources/esc-unam.png" height="140%"/></a>
 									<p class="navbar-text">'.$_SESSION['usuario'].'</p>
 								</div>	
 							</div>	
@@ -63,8 +63,8 @@
 										{
 											if($_SESSION['tipo']=='3')
 											{
-												echo '<button type="button" class="btn btn-primary navbar-btn"> Cuentas </button>';
-												echo ' <button type="button" class="btn btn-primary navbar-btn"> Preguntas </button>';
+												echo '<button type="button" class="btn btn-primary navbar-btn" data-toggle="modal" data-target="#regis_prof"> Registrar Profesores </button>';
+												echo ' <a href="./coor_preguntas.php"><button type="button" class="btn btn-primary navbar-btn"> Preguntas </button></a>';
 											}
 											else
 											{
@@ -129,6 +129,74 @@
 						</div>';
 				}
 			?>
+		</div>
+		<div class="modal fade" id="regis_prof" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h3 class="modal-title" id="myModalLabel">Registrar profesor. </h3>
+					</div>
+					<div class="modal-body">
+						<div class="row">
+							<div class="col-lg-12 col-xs-12">
+								<form class="form-horizontal" method="POST" action="registro_profesor.php" >
+									<div class="form-group">
+									<label for="nom" class="col-lg-3 control-label">Nombre usuario: </label>
+										<div class="col-lg-9">
+											<input type="text" class="form-control" id="usuario" name="usuario" placeholder="Nombre de Usuario"  required pattern="^[a-zA-Z0-9_/./-/@]{3,20}"/>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="num" class="col-lg-3 control-label">Clave de profesor(RFC):</label>
+										<div class="col-lg-9">
+											<input type="text" class="form-control" id="numero" name="numero" placeholder="RFC"  required pattern="^[a-zA-Z0-9]{12,13}"/>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="num" class="col-lg-3 control-label">Asignatura:</label>
+										<div class="col-lg-9">
+											<input type="text" class="form-control" id="asignatura" name="asignatura" placeholder="Clave de la asignatura"  required pattern="^[a-zA-Z ñáéíóú]{5,15}"/>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="num" class="col-lg-3 control-label">Preparatoria:</label>
+										<div class="col-lg-9">
+											<select class="form-control" name="prepa">
+											<option value="1">Preparatoria 1 "Gabino Barreda"</option>
+											<option value="2">Preparatoria 2 "Erasmo C.Quinto"</option>
+											<option value="3">Preparatoria 3 "Justo Sierra"</option>
+											<option value="4">Preparatoria 4 "Vidal Castañeda y N."</option>
+											<option value="5">Preparatoria 5 "José Vasconcelos"</option>
+											<option value="6">Preparatoria 6 "Antonio Caso"</option>
+											<option value="7">Preparatoria 7 "Ezequiel A Chávez"</option>
+											<option value="8">Preparatoria 8 "Miguel E Schulz"</option>
+											<option value="9">Preparatoria 9 "Pedro de Alba"</option>
+											</select>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="con" class="col-lg-3 control-label">Contraseña: </label>
+										<div class="col-lg-9">
+											<input type="password" class="form-control" id="contra"name="contra" placeholder="Contraseña"  required pattern="^[a-zA-Z0-9_\.\-\@]{8,15}"/>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="cond" class="col-lg-3 control-label">Repetir Contraseña: </label>
+										<div class="col-lg-9">
+											<input type="password" class="form-control" id="sena" name="sena" placeholder="Contraseña"  required pattern="^[a-zA-Z0-9_\.\-\@]{8,15}"/>
+										</div>
+									</div>
+									<button class="btn btn-lg btn-block btn-primary" id="registrarse"type="submit">Registrarse</button>
+									</form>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+					</div>
+				</div>
+			</div>
 		</div>
 		<div class="row">
 			<div class="col-lg-12 navbar-fixed-bottom">

@@ -92,7 +92,7 @@
 					Créditos.
 					</div>
 					<div class="col-xs-3">
-					<script type="text/javascript" src="http://counter10.freecounter.ovh/private/countertab.js?c=be4eea864ac19ffe185b34c27b8e1bf6"> </script>
+						<script type="text/javascript" src="http://counter10.freecounter.ovh/private/countertab.js?c=be4eea864ac19ffe185b34c27b8e1bf6"> </script>
 					</div>
 				</div>
 				</footer>

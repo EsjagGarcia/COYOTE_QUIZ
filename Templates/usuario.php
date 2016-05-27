@@ -29,12 +29,12 @@
 		SESSION_START();
 		if(isset($_POST['nom-usuario']) && isset($_POST['contra']))
 		{
-			$enlace = mysqli_connect("localhost","root");
+			$enlace = mysqli_connect("localhost","root","","prueba");
 			htmlspecialchars($_POST['nom-usuario']);
 			htmlspecialchars($_POST['contra']);
 			mysqli_real_escape_string($enlace,$_POST['nom-usuario']);
 			mysqli_real_escape_string($enlace,$_POST['contra']);
-		if(!mysqli_select_db($enlace,'juego'))
+		if(!$enlace)
 		{
 			echo "No se pudo conectar".mysqli_connect_error();
 		}
@@ -74,7 +74,7 @@
 									<span class="icon-bar"></span>
 									<span class="icon-bar"></span>
 								</button>
-								<a href="#" class="navbar-brand" id="imag-unam"><img alt="Brand" src="../Sources/Resources/esc-unam.png" height="140%"/></a>
+								<a href="./usuario.php" class="navbar-brand" id="imag-unam"><img alt="Brand" src="../Sources/Resources/esc-unam.png" height="140%"/></a>
 								<p class="navbar-text">'.$_SESSION['usuario'].'</p>
 							</div>	
 						</div>	
@@ -97,7 +97,7 @@
 										if($_SESSION['tipo']=='3')
 										{
 											echo '<button type="button" class="btn btn-primary navbar-btn" data-toggle="modal" data-target="#regis_prof"> Registrar Profesores </button>';
-											echo ' <button type="button" class="btn btn-primary navbar-btn"> Preguntas </button>';
+											echo ' <a href="./coor_preguntas.php"><button type="button" class="btn btn-primary navbar-btn"> Preguntas </button></a>';
 										}
 										else
 										{

@@ -165,15 +165,30 @@ echo 		'</script>';
 						  }
 						  while ($b!=4);
 							$comprob = 0;
+							print_r($arresp);
+							echo '<br/>';
 							foreach ($arresp as $hola){
-							if ($hola==1)
-								$uno = $na['RESPUESTA_correcta'];
-							else if ($hola==2)
-								$dos = $na['RESPUESTA_uno'];
-							else if ($hola==3)
-								$tres = $na['RESPUESTA_dos'];
-							else if ($hola==4)
-								$cuatro = $na['RESPUESTA_tres'];
+								if ($hola==1)
+								{
+									$uno = $na['RESPUESTA_correcta'];
+									echo '<input type="radio" name="res" value="c" class="res" id="c"/>'.$uno.'<br/>';
+								}
+								else if ($hola==2)
+								{
+									$dos = $na['RESPUESTA_uno'];
+									echo '<input type="radio" name="res" value="n" class="res"/>'.$dos.'<br/>';
+									
+								}
+								else if ($hola==3)
+								{
+									$tres = $na['RESPUESTA_dos'];
+									echo '<input type="radio" name="res" value="n" class="res"/>'.$tres.'<br/>';
+								}
+								else if ($hola==4)
+								{
+									$cuatro = $na['RESPUESTA_tres'];
+									echo '<input type="radio" name="res" value="n" class="res"/>'.$cuatro.'<br/>';
+								}
 							}
 							print_r($arresp);
 							
@@ -191,12 +206,6 @@ echo 		'</script>';
 							
 							// Despliega las preguntas y llama un ayax para guardar la informacion
 							
-echo 						'<br/>
-							<input type="radio" name="res" value="c" class="res" id="c"/>'.$uno.'<br/>
-							<input type="radio" name="res" value="n" class="res"/>'.$dos.'<br/>
-							<input type="radio" name="res" value="n" class="res"/>'.$tres.'<br/>
-							<input type="radio" name="res" value="n" class="res"/>'.$cuatro.'<br/>
-							<div id="u"></div>';
 echo						'<script>
 								$(".res").change(function(){
 									

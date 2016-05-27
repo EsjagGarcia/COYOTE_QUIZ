@@ -41,7 +41,7 @@
 										<span class="icon-bar"></span>
 										<span class="icon-bar"></span>
 									</button>
-									<a href="#" class="navbar-brand" id="imag-unam"><img alt="Brand" src="../Sources/Resources/esc-unam.png" height="140%"/></a>
+									<a href="./usuario.php" class="navbar-brand" id="imag-unam"><img alt="Brand" src="../Sources/Resources/esc-unam.png" height="140%"/></a>
 									<p class="navbar-text">'.$_SESSION['usuario'].'</p>
 								</div>	
 							</div>	
@@ -70,14 +70,14 @@
 											{
 												if($_SESSION['tipo']=='4')
 												{
-													echo '<button type="button" class="btn btn-primary navbar-btn"> Cuentas </button>';
-													echo ' <button type="button" class="btn btn-primary navbar-btn"> Usuarios </button>';
-													echo ' <button type="button" class="btn btn-primary navbar-btn"> Uso mensual </button>';
+													echo '<button type="button" class="btn btn-primary navbar-btn" data-toggle="modal" data-target="#regis_coord"> Registrar coordinadores </button>';
+												echo ' <a href="./admin_usuarios.php"><button type="button" class="btn btn-primary navbar-btn"> Usuarios </button></a>';
+												echo ' <button type="button" class="btn btn-primary navbar-btn"> Uso mensual </button>';
 												}
 											}
 										}
 									}
-								echo '<span class="btn-group">
+								echo ' <span class="btn-group">
 									<button type="button" class="btn btn-primary navbar-btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> <span class="caret"></span>
 									</button>
 									<ul class="dropdown-menu">
@@ -116,6 +116,64 @@
 						</div>';
 				}
 			?>
+		</div>
+		<div class="modal fade" id="regis_coord" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h3 class="modal-title" id="myModalLabel">Registrar Coordinadores</h3>
+					</div>
+					<div class="modal-body">
+						<div class="row">
+							<div class="col-lg-12 col-xs-12">
+								<form class="form-horizontal" method="POST" action="./registro_cordinador.php" >
+									<div class="form-group">
+										<label for="nom" class="col-lg-3 control-label">Nombre Completo: </label>
+										<div class="col-lg-9">
+											<input type="text" class="form-control" id="nombre" placeholder="Nombre Completo"  required pattern="^[a-zA-Z ñáéíóú]{3,60}" name="nombre"/>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="nom" class="col-lg-3 control-label">Nombre de Usuario: </label>
+										<div class="col-lg-9">
+											<input type="text" class="form-control" id="usuario" placeholder="Nombre de Usuario"  required pattern="^[a-zA-Z ñáéíóú]{3,15}" name="usuarion"/>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="num" class="col-lg-3 control-label">Número de cuenta</label>
+										<div class="col-lg-9">
+											<input type="number" class="form-control" id="numero" placeholder="Número de cuenta" required pattern="^[0-9]{9}" name="numero"/>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="gru" class="col-lg-3 control-label">Asignatura: </label>
+										<div class="col-lg-9">
+											<input type="text" class="form-control" id="grupo" placeholder="Asignatura"  required pattern="^[a-záéíóúñ]{3,30}" name="asig"/>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="con" class="col-lg-3 control-label">Contraseña: </label>
+										<div class="col-lg-9">
+											<input type="password" class="form-control" id="contra" placeholder="Contraseña"  required pattern="^[a-zA-Z0-9_\.\-\@]{8,17}" name="contra"/>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="cond" class="col-lg-3 control-label">Repetir Contraseña: </label>
+										<div class="col-lg-9">
+											<input type="password" class="form-control" id="sena" placeholder="Contraseña"  required pattern="^[a-zA-Z0-9_\.\-\@]{8,17}" name="sena"/>
+										</div>
+									</div>
+									<button class="btn btn-lg btn-block btn-primary" id="registrarse" type="submit">Registrarse</button>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+					</div>
+				</div>
+			</div>
 		</div>
 		<div class="row">
 			<div class="col-lg-12 navbar-fixed-bottom">
