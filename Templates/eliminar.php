@@ -1,6 +1,6 @@
 <?php
 	$ejemp=$_POST['tex'];
-	$enlace= mysqli_connect("localhost","root","","proyectof");
+	$enlace= mysqli_connect("localhost","root","","prueba");
 	if(!$enlace)
 	{
 		echo "No se pudo conectar".mysqli_connect_error();

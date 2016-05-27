@@ -1,6 +1,6 @@
 <?php
 	$ejemp=$_POST['tex'];
-	if($ejemp=='Alumnos')
+	if($ejemp=='Alumnos'||$ejemp=='1')
 	{
 		$enlace= mysqli_connect("localhost","root","","prueba");
 		if(!$enlace)
@@ -28,7 +28,7 @@
 		}
 		echo $variable;
 	}
-	if($ejemp=='Profesores')
+	if($ejemp=='Profesores'||$ejemp=='2')
 	{
 		$enlace= mysqli_connect("localhost","root","","prueba");
 		if(!$enlace)
@@ -54,7 +54,7 @@
 		}
 		echo $variable;
 	}
-	if($ejemp=='Coordinadores')
+	if($ejemp=='Coordinadores'||$ejemp=='3')
 	{
 		$enlace= mysqli_connect("localhost","root","","prueba");
 		if(!$enlace)
