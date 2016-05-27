@@ -29,12 +29,12 @@
 		SESSION_START();
 		if(isset($_POST['nom-usuario']) && isset($_POST['contra']))
 		{
-		$enlace = mysqli_connect("localhost","root","","proyectof");
+		$enlace = mysqli_connect("localhost","root","","prueba");
 		htmlspecialchars($_POST['nom-usuario']);
 		htmlspecialchars($_POST['contra']);
 		mysqli_real_escape_string($enlace,$_POST['nom-usuario']);
 		mysqli_real_escape_string($enlace,$_POST['contra']);
-		if(!mysqli_select_db($enlace,'proyectof'))
+		if(!mysqli_select_db($enlace,'prueba'))
 		{
 			echo "No se pudo conectar".mysqli_connect_error();
 		}
@@ -89,7 +89,7 @@
 								{
 									if($_SESSION['tipo']=='2')
 									{
-										echo '<button type="button" class="btn btn-primary navbar-btn"> Preguntas </button>';
+										echo '<button type="button" class="btn btn-primary navbar-btn" data-toggle="modal" data-target="#regis_preg"> Preguntas </button>';
 										echo ' <button type="button" class="btn btn-primary navbar-btn"> Puntajes de alumnos </button>';
 									}
 									else
@@ -294,6 +294,90 @@
 		</div>
 		
 		
+		
+		
+		<div class="modal fade" id="regis_preg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h3 class="modal-title" id="myModalLabel">Registrar preguntas. </h3>
+					</div>
+					<div class="modal-body">
+						<div class="row">
+							<div class="col-lg-12 col-xs-12">
+								<form class="form-horizontal" method="POST" action="registro_preguntas.php" >
+									<div class="form-group">
+									<label for="grado" class="col-lg-3 control-label">Grado: </label>
+										<div class="col-lg-9">
+											<select class="form-control" name="grado" id="grado">
+											<option></option>
+											<option value="1">Cuarto Año</option>
+											<option value="2">Quinto Año</option>
+											<option value="3">Sexto Año: Área I</option>
+											<option value="4">Sexto Año: Área II</option>
+											<option value="5">Sexto Año: Área III</option>
+											<option value="6">Sexto Año: Área IV</option>+
+											</select>
+										</div>
+									</div>
+									<div class="form-group">
+									<label for="nom" class="col-lg-3 control-label">Unidad: </label>
+										<div class="col-lg-9">
+											<select class="form-control" name="unidad">
+											<option value="1">1</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
+											<option value="4">4</option>
+											<option value="5">5</option>
+											<option value="6">6</option>
+											<option value="7">7</option>
+											<option value="8">8</option>
+											<option value="9">9</option>
+											</select>
+										</div>
+									</div>
+									<div class="form-group">
+									<label for="nom" class="col-lg-3 control-label">Pregunta: </label>
+										<div class="col-lg-9">
+											<input type="text" class="form-control" id="pregunta" name="pregunta" placeholder="Pregunta"  required pattern="^[a-zA-Z0-9 ÑÁÉÍÓÚñáéíóú_\.\-\@\+\-\*\.\?\¿\={5,100}"/>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="num" class="col-lg-3 control-label">Respuesta correcta:</label>
+										<div class="col-lg-9">
+											<input type="text" class="form-control" id="correcta" name="correcta" placeholder="Respuesta"  required pattern="^[a-zA-Z0-9 ÑÁÉÍÓÚñáéíóú]{1,40}"/>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="num" class="col-lg-3 control-label">Respuesta:</label>
+										<div class="col-lg-9">
+											<input type="text" class="form-control" id="uno" name="uno" placeholder="Respuesta"  required pattern="^[a-zA-Z0-9 ÑÁÉÍÓÚñáéíóú]{1,40}"/>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="con" class="col-lg-3 control-label">Respuesta: </label>
+										<div class="col-lg-9">
+											<input type="text" class="form-control" id="dos"name="dos" placeholder="Respuesta"  required pattern="^[a-zA-Z0-9 ÑÁÉÍÓÚñáéíóú]{1,40}"/>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="cond" class="col-lg-3 control-label">Respuesta: </label>
+										<div class="col-lg-9">
+											<input type="text" class="form-control" id="tres" name="tres" placeholder="Respuesta"  required pattern="^[a-zA-Z0-9 ÑÁÉÍÓÚñáéíóú]{1,40}"/>
+										</div>
+									</div>
+									<button class="btn btn-lg btn-block btn-primary" id="registrarse"type="submit">Respuesta</button>
+									</form>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+					</div>
+				</div>
+			</div>
+		</div>
 		
 		
 		
