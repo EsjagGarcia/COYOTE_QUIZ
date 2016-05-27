@@ -12,7 +12,7 @@ $("#alum,#profe,#cordi").click(function(){
 	});
 });
 function eliminare(x){
-	var lugar=x.id.substr(1,1);
+	var lugar=x.id.substr(1);
 	lugar=Number(lugar);
 	lugar+=1;
 	var z=confirm('¿Estas seguro de queres eliminar a: '+$("tr:eq("+lugar+") td:eq(0)").html()+' ?');
