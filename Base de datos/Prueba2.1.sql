@@ -41,7 +41,7 @@ CREATE TABLE COORDINADORES (
 	ASIGNATURA varchar(40),
 	PRIMARY KEY (USUARIO_NOMBRE)
 );
-INSERT INTO COORDINADORES VALUES('301','Elcoordi','matemáticas');
+INSERT INTO COORDINADORES VALUES('301','Elcoordi','Jesús Alberto Lopez Gerardo','matemáticas');
 /* -- */
 
 CREATE TABLE ADMINS (
