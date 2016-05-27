@@ -13,11 +13,11 @@ if($contra==$sena)
 	$SQL2='INSERT INTO alumnos (ESTUDIANTE_NOMBRE,USUARIO_NOMBRE,USUARIO_KEY,ALUMNO_GRUPO,ALUMNO_PUNTAJE,ALUMNO_PARTIDAS) VALUES ("'.$nombre.'","'.$usuario.'",'.$numero.','.$grupo.',0,0)';
 	mysqli_query($link,$SQL);
 	mysqli_query($link,$SQL2);
-	header('location:main.html');
+	header('location:main.php');
 	mysqli_close($link);
 }
 else
 {
-	header('location:main.html');
+	header('location:main.php');
 }
 ?>
