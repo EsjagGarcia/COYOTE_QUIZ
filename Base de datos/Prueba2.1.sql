@@ -53,6 +53,17 @@ CREATE TABLE ADMINS (
 INSERT INTO ADMINS VALUES('401','Dios');
 /* -- */
 
+CREATE TABLE PREGUNTAS (
+	PREG_ASIGNATURA int(2),
+	PREG_UNIDAD int(2),
+	PREGUNTA varchar(100),
+	RES_CORRECTA varchar(40),
+	RES_UNO varchar(40),
+	RES_DOS varchar(40);
+	RES_TRES varchar(40);
+)
+INSERT INTO PREGUNTAS VALUES('1','1','¿qué esun diagrama de Venn?','Modelo gráficode uniones entre conjuntos','Un diagrama hecho por Venn','Matemáticas complejas','Pony');
+/*--*/
 CREATE TABLE MATEMATICAS (
 	UNIDAD char,
 	INDICADOR int NOT NULL AUTO_INCREMENT,

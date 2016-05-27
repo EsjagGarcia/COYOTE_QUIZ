@@ -97,7 +97,7 @@
 										if($_SESSION['tipo']=='3')
 										{
 											echo '<button type="button" class="btn btn-primary navbar-btn" data-toggle="modal" data-target="#regis_prof"> Registrar Profesores </button>';
-											echo ' <button type="button" class="btn btn-primary navbar-btn"> Preguntas </button>';
+											echo ' <a href="./coor_preguntas.php"><button type="button" class="btn btn-primary navbar-btn"> Preguntas </button></a>';
 										}
 										else
 										{
