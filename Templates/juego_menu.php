@@ -20,7 +20,7 @@
 		<div>
 			<div class="text-center" id="cuadro">
 				<p> Modo de juego: </p>
-					<button type="button" id="aleat"><a href="juego.php"> Persona aleatoria </a></button>
+					<button type="button" id="aleat"> Persona aleatoria </button>
 					<button type="button" id="select"> Seleccionar amigo </button>
 			</div>
 			<div id="u"></div>
