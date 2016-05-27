@@ -59,9 +59,9 @@ CREATE TABLE PREGUNTAS (
 	PREGUNTA varchar(100),
 	RES_CORRECTA varchar(40),
 	RES_UNO varchar(40),
-	RES_DOS varchar(40);
-	RES_TRES varchar(40);
-)
+	RES_DOS varchar(40),
+	RES_TRES varchar(40)
+);
 INSERT INTO PREGUNTAS VALUES('1','1','¿qué esun diagrama de Venn?','Modelo gráficode uniones entre conjuntos','Un diagrama hecho por Venn','Matemáticas complejas','Pony');
 /*--*/
 CREATE TABLE MATEMATICAS (
