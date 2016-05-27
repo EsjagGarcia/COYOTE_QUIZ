@@ -1,8 +1,8 @@
 <?php
 	SESSION_START();
 	$c=$_POST['color'];
-	$enlace=mysqli_connect("localhost","root");
-	if(!mysqli_select_db($enlace,'proyectof'))
+	$enlace=mysqli_connect("localhost","root","","prueba");
+	if(!mysqli_select_db($enlace,'prueba'))
 	{
 		echo "No se pudo conectar".mysqli_connect_error();
 	}

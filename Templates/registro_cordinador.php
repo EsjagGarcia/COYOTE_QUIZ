@@ -1,6 +1,5 @@
 <?php
 $usuario=$_POST['usuarion'];
-$nombre=$_POST['nombre'];
 $numero=$_POST['numero'];
 $contra=$_POST['contra'];
 $sena=$_POST['sena'];
@@ -66,7 +65,7 @@ if($contra==$sena)
 	$link=mysqli_connect("localhost","root","","proyectof");
 	$tildes = $link->query("SET NAMES 'utf8'");
 	$SQL='INSERT INTO USUARIOS(USUARIOS_TYPE,USUARIO_NOMBRE,USUARIO_KEY,USUARIO_CONTRASENIA,COLOR) values (3,"'.$usuario.'",'.$numero.',"'.$contrasena.'","#c79810")';
-	$SQL2='INSERT INTO COORDINADORES(USUARIO_NOMBRE,USUARIO_KEY,ASIGNATURA,COORDINADOR_NOMBRE) VALUES ("'.$usuario.'",'.$numero.',"'.$asig.'","'.$nombre.'")';
+	$SQL2='INSERT INTO COORDINADORES(USUARIO_NOMBRE,USUARIO_KEY,ASIGNATURA) VALUES ("'.$usuario.'",'.$numero.',"'.$asig.'")';
 	mysqli_query($link,$SQL);
 	mysqli_query($link,$SQL2);
 	mysqli_close($link);

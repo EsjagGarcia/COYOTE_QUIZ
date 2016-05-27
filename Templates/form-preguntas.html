@@ -1,0 +1,180 @@
+<!DOCTYPEhtml>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+		<meta name="viewpiort" content="width=device-width, initial-scale=1"/>
+		
+		<title>Coyote quiz</title>
+		
+		<link href="../Documents/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+		<link rel="shortcut icon" href="../Sources/Resources/prepa 6.jpg" type="image/png"/>
+		<link href="../Style/stylemain.css"  rel="stylesheet" type="text/css">
+	</head>
+	<body data-spy="scroll" data-target="#navegacion">
+	<?php
+		SESSION_START();
+		SESSION_UNSET();
+		SESSION_DESTROY();
+	?>
+		<div class="container">
+			<header>
+				<nav class="navbar navbar-default navbar-fixed-top" role="navegation" id="part-top">
+					<div class="row">
+						<div class="col-lg-5 col-lg-offset-1 col-md-7 col-md-offset-1 col-sm-7 col-sm-offset-1">
+							<div class="navbar-header">
+								<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navegacion">
+									<span class="sr-only">Mostrar navegación</span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+								<a href="#" class="navbar-brand" id="imag-unam"><img alt="Brand" src="../Sources/Resources/esc-unam.png" height="140%"/></a>
+								<p class="navbar-text" id="text">UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO</p>
+							</div>	
+						</div>	
+						<div class="col-lg-4 col-lg-offset-2 col-md-4 col-sm-4">
+							<div class="collapse navbar-collapse" id="navegacion">
+									<button type="button" class="btn btn-primary navbar-btn" data-toggle="modal" data-target="#iniciar"> Iniciar Sesión </button>
+									<button type="button" class="btn btn-primary navbar-btn" data-toggle="modal" data-target="#regis_preg"> Registrarse </button>
+							</div>
+						</div>	
+					</div>
+				</nav>
+			</header>
+
+
+
+
+<div class="modal fade" id="regis_preg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h3 class="modal-title" id="myModalLabel">Registrar preguntas. </h3>
+					</div>
+					<div class="modal-body">
+						<div class="row">
+							<div class="col-lg-12 col-xs-12">
+								<form class="form-horizontal" method="POST" action="registro_preguntas.php" >
+									<div class="form-group">
+									<label for="grado" class="col-lg-3 control-label">Grado: </label>
+										<div class="col-lg-9">
+											<select class="form-control" name="grado" id="grado">
+											<option></option>
+											<option value="1">Cuarto Año</option>
+											<option value="2">Quinto Año</option>
+											<option value="3">Sexto Año: Área I</option>
+											<option value="4">Sexto Año: Área II</option>
+											<option value="5">Sexto Año: Área III</option>
+											<option value="6">Sexto Año: Área IV</option>+
+											</select>
+										</div>
+									</div>
+									<div class="form-group">
+									<label for="nom" class="col-lg-3 control-label">Unidad: </label>
+										<div class="col-lg-9">
+											<select class="form-control" name="unidad">
+											<option value="1">1</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
+											<option value="4">4</option>
+											<option value="5">5</option>
+											<option value="6">6</option>
+											<option value="7">7</option>
+											<option value="8">8</option>
+											<option value="9">9</option>
+											</select>
+										</div>
+									</div>
+									<div class="form-group">
+									<label for="nom" class="col-lg-3 control-label">Pregunta: </label>
+										<div class="col-lg-9">
+											<input type="text" class="form-control" id="pregunta" name="pregunta" placeholder="Pregunta"  required pattern="^[a-zA-Z0-9 ÑÁÉÍÓÚñáéíóú_\.\-\@\+\-\*\.\?\¿\={5,100}"/>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="num" class="col-lg-3 control-label">Respuesta correcta:</label>
+										<div class="col-lg-9">
+											<input type="text" class="form-control" id="correcta" name="correcta" placeholder="Respuesta"  required pattern="^[a-zA-Z0-9 ÑÁÉÍÓÚñáéíóú]{1,40}"/>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="num" class="col-lg-3 control-label">Respuesta:</label>
+										<div class="col-lg-9">
+											<input type="text" class="form-control" id="uno" name="uno" placeholder="Respuesta"  required pattern="^[a-zA-Z0-9 ÑÁÉÍÓÚñáéíóú]{1,40}"/>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="con" class="col-lg-3 control-label">Respuesta: </label>
+										<div class="col-lg-9">
+											<input type="text" class="form-control" id="dos"name="dos" placeholder="Respuesta"  required pattern="^[a-zA-Z0-9 ÑÁÉÍÓÚñáéíóú]{1,40}"/>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="cond" class="col-lg-3 control-label">Respuesta: </label>
+										<div class="col-lg-9">
+											<input type="text" class="form-control" id="tres" name="tres" placeholder="Respuesta"  required pattern="^[a-zA-Z0-9 ÑÁÉÍÓÚñáéíóú]{1,40}"/>
+										</div>
+									</div>
+									<button class="btn btn-lg btn-block btn-primary" id="registrarse"type="submit">Respuesta</button>
+									</form>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		
+		
+		
+		<script src="../Documents/jquery.js"></script>
+		<script src="../Documents/bootstrap/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="main.js"></script>
+		<script>
+			$("#grado").change(function() {
+				var grado=$("#grado").val();
+				if (grado == 1)
+				{
+					$(this).parent().children(':nth-child(2)').remove();
+					$(this).parent().append('<div class="form-group"><label for="nom" class="col-lg-3 control-label">Asignatura: </label><div class="col-lg-9"><select class="form-control" name="asignatura"><option value="1">MATEMATICAS IV</option><option value="2">FISICA III</option><option value="3">LENGUA ESPAÑOLA</option><option value="4">HISTORIA UNIVERSAL III</option><option value="5">LOGICA</option><option value="6">GEOGRAFIA</option value="7">DIBUJO II</option><option value="8">LENG. EXTR. INGLES IV</option><option  value="9">EDUC ESTETICA-ARTIST. IV</option><option value="10">EDUCACION FÍSICA IV</option><option value="11">ORIENTACION EDUCATIVA IV<option value="12">INFORMATICA</option></select></div></div>');
+					}
+				else
+				if (grado == 2)
+				{
+					$(this).parent().children(':nth-child(2)').remove();
+					$(this).parent().append('<div class="form-group"><label for="nom" class="col-lg-3 control-label">Asignatura: </label><div class="col-lg-9"><select class="form-control" name="asignatura"><option value="1">MATEMATICAS V</option><option value="2">QUÍMICA III</option><option value="3">BIOLOGÍA IV</option><option value="4">EDUCACIÓN PARA LA SALUD</option><option value="5">HISTORIA DE  MÉXICO II</option><option value="6">ETIMOLOGÍAS GRECOLATINAS</option value="7">LENG. EXTR. INGLÉS V</option><option value="8">ÉTICA</option><option  value="9">EDUCACION FÍSICA V</option><option value="10">EDUC ESTETICA-ARTIST. V</option><option value="11">ORIENTACION EDUCATIVA V<option value="12">LITERATURA UNIVERSAL</option></select></div></div>');
+				}
+				else
+				if (grado == 3)
+				{
+					$(this).parent().children(':nth-child(2)').remove();
+					$(this).parent().append('<div class="form-group"><label for="nom" class="col-lg-3 control-label">Asignatura: </label><div class="col-lg-9"><select class="form-control" name="asignatura"><option value="1">DERECHO</option><option value="2">LITERATURA MX E IBERO</option><option value="3">INGLÉS VI</option><option value="4">PSICOLOGÍA</option><option value="5">MATEMÁTICAS VI</option><option value="6">DIBUJO CONSTRUCTIVO II</option><option value="7">FÍSICA IV</option><option  value="8">QUÍMICA IV</option></select></div></div>');
+				}
+				else
+				if (grado == 4)
+				{
+					$(this).parent().children(':nth-child(2)').remove();
+					$(this).parent().append('<div class="form-group"><label for="nom" class="col-lg-3 control-label">Asignatura: </label><div class="col-lg-9"><select class="form-control" name="asignatura"><option value="1">DERECHO</option><option value="2">LITERATURA MX E IBERO</option><option value="3">INGLÉS VI</option><option value="4">PSICOLOGÍA</option><option value="5">MATEMÁTICAS VI</option><option value="6">BIOLOGÍA V</option><option value="7">FÍSICA IV</option><option  value="8">QUÍMICA IV</option></select></div></div>');
+				}
+				else
+				if (grado == 5)
+				{
+					$(this).parent().children(':nth-child(2)').remove();
+					$(this).parent().append('<div class="form-group"><label for="nom" class="col-lg-3 control-label">Asignatura: </label><div class="col-lg-9"><select class="form-control" name="asignatura"><option value="1">DERECHO</option><option value="2">LITERATURA MX E IBERO</option><option value="3">INGLÉS VI</option><option value="4">PSICOLOGÍA</option><option value="5">MATEMÁTICAS VI</option><option value="6">GEOGRAFÍA ECONÓMICA</option><option value="7">INTRO. ESTUDIO CIENCIAS SOCIALES Y EC</option><option value="8">PROBLEMAS SOC. POLIT Y ECON. MÉXICO</option></select></div></div>');
+				}
+				else
+				if (grado == 6)
+				{
+					$(this).parent().children(':nth-child(2)').remove();
+					$(this).parent().append('<div class="form-group"><label for="nom" class="col-lg-3 control-label">Asignatura: </label><div class="col-lg-9"><select class="form-control" name="asignatura"><option value="1">DERECHO</option><option value="2">LITERATURA MX E IBERO</option><option value="3">INGLÉS VI</option><option value="4">PSICOLOGÍA</option><option value="5">MATEMÁTICAS VI</option><option value="6">MODELADO II</option><option value="7">INTRO. ESTUDIO CIENCIAS SOCIALES Y EC</option><option value="8">HISTORIA DE LA CULTURA</option></select></div></div>');
+				}
+		});
+		</script>
+	</body>
+</html>

@@ -13,7 +13,5 @@ $tres=$_POST['tres'];
 	values ('$asignatura','$unidad','$pregunta','$correcta','$uno','$dos','$tres');";
 	$resultado=MySQLi_query($link,$SQL);
 	header('location:usuario.php');
-	echo "Listo!";
-
-	
+	mysqli_close($link);
 ?>

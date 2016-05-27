@@ -1,8 +1,8 @@
 <?php
 	$ejemp=$_POST['tex'];
-	if($ejemp=='Alumnos'||$ejemp=='1')
+	if($ejemp=='Alumnos')
 	{
-		$enlace= mysqli_connect("localhost","root","","proyectof");
+		$enlace= mysqli_connect("localhost","root","","prueba");
 		if(!$enlace)
 		{
 			echo "No se pudo conectar".mysqli_connect_error();
@@ -28,9 +28,9 @@
 		}
 		echo $variable;
 	}
-	if($ejemp=='Profesores'||$ejemp=='2')
+	if($ejemp=='Profesores')
 	{
-		$enlace= mysqli_connect("localhost","root","","proyectof");
+		$enlace= mysqli_connect("localhost","root","","prueba");
 		if(!$enlace)
 			echo "No se pudo conectar".mysqli_connect_error();
 		else
@@ -54,10 +54,9 @@
 		}
 		echo $variable;
 	}
-	
-	if($ejemp=='Coordinadores'||$ejemp=='3')
+	if($ejemp=='Coordinadores')
 	{
-		$enlace= mysqli_connect("localhost","root","","proyectof");
+		$enlace= mysqli_connect("localhost","root","","prueba");
 		if(!$enlace)
 		{
 			echo "No se pudo conectar".mysqli_connect_error();
@@ -65,9 +64,9 @@
 		else
 		{
 			$tildes = $enlace -> query("SET NAMES 'utf8'");
-			$consulta='SELECT USUARIO_NOMBRE,USUARIO_KEY,COORDINADOR_NOMBRE,ASIGNATURA FROM usuarios NATURAL JOIN coordinadores WHERE USUARIOS_TYPE=3';
+			$consulta='SELECT USUARIO_NOMBRE,USUARIO_KEY,ASIGNATURA FROM usuarios NATURAL JOIN coordinadores WHERE USUARIOS_TYPE=3';
 			$res=mysqli_query($enlace, $consulta);
-			$variable="<table class='table table-hover table-bordered'><tr class='info'><th>Nombre de usuario</th><th>Clave</th><th>Nombre del coordinador</th><th>Asignatura</th><th>Eliminar</th></tr>";
+			$variable="<table class='table table-hover table-bordered'><tr class='info'><th>Nombre de usuario</th><th>Clave</th><th>Asignatura</th><th>Eliminar</th></tr>";
 			$n=0;
 			while($row=mysqli_fetch_assoc($res))
 			{
