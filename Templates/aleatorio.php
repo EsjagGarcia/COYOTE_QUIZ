@@ -5,7 +5,7 @@
 	if($que == "aleat")
 	{
 		$connect = mysqli_connect("localhost","root");
-		if(mysqli_select_db($connect,"juego"))
+		if(mysqli_select_db($connect,"prueba"))
 		{
 			echo $name;
 			$crenglones = "select * from alumnos;";

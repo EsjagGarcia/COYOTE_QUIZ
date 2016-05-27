@@ -65,7 +65,7 @@ echo 		'</script>';
 			
 			// Verifica la procedencia de la base de datos
 			
-			if(mysqli_select_db($conect,"juego"))
+			if(mysqli_select_db($conect,"prueba"))
 			{
 			  if($conr == 0)
 			  {

@@ -29,12 +29,12 @@
 		SESSION_START();
 		if(isset($_POST['nom-usuario']) && isset($_POST['contra']))
 		{
-			$enlace = mysqli_connect("localhost","root","","juego");
+			$enlace = mysqli_connect("localhost","root","","prueba");
 			htmlspecialchars($_POST['nom-usuario']);
 			htmlspecialchars($_POST['contra']);
 			mysqli_real_escape_string($enlace,$_POST['nom-usuario']);
 			mysqli_real_escape_string($enlace,$_POST['contra']);
-		if(!mysqli_select_db($enlace,'juego'))
+		if(!mysqli_select_db($enlace,'prueba'))
 		{
 			echo "No se pudo conectar".mysqli_connect_error();
 		}
