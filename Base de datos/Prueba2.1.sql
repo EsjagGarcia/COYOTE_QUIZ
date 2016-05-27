@@ -77,3 +77,13 @@ INSERT INTO MATEMATICAS VALUES('4',10,'El siguente es un numero entero positivo'
 INSERT INTO MATEMATICAS VALUES('4',11,'Un numero irracional','Pi','4','8.33313213','8.33333');
 INSERT INTO MATEMATICAS VALUES('4',12,'¿Qué es un numero imaginario?','numero que piensas','una raiz negativa','un numero con un denominador mayor al divisor',
 'un numero con un divisor mayor al denominador');
+* -- *
+
+CREATE TABLE PARTIDAS (
+	PARTIDA varchar(50),
+	JUGADOR_1 varchar(20),
+	JUGADOR_2 varchar(20),
+	ACIERTOS_j1 int,
+	ACIERTOS_j2 int,
+	PRIMARY KEY(PARTIDA)
+);
