@@ -166,14 +166,14 @@ echo 		'</script>';
 						while ($b!=4);
 							$comprob = 0;
 							foreach ($arresp as $hola){
-							if ($hola==1)
-								$uno = $na['RESPUESTA_correcta'];
-							else if ($hola==2)
-								$dos = $na['RESPUESTA_uno'];
-							else if ($hola==3)
-								$tres = $na['RESPUESTA_dos'];
-							else if ($hola==4)
-								$cuatro = $na['RESPUESTA_tres'];
+								if ($hola==1)
+									$uno = $na['RESPUESTA_correcta'];
+								else if ($hola==2)
+									$dos = $na['RESPUESTA_uno'];
+								else if ($hola==3)
+									$tres = $na['RESPUESTA_dos'];
+								else if ($hola==4)
+									$cuatro = $na['RESPUESTA_tres'];
 							}
 							$ñ = 0;
 							
@@ -181,7 +181,6 @@ echo 		'</script>';
 							
 							echo $_SESSION['pregunta'.$c.''];
 							$c = count($_SESSION);
-							echo $c;
 							if($c < 10)
 								$conr = 0;
 							else
@@ -229,9 +228,6 @@ echo						'<script>
 			
 			else
 				echo "algo no va bien";
-			
-				print_r($_SESSION);
-				echo $_COOKIE["select"];
 		}
 	}
 	else

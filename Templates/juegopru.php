@@ -165,8 +165,10 @@ echo 		'</script>';
 						  }
 						  while ($b!=4);
 							$comprob = 0;
-							print_r($arresp);
-							echo '<br/>';
+							
+							echo $_SESSION['pregunta'.$c.''];
+							echo "<br/>";
+							
 							foreach ($arresp as $hola){
 								if ($hola==1)
 								{
@@ -190,15 +192,12 @@ echo 		'</script>';
 									echo '<input type="radio" name="res" value="n" class="res"/>'.$cuatro.'<br/>';
 								}
 							}
-							print_r($arresp);
 							
 							$ñ = 0;
 							
 							// Va agregando los valores de repetición
 							
-							echo $_SESSION['pregunta'.$c.''];
 							$c = count($_SESSION);
-							echo $c;
 							if($c < 10)
 								$conr = 0;
 							else
@@ -246,9 +245,6 @@ echo					'<script>
 			
 			else
 				echo "algo no va bien";
-			
-				print_r($_SESSION);
-				echo $_COOKIE["select"];
 		}
 	}
 	else

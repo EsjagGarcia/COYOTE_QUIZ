@@ -117,7 +117,6 @@ echo 		'</script>';
 							
 							echo $_SESSION['pregunta'.$c.''];
 							$c = count($_SESSION);
-							echo $c;
 							if($c < 10)
 								$conr = 0;
 							else
@@ -167,8 +166,6 @@ echo						'<script>
 			else
 				echo "algo no va bien";
 			
-				print_r($_SESSION);
-				echo $_COOKIE["select"];
 		}
 	}
 	else
