@@ -41,7 +41,7 @@
 										<span class="icon-bar"></span>
 										<span class="icon-bar"></span>
 									</button>
-									<a href="#" class="navbar-brand" id="imag-unam"><img alt="Brand" src="../Sources/Resources/esc-unam.png" height="140%"/></a>
+									<a href="./usuario.php" class="navbar-brand" id="imag-unam"><img alt="Brand" src="../Sources/Resources/esc-unam.png" height="140%"/></a>
 									<p class="navbar-text">'.$_SESSION['usuario'].'</p>
 								</div>	
 							</div>	
