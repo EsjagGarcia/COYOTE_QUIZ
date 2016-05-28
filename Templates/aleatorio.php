@@ -7,7 +7,6 @@
 		$connect = mysqli_connect("localhost","root");
 		if(mysqli_select_db($connect,"prueba"))
 		{
-			echo $name;
 			$crenglones = "select * from alumnos;";
 			$reng = mysqli_query($connect,$crenglones);
 			$renglones = mysqli_num_rows($reng);
@@ -26,10 +25,13 @@ echo			'<script>
 			}
 			else
 			{
+				echo $name;
 				$name = $_SESSION['usuario'];
 				$add = "INSERT INTO PARTIDAS (PARTIDA, JUGADOR_1, JUGADOR_2) VALUES ('PARTIDA DE: $name','$name','$ussel')";
+				setcookie("userjuego",$name,time()+48000);
 				mysqli_query($connect,$add);
 			}
+			print_r($_SESSION);
 		}
 	}
 ?>

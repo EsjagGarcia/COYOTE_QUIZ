@@ -69,7 +69,12 @@ echo 		'</script>';
 				$max = 1;
 				$sabe = array();
 					$si = 0;
-					$c = rand(1,12);
+					
+					$crenglones = "select * from $cat;";
+					$reng = mysqli_query($connect,$crenglones);
+					$renglones = mysqli_num_rows($reng);
+					
+					$c = rand(1,$renglones);
 					foreach($sabe as $value)
 						if($value == $c)
 							$si = 1;
@@ -251,7 +256,6 @@ echo					'<script>
 	{
 		// Juego terminado
 		
-		session_destroy();
 		echo "Terminaste";
 		if(isset($_COOKIE["select"]))
 		{
@@ -261,9 +265,22 @@ echo					'<script>
 			echo "Errores: ".$errors;
 		}
 		else
-			echo "No respondiste nada";
+			echo "<br/>No respondiste nada";
+			
+		if(isset($_COOKIE['userjuego']))
+		{
+			$user = $_COOKIE['userjuego'];
+		
+			$consulta = "SELECT * FROM partidas WHERE partida = 'PARTIDA DE $user';";
+			$search = mysqli_query($conect,$consulta);
+			if($search != false)
+			{
+				$consulta = "INSERT INTO partidas (Aciertos_j1) VALUES ($aciertos) WHERE partida = 'PARTIDA DE $user';";
+			}
+		}
+echo	'<br/><a href="usuario.php"><button type="button"> Volver </button></a>';
+		session_destroy();
 		setcookie("select",0,time()-1);
-		header("location : terminaste");
 	}
 echo	'</body>
 	</html>';

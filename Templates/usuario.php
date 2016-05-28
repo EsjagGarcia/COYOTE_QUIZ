@@ -82,7 +82,7 @@
 							<div class="collapse navbar-collapse" id="navegacion">';
 								if($_SESSION['tipo']=='1')
 								{
-									echo '<button type="button" class="btn btn-primary navbar-btn"><a href="juego_menu.php" style="color:white;"> Jugar </a> </button>';
+									echo '<a href="juego_menu.php" style="color:white;"> <button type="button" class="btn btn-primary navbar-btn"> Jugar </button> </a>';
 									echo ' <button type="button" class="btn btn-primary navbar-btn"> Puntajes </button>';
 								}
 								else
