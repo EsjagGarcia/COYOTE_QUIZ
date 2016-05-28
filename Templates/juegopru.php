@@ -267,19 +267,26 @@ echo					'<script>
 		else
 			echo "<br/>No respondiste nada";
 			
+			$name = $_COOKIE['name'];
+			$ussel = $_COOKIE['ussel'];
+			var_dump($name);
+			var_dump($ussel);
+			var_dump($aciertos);
+			$as = (int) $aciertos;
+			var_dump($as);
+			
+			$add = "INSERT INTO PARTIDAS VALUES ('PARTIDA DE: $name','$name','$ussel',1,0)";
+			mysqli_query($conect,$add);
+			
 		if(isset($_COOKIE['userjuego']))
 		{
-			$user = $_COOKIE['userjuego'];
-		
-			$consulta = "SELECT * FROM partidas WHERE partida = 'PARTIDA DE $user';";
-			$search = mysqli_query($conect,$consulta);
-			if($search != false)
+			/*if(isset($_COOKIE['name']))
 			{
-				$consulta = "INSERT INTO partidas (Aciertos_j1) VALUES ($aciertos) WHERE partida = 'PARTIDA DE $user';";
-			}
+			}*/
 		}
-echo	'<br/><a href="usuario.php"><button type="button"> Volver </button></a>';
-		print_r($_COOKIE);
+echo	'<br/><a href="usuario.php"><button type="button"> Volver </button></a>';	
+		
+		mysqli_close($conect);
 		session_destroy();
 		setcookie("select",0,time()-1);
 		session_start();
