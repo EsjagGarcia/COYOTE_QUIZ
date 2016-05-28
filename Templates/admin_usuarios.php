@@ -45,7 +45,7 @@
 									<p class="navbar-text">'.$_SESSION['usuario'].'</p>
 								</div>	
 							</div>	
-							<div class="col-lg-5 col-lg-offset-1 col-md-5 col-sm-6">
+							<div class="col-lg-5 col-lg-offset-1 col-md-6 col-sm-6">
 								<div class="collapse navbar-collapse" id="navegacion">';
 									if($_SESSION['tipo']=='1')
 									{
