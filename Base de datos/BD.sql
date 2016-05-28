@@ -1,8 +1,5 @@
--- MySQL dump 10.16  Distrib 10.1.13-MariaDB, for Win32 (AMD64)
---
--- Host: localhost    Database: prueba
--- ------------------------------------------------------
--- Server version	10.1.13-MariaDB
+CREATE DATABASE PRUEBA;
+USE PRUEBA;
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -64,7 +61,7 @@ CREATE TABLE `alumnos` (
 
 LOCK TABLES `alumnos` WRITE;
 /*!40000 ALTER TABLE `alumnos` DISABLE KEYS */;
-INSERT INTO `alumnos` VALUES (1,'Margarito Lopez','Margarito',315115879,501,3,5),(4,'Margarito Rosado de la Colina','Ã‘OP',315897867,123,0,0);
+INSERT INTO `alumnos` VALUES (1,'Margarito Lopez','Margarito',315115879,501,3,5),(4,'Margarito Rosado de la Colina','ÑOP',315897867,123,0,0);
 /*!40000 ALTER TABLE `alumnos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -90,7 +87,7 @@ CREATE TABLE `coordinadores` (
 
 LOCK TABLES `coordinadores` WRITE;
 /*!40000 ALTER TABLE `coordinadores` DISABLE KEYS */;
-INSERT INTO `coordinadores` VALUES (301,'Elcoordi','JesÃºs Alberto Lopez Gerardo','matemÃ¡ticas');
+INSERT INTO `coordinadores` VALUES (301,'Elcoordi','Jesús Alberto Lopez Gerardo','matemáticas');
 /*!40000 ALTER TABLE `coordinadores` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -119,7 +116,7 @@ CREATE TABLE `matematicas` (
 
 LOCK TABLES `matematicas` WRITE;
 /*!40000 ALTER TABLE `matematicas` DISABLE KEYS */;
-INSERT INTO `matematicas` VALUES ('4',1,'??Cu?Ã­l de los siguentes es un conjunto vac?Â¡o?','{}','vac?Â¡o','{f}','{{}}'),('4',2,'??Cual es el nombre de la \"chicharronera\"?','Fromula general para la factorizacion de','NO se','no existe en matematicas','Producto notable de segundo grado'),('4',3,'??Cu?Ã­l de los siguetes incisos es el producto notable  de (a + b) (a Ã”Ã‡Ã´ b)?','a2?Ã¡Ã”Ã‡Ã´ b2','a+b','a-b','2a+2b'),('4',4,'??Cu?Ã­l es un numero imaginario?','imaginario','ai^2','ai','a'),('4',5,'Se dice que ____ son densos en los enteros','Reales','Enteros','Imaginarios','Negativos'),('4',6,'El conjunto a tine a numeros del 1 al 1323 y el conjunto b tiene las letras a y b,??cual es su inter','{ }','a yb','todos los numeros','Imaginarios'),('4',7,'??Cual es el producto de notable de (a+b)^2?','a^2+2ab+b^2','a^2+b^2','a+b+a+b','a*2+b*2'),('4',8,'Valor de : 4!','24','96','16','8'),('4',9,'El valor de : a^2/a','a','a^2','1','0'),('4',10,'El siguente es un numero entero positivo','8','8.333','-8','01-feb'),('4',11,'Un numero irracional','Pi','4','8.33313213','8.33333'),('4',12,'??Qu?Â® es un numero imaginario?','numero que piensas','una raiz negativa','un numero con un denominador mayor al di','un numero con un divisor mayor al denomi');
+INSERT INTO `matematicas` VALUES ('4',1,'??Cu?íl de los siguentes es un conjunto vac?¡o?','{}','vac?¡o','{f}','{{}}'),('4',2,'??Cual es el nombre de la \"chicharronera\"?','Fromula general para la factorizacion de','NO se','no existe en matematicas','Producto notable de segundo grado'),('4',3,'??Cu?íl de los siguetes incisos es el producto notable  de (a + b) (a ÔÇô b)?','a2?áÔÇô b2','a+b','a-b','2a+2b'),('4',4,'??Cu?íl es un numero imaginario?','imaginario','ai^2','ai','a'),('4',5,'Se dice que ____ son densos en los enteros','Reales','Enteros','Imaginarios','Negativos'),('4',6,'El conjunto a tine a numeros del 1 al 1323 y el conjunto b tiene las letras a y b,??cual es su inter','{ }','a yb','todos los numeros','Imaginarios'),('4',7,'??Cual es el producto de notable de (a+b)^2?','a^2+2ab+b^2','a^2+b^2','a+b+a+b','a*2+b*2'),('4',8,'Valor de : 4!','24','96','16','8'),('4',9,'El valor de : a^2/a','a','a^2','1','0'),('4',10,'El siguente es un numero entero positivo','8','8.333','-8','01-feb'),('4',11,'Un numero irracional','Pi','4','8.33313213','8.33333'),('4',12,'??Qu?® es un numero imaginario?','numero que piensas','una raiz negativa','un numero con un denominador mayor al di','un numero con un divisor mayor al denomi');
 /*!40000 ALTER TABLE `matematicas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -226,7 +223,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (3,'Elcoordi',301,'0917647716273','#c79810'),(4,'ElDios',401,'48580955032,5hooll','#62d53c'),(2,'LuisEnrique',201,'470546264.4.p3e1','#c79810'),(1,'Margarito',315115879,'26942574160273','#313895'),(1,'Ã‘OP',315897867,'74917108953863,4,4,saopy','#a06710');
+INSERT INTO `usuarios` VALUES (3,'Elcoordi',301,'0917647716273','#c79810'),(4,'ElDios',401,'48580955032,5hooll','#62d53c'),(2,'LuisEnrique',201,'470546264.4.p3e1','#c79810'),(1,'Margarito',315115879,'26942574160273','#313895'),(1,'ÑOP',315897867,'74917108953863,4,4,saopy','#a06710');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

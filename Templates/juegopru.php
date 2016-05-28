@@ -267,22 +267,23 @@ echo					'<script>
 		else
 			echo "<br/>No respondiste nada";
 			
-			$name = $_COOKIE['name'];
-			$ussel = $_COOKIE['ussel'];
-			var_dump($name);
-			var_dump($ussel);
-			var_dump($aciertos);
-			$as = (int) $aciertos;
-			var_dump($as);
-			
-			$add = "INSERT INTO PARTIDAS VALUES ('PARTIDA DE: $name','$name','$ussel',1,0)";
-			mysqli_query($conect,$add);
-			
 		if(isset($_COOKIE['userjuego']))
 		{
-			/*if(isset($_COOKIE['name']))
+			
+			if(isset($_COOKIE['name']))
 			{
-			}*/
+				$name = $_COOKIE['name'];
+				$ussel = $_COOKIE['ussel'];
+				var_dump($name);
+				var_dump($ussel);
+				var_dump($aciertos);
+				$as = (int) $aciertos;
+				var_dump($as);
+				setcookie("name",0,time()-1);
+				setcookie("nussel",0,time()-1);
+				$add = "INSERT INTO PARTIDAS VALUES ('PARTIDA DE: $name','$name','$ussel',1,0)";
+				mysqli_query($conect,$add);	
+			}
 		}
 echo	'<br/><a href="usuario.php"><button type="button"> Volver </button></a>';	
 		

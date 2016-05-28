@@ -1,0 +1,8 @@
+El archivo de base de datos esta diseñado para crear de manera automatica la base de datos, prueba, conociendo la base
+con la estructura que obtendra la base definitiva, solo falta acregar bases de materias al archivo.
+Carga:
+la forma de cargar la base es apartir de comandos en la terminal de mysql
+y lo unico que se tiene que hacer es abrir la terminal de mysql, y despues,
+introducir el comando source con la direccion:
+../../htdocs/oyote_quiz/base de datos/BD.sql
+y eso es lo necesario para cargar nuestra base de datos.
