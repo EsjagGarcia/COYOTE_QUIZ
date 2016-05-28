@@ -1,10 +1,13 @@
 <?php
-$usuario=$_POST['usuarion'];
-$nom=$_POST['nombre'];
-$numero=$_POST['numero'];
-$contra=$_POST['contra'];
-$sena=$_POST['sena'];
-$asig=$_POST['asig'];
+	if(preg_match('/^[A-ZÑÁÉÍÓÚ][a-zñáéíóú]{1,10} ([A-ZÑÁÉÍÓÚ][a-zñáéíóú]{1,10} ){1,3}[A-ZÑÁÉÍÓÚ][a-záéíóúñ]{2,10}$/',$_POST['nombre'])&&preg_match('/^[\wÑñ0-9]{3,20}$/',$_POST['usuarion'])&&preg_match('/^[a-zA-Z0-9_\.\-\@]{8,17}$/',$_POST['contra']))
+	{
+		$usuario=$_POST['usuarion'];
+		$nom=$_POST['nombre'];
+		$numero=$_POST['numero'];
+		$contra=$_POST['contra'];
+		$sena=$_POST['sena'];
+		$asig=$_POST['asig'];
+	}
 	$ch=str_split($contra);
 	$contrasena="";
 	for($x=0;$x<5;$x++)
