@@ -35,7 +35,7 @@ CREATE TABLE `admins` (
 
 LOCK TABLES `admins` WRITE;
 /*!40000 ALTER TABLE `admins` DISABLE KEYS */;
-INSERT INTO `admins` VALUES (401,'Dios');
+INSERT INTO `admins` VALUES (401,'ElDios');
 /*!40000 ALTER TABLE `admins` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -54,7 +54,7 @@ CREATE TABLE `alumnos` (
   `ALUMNO_GRUPO` int(11) DEFAULT NULL,
   `ALUMNO_PUNTAJE` int(11) DEFAULT NULL,
   `ALUMNO_PARTIDAS` int(11) DEFAULT NULL,
-  PRIMARY KEY (`ESTUDIANTE_INDICE`)
+  PRIMARY KEY (`USUARIO_NOMBRE`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -64,7 +64,7 @@ CREATE TABLE `alumnos` (
 
 LOCK TABLES `alumnos` WRITE;
 /*!40000 ALTER TABLE `alumnos` DISABLE KEYS */;
-INSERT INTO `alumnos` VALUES (1,'Margarito Lopez','Margarito',315115879,501,3,5),(2,'Mario Angel Garcia Dominguez','MANOLITO',315274986,312,0,0),(3,'Margarito Rosado de la Colina','Margarito',213131313,100,0,0),(4,'Margarito Rosado de la Colina','ÑOP',315897867,123,0,0);
+INSERT INTO `alumnos` VALUES (1,'Margarito Lopez','Margarito',315115879,501,3,5),(4,'Margarito Rosado de la Colina','ÑOP',315897867,123,0,0);
 /*!40000 ALTER TABLE `alumnos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -226,7 +226,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (3,'Elcoordi',301,'123456789','#c79810'),(4,'ElDios',401,'holaholas','#62d53c'),(2,'LuisEnrique',201,'pepe1313','#c79810'),(1,'MANOLITO',315274986,'12345678910','#c79810'),(1,'Margarito',315115879,'12345678910','#313895'),(1,'ÑOP',315897867,'74917108953863,4,4,saopy','#a06710');
+INSERT INTO `usuarios` VALUES (3,'Elcoordi',301,'0917647716273','#c79810'),(4,'ElDios',401,'48580955032,5hooll','#62d53c'),(2,'LuisEnrique',201,'470546264.4.p3e1','#c79810'),(1,'Margarito',315115879,'26942574160273','#313895'),(1,'ÑOP',315897867,'74917108953863,4,4,saopy','#a06710');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
