@@ -34,11 +34,7 @@
 			htmlspecialchars($_POST['contra']);
 			mysqli_real_escape_string($enlace,$_POST['nom-usuario']);
 			mysqli_real_escape_string($enlace,$_POST['contra']);
-<<<<<<< HEAD
 		if(!$enlace)
-=======
-		if(!mysqli_select_db($enlace,'prueba'))
->>>>>>> b896fc05f6cfdc8e85c87977dba3deb4896eda14
 		{
 			echo "No se pudo conectar".mysqli_connect_error();
 		}
