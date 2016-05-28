@@ -26,6 +26,7 @@ echo			'<script>
 			}
 			else
 			{
+				/*Aqui guardamos los datos en cookies para usarlos posteriormente*/
 				echo $name;
 				$name = $_SESSION['usuario'];
 				$tipo = $_SESSION['tipo'];
