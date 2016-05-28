@@ -36,9 +36,9 @@
 		else
 		{
 			$tildes = $enlace -> query("SET NAMES 'utf8'");
-			$consulta='SELECT USUARIO_NOMBRE,USUARIO_KEY,PROFESOR_ASIGNATURA,PROFESOR_PREPA FROM usuarios NATURAL JOIN profesores WHERE USUARIOS_TYPE=2';
+			$consulta='SELECT USUARIO_NOMBRE,USUARIO_KEY,PROFESOR_NOMBRE,PROFESOR_ASIGNATURA,PROFESOR_PREPA FROM usuarios NATURAL JOIN profesores WHERE USUARIOS_TYPE=2';
 			$res=mysqli_query($enlace, $consulta);
-			$variable="<table class='table table-hover table-bordered'><tr class='info'><th>Nombre de usuario</th><th>Clave</th><th>Asignatura</th><th># Preparatoria</th><th>Eliminar</th></tr>";
+			$variable="<table class='table table-hover table-bordered'><tr class='info'><th>Nombre de usuario</th><th>Clave</th><th>Nombre del Profesor</th><th>Asignatura</th><th># Preparatoria</th><th>Eliminar</th></tr>";
 			$n=0;
 			while($row=mysqli_fetch_assoc($res))
 			{

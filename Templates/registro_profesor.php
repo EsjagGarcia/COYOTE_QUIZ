@@ -1,5 +1,6 @@
 <?php
 $usuario=$_POST['usuario'];
+$nom=$_POST['nombre'];
 $numero=$_POST['numero'];
 $asignatura=$_POST['asignatura'];
 $prepa=$_POST['prepa'];
@@ -65,12 +66,12 @@ if($contra==$sena)
 {
 	$link=MySQLi_connect("localhost","root","","prueba");
 	$tildes = $link->query("SET NAMES 'utf8'");
-	$SQL="INSERT INTO USUARIOS(`USUARIOS_TYPE`,`USUARIO_NOMBRE`,`USUARIO_KEY`,`USUARIO_CONTRASENIA`) VALUES ('2','$usuario','$numero','$contrasena');";
-	$SQL2="INSERT INTO PROFESORES (`USUARIO_NOMBRE`,`USUARIO_KEY`,`PROFESOR_ASIGNATURA`,`PROFESOR_PREPA`) VALUES ('$usuario','$numero','$asignatura','$prepa');";
+	$SQL="INSERT INTO USUARIOS (`USUARIOS_TYPE`,`USUARIO_NOMBRE`,`USUARIO_KEY`,`USUARIO_CONTRASENIA`) VALUES ('2','$usuario','$numero','$contrasena');";
+	$SQL2="INSERT INTO PROFESORES (`USUARIO_NOMBRE`,`USUARIO_KEY`,`PROFESOR_ASIGNATURA`,`PROFESOR_PREPA`,`PROFESOR_NOMBRE`) VALUES ('$usuario','$numero','$asignatura','$prepa','$nom');";
 	MySQLi_query($link,$SQL);
 	MySQLi_query($link,$SQL2);
-	header('location:usuario.php');
 	mysqli_close($link);
+	header('location:usuario.php');
 }
 else
 {

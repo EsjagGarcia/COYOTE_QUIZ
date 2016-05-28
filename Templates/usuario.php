@@ -34,7 +34,7 @@
 			htmlspecialchars($_POST['contra']);
 			mysqli_real_escape_string($enlace,$_POST['nom-usuario']);
 			mysqli_real_escape_string($enlace,$_POST['contra']);
-		if(!mysqli_select_db($enlace,'prueba'))
+		if(!$enlace)
 		{
 			echo "No se pudo conectar".mysqli_connect_error();
 		}
@@ -236,13 +236,19 @@
 							<div class="col-lg-12 col-xs-12">
 								<form class="form-horizontal" method="POST" action="registro_profesor.php" >
 									<div class="form-group">
-									<label for="nom" class="col-lg-3 control-label">Nombre usuario: </label>
+									<label for="nombre" class="col-lg-3 control-label">Nombre completo: </label>
+										<div class="col-lg-9">
+											<input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre Completo"  required pattern="^[a-zA-Z ñáéíóú]{3,60}"/>
+										</div>
+									</div>
+									<div class="form-group">
+									<label for="usuario" class="col-lg-3 control-label">Nombre usuario: </label>
 										<div class="col-lg-9">
 											<input type="text" class="form-control" id="usuario" name="usuario" placeholder="Nombre de Usuario"  required pattern="^[a-zA-Z0-9_/./-/@]{3,20}"/>
 										</div>
 									</div>
 									<div class="form-group">
-										<label for="num" class="col-lg-3 control-label">Clave de profesor(RFC):</label>
+										<label for="numero" class="col-lg-3 control-label">Clave de profesor(RFC):</label>
 										<div class="col-lg-9">
 											<input type="text" class="form-control" id="numero" name="numero" placeholder="RFC"  required pattern="^[a-zA-Z0-9]{12,13}"/>
 										</div>
