@@ -1,4 +1,5 @@
 <?php	
+	/*Mi version para selecionar oponentes aleatorios/*
 	echo '<html>
 		<head>
 		</head>
