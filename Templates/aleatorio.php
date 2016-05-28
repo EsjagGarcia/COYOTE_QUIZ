@@ -1,4 +1,5 @@
 <?php
+	/* Este codigo sirve para generar un oponente aleatorio y guardar los datos de el y del que habia iniciado sesion*/
 	session_start();
 	$que = $_POST['id'];
 		$name = $_SESSION['usuario'];
