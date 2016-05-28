@@ -27,11 +27,18 @@ echo			'<script>
 			{
 				echo $name;
 				$name = $_SESSION['usuario'];
+				$tipo = $_SESSION['tipo'];
+				$llave = $_SESSION['key'];
+				$color = $_SESSION['color'];
 				$add = "INSERT INTO PARTIDAS (PARTIDA, JUGADOR_1, JUGADOR_2) VALUES ('PARTIDA DE: $name','$name','$ussel')";
 				setcookie("userjuego",$name,time()+48000);
+				setcookie("usertipo",$tipo,time()+48000);
+				setcookie("userllave",$llave,time()+48000);
+				setcookie("usercolor",$color,time()+48000);
 				mysqli_query($connect,$add);
 			}
 			print_r($_SESSION);
+			print_r($_COOKIE);
 		}
 	}
 ?>

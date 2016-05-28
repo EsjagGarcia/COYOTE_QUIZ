@@ -13,6 +13,7 @@ echo '<!DOCTYPE html>
 	
 	// Conteo de las preguntas seleccionadas para establecer un limite del juego
 	
+	$conect = mysqli_connect("localhost","root");
 	$count = count($_SESSION);
 	if($count < 10)
 	{
@@ -57,7 +58,6 @@ echo			'var segundos = 0;
 echo 		'</script>';
 			// Coneccion a la base de datos
 			$conr = 0;
-			$conect = mysqli_connect("localhost","root");
 			$cat = $_POST['materia'];
 			
 			// Verifica la procedencia de la base de datos
@@ -71,7 +71,7 @@ echo 		'</script>';
 					$si = 0;
 					
 					$crenglones = "select * from $cat;";
-					$reng = mysqli_query($connect,$crenglones);
+					$reng = mysqli_query($conect,$crenglones);
 					$renglones = mysqli_num_rows($reng);
 					
 					$c = rand(1,$renglones);
@@ -279,8 +279,14 @@ echo					'<script>
 			}
 		}
 echo	'<br/><a href="usuario.php"><button type="button"> Volver </button></a>';
+		print_r($_COOKIE);
 		session_destroy();
 		setcookie("select",0,time()-1);
+		session_start();
+		$_SESSION['usuario'] = $_COOKIE['userjuego'];
+		$_SESSION['tipo'] = $_COOKIE['usertipo'];
+		$_SESSION['key'] = $_COOKIE['userllave'];
+		$_SESSION['color'] = $_COOKIE['usercolor'];	
 	}
 echo	'</body>
 	</html>';

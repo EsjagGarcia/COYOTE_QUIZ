@@ -183,6 +183,7 @@ echo						'<script>
 		}
 		else
 			echo "No respondiste nada";
+		
 		setcookie("select",0,time()-1);
 		header("location : terminaste");
 	}
