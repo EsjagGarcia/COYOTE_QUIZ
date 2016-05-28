@@ -11,17 +11,6 @@
 		<link rel="shortcut icon" href="../Sources/Resources/prepa 6.jpg" type="image/png"/>
 		<link href="../Style/usuario.less"  rel="stylesheet/less" type="text/css">
 		<script src="../Documents/less.js" type="text/javascript"></script>
-		<style>
-			#izquierda{
-				border:1px solid black;
-				height:500px;
-				border-radius:7px;
-				box-shadow: 5px 5px grey;
-			}
-			#cuer{
-				padding-left:40px;
-			}
-		</style>
 	</head>
 	<body data-spy="scroll" data-target="#navegacion">
 		<div class="container" id="cuer">
@@ -39,7 +28,7 @@
 			echo "No se pudo conectar".mysqli_connect_error();
 		}
 		else
-		{
+		{	//proceso de codificación de la contraseña
 			$contra=$_POST['contra'];
 			$ch=str_split($contra);
 			$contrasena="";
@@ -110,6 +99,7 @@
 				}
 			}
 			//echo substr($arre[0],5).'<br/>'.$contrasena.'<br/>'.gettype(substr($arre[0],5)).'<br/>'.gettype($contrasena);
+			//checa si la contraseña que enviaste es la misma que esta en la base de datos
 			if($contrasena==substr($arre[0],5))
 			{
 				$consulta =  'SELECT * FROM usuarios WHERE USUARIO_NOMBRE="'.$_POST['nom-usuario'].'"';
@@ -147,13 +137,13 @@
 									<span class="icon-bar"></span>
 									<span class="icon-bar"></span>
 								</button>
-								<a href="#" class="navbar-brand" id="imag-unam"><img alt="Brand" src="../Sources/Resources/esc-unam.png" height="140%"/></a>
+								<a href="./usuario.php" class="navbar-brand" id="imag-unam"><img alt="Brand" src="../Sources/Resources/esc-unam.png" height="140%"/></a>
 								<p class="navbar-text">'.$_SESSION['usuario'].'</p>
 							</div>	
 						</div>	
 						<div class="col-lg-5 col-lg-offset-1 col-md-7 col-sm-7">
 							<div class="collapse navbar-collapse" id="navegacion">';
-								if($_SESSION['tipo']=='1')
+								if($_SESSION['tipo']=='1')//pone distintos navs para cada tipo de usuario
 								{
 									echo '<a href="juego_menu.php" style="color:white;"> <button type="button" class="btn btn-primary navbar-btn"> Jugar </button> </a>';
 									echo ' <button type="button" class="btn btn-primary navbar-btn"> Puntajes </button>';
@@ -203,13 +193,13 @@
 				
 			
 					<div class="row">
-						<div class="col-lg-3" id="izquierda">
+						<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" id="izquierda" height="300px">
 						
 						</div>';
-							echo '<div class="jumbotron col-lg-7 col-lg-offset-1">
-								<h1>Hola, '.$_SESSION['usuario'].'.</h1>
-								<p>Bienvenido al portal de alumnos de la Escuela Nacional Preparatoria más famosa</p>
-							</div>
+						echo '<div class="jumbotron col-lg-7 col-lg-offset-1 col-md-7 col-md-offset-1 col-sm-7 col-sm-offset-1 col-xs-7 col-xs-offset-1">
+							<h1>Hola, '.$_SESSION['usuario'].'.</h1>
+							<p>Bienvenido al portal de alumnos de la Escuela Nacional Preparatoria más famosa</p>
+						</div>
 					</div>
 			</div>';
 			}

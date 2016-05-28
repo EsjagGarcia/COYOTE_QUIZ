@@ -6,7 +6,7 @@ $asignatura=$_POST['asignatura'];
 $prepa=$_POST['prepa'];
 $contra=$_POST['contra'];
 $sena=$_POST['sena'];
-$ch=str_split($contra);
+$ch=str_split($contra);//proceso de codificación
 	$contrasena="";
 	for($x=0;$x<5;$x++)
 	{
@@ -62,7 +62,7 @@ $ch=str_split($contra);
 	$contrasena=$contrasena.substr($grr,0,$cant);
 
 
-if($contra==$sena)
+if($contra==$sena)//proceso de guardado de información
 {
 	$link=MySQLi_connect("localhost","root","","prueba");
 	$tildes = $link->query("SET NAMES 'utf8'");

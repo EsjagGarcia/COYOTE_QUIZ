@@ -29,8 +29,8 @@
 									<span class="icon-bar"></span>
 									<span class="icon-bar"></span>
 								</button>
-								<a href="#" class="navbar-brand" id="imag-unam"><img alt="Brand" src="../Sources/Resources/esc-unam.png" height="140%"/></a>
-								<p class="navbar-text" id="text">UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO</p>
+								<a href="./main.php" class="navbar-brand" id="imag-unam"><img alt="Brand" src="../Sources/Resources/esc-unam.png" height="140%"/></a>
+								<p class="navbar-text" id="text">PUMA QUIZ</p>
 							</div>	
 						</div>	
 						<div class="col-lg-4 col-lg-offset-2 col-md-4 col-sm-4">
@@ -51,10 +51,10 @@
 									<li data-target="#carouselimg" data-slide-to="1"></li>
 									<!--<li data-target="#carousel-example-generic" data-slide-to="2"></li>-->
 								</ol>
-								<div class="carousel-inner" role="listbox">
-									<div class="item active" height="100px">
+								<div class="carousel-inner" role="listbox" id="carrusel">
+									<div class="item active" height="90px">
 										<div style="text-align:center;">
-											<img src="../Sources/Resources/fond-rojo.jpg" alt="fondo rojo" id="fr"/>
+											<img src="../Sources/Resources/fond-rojo.jpg" height="60px" alt="fondo rojo" id="fr"/>
 										</div>
 										<div class="carousel-caption">
 											<h2>Pantalla de color rojo</h2>
