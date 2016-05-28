@@ -65,7 +65,7 @@ echo 		'</script>';
 			
 			// Verifica la procedencia de la base de datos
 			
-			if(mysqli_select_db($conect,"juego"))
+			if(mysqli_select_db($conect,"prueba"))
 			{
 			  if($conr == 0)
 			  {
@@ -117,7 +117,6 @@ echo 		'</script>';
 							
 							echo $_SESSION['pregunta'.$c.''];
 							$c = count($_SESSION);
-							echo $c;
 							if($c < 10)
 								$conr = 0;
 							else
@@ -167,8 +166,6 @@ echo						'<script>
 			else
 				echo "algo no va bien";
 			
-				print_r($_SESSION);
-				echo $_COOKIE["select"];
 		}
 	}
 	else
