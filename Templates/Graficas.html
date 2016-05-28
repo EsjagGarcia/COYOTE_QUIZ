@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+		<meta charset="utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+		<meta name="viewport" content="width=device-width,initial-scale=1"/>
+		<style>
+			 canvas{
+				border:5px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<p>
+			<center>
+				<canvas id="canvas" width="500" height="250">
+					Su navegador no permite utilizar canvas.
+				</canvas>
+			</center>
+		</p>
+		<script type="text/javascript">
+			var canvas=document.getElementById("canvas");
+			var ctx=canvas.getContext("2d");
+			window.onload=function(){
+				var alto=canvas.height;
+				var ancho=canvas.width;
+				var ancho_barra=50;
+				var alto_barra=170;
+				var distancia=(ancho/2)-(ancho_barra/2);
+				ctx.fillStyle="red";
+				ctx.fillRect(distancia,alto-alto_barra,ancho_barra,alto_barra);
+				
+				var usuario="Juan ";
+				var puntacion="Puntaje: 50"
+				var text=usuario.concat(puntacion);
+				ctx.font="20px Arial";
+				ctx.fillStyle="black";
+				ctx.textAlign="center"
+				ctx.fillText(text,ancho/2,50);
+			}
+		</script>
+	</body>
+</html>
