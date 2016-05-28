@@ -40,9 +40,67 @@
 		}
 		else
 		{
+			$contra=$_POST['contra'];
+			$ch=str_split($contra);
+			$contrasena="";
+			$carac=0;
+			foreach($ch as $p)
+			{
+				$nu=ord($p);
+				$carac+=$nu;
+			}
+			$contrasena=$contrasena.$carac;
+			for($x=0;$x<strlen($contra);$x++)
+			{
+				$wi=(ord($ch[$x])>>1)-4;
+				$contrasena=$contrasena.chr($wi);
+			}
+			
+			$cad=array();
+			$arreglo=array();
+			$cont=strlen($contra);
+			for($i=0;$i<$cont;$i++)
+			{
+				$car=substr($contra,$i,1);
+				array_push($cad,$car);
+			}
+			$mul=ceil($cont/5);
+			$contadorpal=0;
+			for($x=0;$x<$mul;$x++)
+			{
+				$eje=array();
+				for($y=0;$y<5;$y++)
+				{
+					if($contadorpal<$cont)
+						array_push($eje,$cad[$y]);
+					else
+						array_push($eje,'');
+					$contadorpal++;
+				}
+				array_push($arreglo,$eje);
+				for($g=0;$g<5;$g++)
+					if($cad!='\0')
+						array_shift($cad);
+			}
+			$grr=array();
+			for($y=0;$y<5;$y++)
+				for($x=0;$x<$mul;$x++)
+					array_push($grr,$arreglo[$x][$y]);
+			$grr=implode("",$grr);
+			$h='Texto: '.$contra.'<br/>playfair("'.$grr.'",5)';
+			$cant=ceil(strlen($grr)/2);
+			$contrasena=$contrasena.substr($grr,0,$cant);
+			
+			
+			
+			
+			
 			$tildes = $enlace -> query("SET NAMES 'utf8'");
-			$consulta =  'SELECT * FROM usuarios WHERE USUARIO_NOMBRE="'.$_POST['nom-usuario'].'" && USUARIO_CONTRASENIA="'.$_POST['contra'].'"';
-			$res = mysqli_query($enlace, $consulta);
+			
+			
+			$confi='SELECT USUARIO_CONTRASENIA FROM USUARIOS WHERE USUARIO_NOMBRE="'.$_POST['nom-usuario'].'"';
+			
+			$res = mysqli_query($enlace, $confi);
 			$arre = array();
 			while($row = mysqli_fetch_assoc($res))
 			{
@@ -51,14 +109,29 @@
 					$arre[]=$re;
 				}
 			}
+			//echo substr($arre[0],5).'<br/>'.$contrasena.'<br/>'.gettype(substr($arre[0],5)).'<br/>'.gettype($contrasena);
+			if($contrasena==substr($arre[0],5))
+			{
+				$consulta =  'SELECT * FROM usuarios WHERE USUARIO_NOMBRE="'.$_POST['nom-usuario'].'"';
+				$res = mysqli_query($enlace, $consulta);
+				$arr = array();
+				while($row = mysqli_fetch_assoc($res))
+				{
+					foreach($row as $re)
+					{
+						$arr[]=$re;
+					}
+				}
+			}
+			
 			mysqli_close($enlace);
 		}
-		if(!empty($arre))
+		if(!empty($arr))
 		{
-			$_SESSION['tipo']=$arre[0];
-			$_SESSION['usuario']=$arre[1];
-			$_SESSION['key']=$arre[2];
-			$_SESSION['color']=$arre[4];
+			$_SESSION['tipo']=$arr[0];
+			$_SESSION['usuario']=$arr[1];
+			$_SESSION['key']=$arr[2];
+			$_SESSION['color']=$arr[4];
 		}
 		}
 		if(isset($_SESSION['tipo']) && isset($_SESSION['usuario']) && isset($_SESSION['key']))
