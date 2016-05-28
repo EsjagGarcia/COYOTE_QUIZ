@@ -1,11 +1,14 @@
 <?php
-$usuario=$_POST['usuario'];
-$nom=$_POST['nombre'];
-$numero=$_POST['numero'];
-$asignatura=$_POST['asignatura'];
-$prepa=$_POST['prepa'];
-$contra=$_POST['contra'];
-$sena=$_POST['sena'];
+if(preg_match('/^[A-ZÑÁÉÍÓÚ][a-zñáéíóú]{1,10} ([A-ZÑÁÉÍÓÚ][a-zñáéíóú]{1,10} ){1,3}[A-ZÑÁÉÍÓÚ][a-záéíóúñ]{2,10}$/',$_POST['nombre'])&&preg_match('/^[\wÑñ0-9]{3,20}$/',$_POST['usuario'])&&preg_match('/^[a-zA-Z0-9_\.\-\@]{8,17}$/',$_POST['contra']))
+{
+	$usuario=$_POST['usuario'];
+	$nom=$_POST['nombre'];
+	$numero=$_POST['numero'];
+	$asignatura=$_POST['asignatura'];
+	$prepa=$_POST['prepa'];
+	$contra=$_POST['contra'];
+	$sena=$_POST['sena'];
+}
 $ch=str_split($contra);//proceso de codificación
 	$contrasena="";
 	for($x=0;$x<5;$x++)
