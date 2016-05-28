@@ -41,15 +41,38 @@ function eliminare(x){
 		});
 	}
 }
+
 function quitare(x){
 	var lugar=x.id.substr(1);
 	lugar=Number(lugar);
 	lugar+=1;
-	var z=confirm('¿Estas seguro de queres eliminar la pregunta: '+$("tr:eq("+lugar+") td:eq(2)").html()+' ?');
+	var z=confirm('¿Estas seguro de quieres eliminar la pregunta: '+$("tr:eq("+lugar+") td:eq(2)").html()+' ?');
 	if(z==true)
 	{
 		$.ajax({
 			url:"./elimi.php",
+			data:{
+				tex:$("tr:eq("+lugar+") td:eq(2)").html()
+			},
+			type:"POST",
+			dataType:"text",
+			success:function(data){
+				console.log(data);
+				$("#tablapreg").html(data);
+			}
+		});
+	}
+}
+
+function agregare(x){
+	var lugar=x.id.substr(1);
+	lugar=Number(lugar);
+	lugar+=1;
+	var z=confirm('¿Estas seguro de quieres agregar la pregunta: '+$("tr:eq("+lugar+") td:eq(2)").html()+' ?');
+	if(z==true)
+	{
+		$.ajax({
+			url:"./agregi.php",
 			data:{
 				tex:$("tr:eq("+lugar+") td:eq(2)").html()
 			},
