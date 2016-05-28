@@ -1,5 +1,5 @@
 <?php	
-	/*Mi version para selecionar oponentes aleatorios/*
+	/*Mi version para selecionar oponentes aleatorios*/
 	echo '<html>
 		<head>
 		</head>
@@ -8,6 +8,8 @@
 				<input type="text" name="usuario"/>
 				<input type="submit" value="Jugar"/>
 			</form>';
+			/*Funciona con input text (Para probarlo antes de unirlo a lo princiapl) y con una base de datos de prueba
+			Ya existe otro metodo para generalos aleatoriamente, asi que no explicare mucho este archivo*/
 			if (!empty($_POST['usuario'])){
 				$usuario=$_POST['usuario'];
 				echo $usuario.'<br/>';
