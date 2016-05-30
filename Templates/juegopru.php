@@ -272,17 +272,16 @@ echo					'<script>
 			
 			if(isset($_COOKIE['name']))
 			{
+				include_once("subir.php");
 				$name = $_COOKIE['name'];
-				$ussel = $_COOKIE['ussel'];
-				var_dump($name);
-				var_dump($ussel);
-				var_dump($aciertos);
-				$as = (int) $aciertos;
-				var_dump($as);
+				$ussel = $_COOKIE['user'];
+				corre($aciertos,$name,$ussel);
+				
 				setcookie("name",0,time()-1);
-				setcookie("nussel",0,time()-1);
-				$add = "INSERT INTO PARTIDAS VALUES ('PARTIDA DE: $name','$name','$ussel',1,0)";
-				mysqli_query($conect,$add);	
+				setcookie("user",0,time()-1);
+		
+				/*
+				$as = (int) $aciertos;*/
 			}
 		}
 echo	'<br/><a href="usuario.php"><button type="button"> Volver </button></a>';	

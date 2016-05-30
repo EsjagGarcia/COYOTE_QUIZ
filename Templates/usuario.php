@@ -80,13 +80,8 @@
 			$cant=ceil(strlen($grr)/2);
 			$contrasena=$contrasena.substr($grr,0,$cant);
 			
-			
-			
-			
-			
 			$tildes = $enlace -> query("SET NAMES 'utf8'");
-			
-			
+					
 			$confi='SELECT USUARIO_CONTRASENIA FROM USUARIOS WHERE USUARIO_NOMBRE="'.$_POST['nom-usuario'].'"';
 			
 			$res = mysqli_query($enlace, $confi);
@@ -143,9 +138,9 @@
 						</div>	
 						<div class="col-lg-5 col-lg-offset-1 col-md-7 col-sm-7">
 							<div class="collapse navbar-collapse" id="navegacion">';
-								if($_SESSION['tipo']=='1')//pone distintos navs para cada tipo de usuario
+								if($_SESSION['tipo']=='1') //Pone distintos navs para cada tipo de usuario
 								{
-									echo '<a href="juego_menu.php" style="color:white;"> <button type="button" class="btn btn-primary navbar-btn"> Jugar </button> </a>';
+									echo '<a href="juego_menu.html" style="color:white;"> <button type="button" class="btn btn-primary navbar-btn dropdow"> Jugar </button> </a>';
 									echo ' <button type="button" class="btn btn-primary navbar-btn"> Puntajes </button>';
 								}
 								else
@@ -190,12 +185,27 @@
 			</header>
 			<div class="main" id="conten-main">
 			<!-- Aquí va el contenido que venga del usuario-->
-				
 			
 					<div class="row">
-						<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" id="izquierda" height="300px">
-						
-						</div>';
+						<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" id="izquierda" height="300px">';
+							// Notificación de partidas empezadas
+							
+							$connect = mysqli_connect("localhost","root","","prueba");
+							$name = $_SESSION['usuario'];
+							$buscar = "select * partidas where jugador_2 = $name";
+							$search = mysqli_query($connect,$buscar);
+							if($search != false)
+							{
+								$cadena = mysqli_fetch_array($search);
+								print_r($cadena);
+							}
+							else
+							{
+								echo "Sin notificaciones por el momento";
+							}
+							mysqli_close($connect);
+								
+						echo '</div>';
 						echo '<div class="jumbotron col-lg-7 col-lg-offset-1 col-md-7 col-md-offset-1 col-sm-7 col-sm-offset-1 col-xs-7 col-xs-offset-1">
 							<h1>Hola, '.$_SESSION['usuario'].'.</h1>
 							<p>Bienvenido al portal de alumnos de la Escuela Nacional Preparatoria más famosa</p>
