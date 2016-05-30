@@ -25,19 +25,38 @@
 			$crenglones = "select * from usuarios where USUARIOS_TYPE = 1";
 			$reng = mysqli_query($connect,$crenglones);
 			$renglones = mysqli_num_rows($reng);
+			
 			// Cuenta los números de renglones y escoge un random que se conecta con el indice del usuario
 			
 			$count = rand(1,$renglones);
-			$seleccion = "select * from alumnos where estudiante_indice = $count;";
-			$busqueda = mysqli_query($connect,$seleccion);
-			$user2 = mysqli_fetch_array($busqueda);
-			$ussel = $user2['USUARIO_NOMBRE'];
+
+			$comparar = "select estudiante_indice from alumnos where estudiante_nombre = $name";
+			$comprob = mysqli_query($connect,$comparar);
+			echo $comprob;
+			
+			if($comprob == $count)
+			{
+echo			'<script>
+					console.log("aqui toy");
+					location.reload(true);
+				</script>';
+			}
+			else
+			{
+				$seleccion = "select * from alumnos where estudiante_indice = $count";
+				$busqueda = mysqli_query($connect,$seleccion);
+				$user2 = mysqli_fetch_array($busqueda);
+				$ussel = $user2['USUARIO_NOMBRE'];
+				echo $name."<br/>";
+				echo $ussel."<br/>";
+			}
 			
 			// Verifica si el usuario es la misma persona que el usuario electo
 			
 			if($ussel == $name)
 			{
 echo			'<script>
+					console.log("aqui toy");
 					location.reload(true);
 				</script>';
 			}
