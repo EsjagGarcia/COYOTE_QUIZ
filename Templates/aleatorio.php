@@ -10,6 +10,7 @@
 	$connect = mysqli_connect("localhost","root","","prueba");
 	$comprob = "select * from partidas where jugador_1 = $name";
 	$result = mysqli_query($connect,$comprob);
+	mysqli_close($connect);
 	if($result != false)
 	{
 		echo "Ya jugaste";
@@ -25,38 +26,19 @@
 			$crenglones = "select * from usuarios where USUARIOS_TYPE = 1";
 			$reng = mysqli_query($connect,$crenglones);
 			$renglones = mysqli_num_rows($reng);
-			
 			// Cuenta los números de renglones y escoge un random que se conecta con el indice del usuario
 			
 			$count = rand(1,$renglones);
-
-			$comparar = "select estudiante_indice from alumnos where estudiante_nombre = $name";
-			$comprob = mysqli_query($connect,$comparar);
-			echo $comprob;
-			
-			if($comprob == $count)
-			{
-echo			'<script>
-					console.log("aqui toy");
-					location.reload(true);
-				</script>';
-			}
-			else
-			{
-				$seleccion = "select * from alumnos where estudiante_indice = $count";
-				$busqueda = mysqli_query($connect,$seleccion);
-				$user2 = mysqli_fetch_array($busqueda);
-				$ussel = $user2['USUARIO_NOMBRE'];
-				echo $name."<br/>";
-				echo $ussel."<br/>";
-			}
+			$seleccion = "select * from alumnos where estudiante_indice = $count;";
+			$busqueda = mysqli_query($connect,$seleccion);
+			$user2 = mysqli_fetch_array($busqueda);
+			$ussel = $user2['USUARIO_NOMBRE'];
 			
 			// Verifica si el usuario es la misma persona que el usuario electo
 			
 			if($ussel == $name)
 			{
 echo			'<script>
-					console.log("aqui toy");
 					location.reload(true);
 				</script>';
 			}
@@ -73,7 +55,7 @@ echo			'<script>
 				setcookie("usertipo",$tipo,time()+48000);
 				setcookie("userllave",$llave,time()+48000);
 				setcookie("usercolor",$color,time()+48000);
-				setcookie("name",$name	,time()+48000);
+				setcookie("name",$name,time()+48000);
 				setcookie("user",$ussel,time()+48000);
 				
 				/*if(!isset($_COOKIE["user"]))

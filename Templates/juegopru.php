@@ -4,15 +4,54 @@
 	
 echo '<!DOCTYPE html>
 		<head>
-		<meta charset="UTF-8-BOM">
-			<script src="../Documents/jquery.js"/></script>
-			<title> COYOTE_QUIZ </title>
+			<meta charset="utf-8"/>
+			<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+			<meta name="viewpiort" content="width=device-width, initial-scale=1"/>
+			
+			<title>Puma Quiz</title>
+			
+			<link href="../Documents/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+			<link rel="shortcut icon" href="../Sources/Resources/prepa 6.jpg" type="image/png"/>
+			<link href="../Style/usuario.less"  rel="stylesheet/less" type="text/css">
+			<script src="../Documents/less.js" type="text/javascript"></script>
 		</head>
-		<body>
+		<body data-spy="scroll" data-target="#navegacion">
+		<div class="container" id="cuer">';
+		
+		
+		if(isset($_SESSION['tipo']) && isset($_SESSION['usuario']) && isset($_SESSION['key']))
+		{
+			echo '<header style="padding-bottom:70px;">
+				<nav class="navbar navbar-default navbar-fixed-top" role="navegation" id="part-top">
+					<div class="row">
+						<div class="col-lg-5 col-lg-offset-1 col-md-4 col-md-offset-1 col-sm-4 col-sm-offset-1">
+							<div class="navbar-header">
+								<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navegacion">
+									<span class="sr-only">Mostrar navegación</span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+								<a href="./usuario.php" class="navbar-brand" id="imag-unam"><img alt="Brand" src="../Sources/Resources/esc-unam.png" height="140%"/></a>
+								<p id="text" class="navbar-text">'.$_SESSION['usuario'].'</p>
+							</div>	
+						</div>	
+						<div class="col-lg-5 col-lg-offset-1 col-md-7 col-sm-7">
+							<div class="collapse navbar-collapse" id="navegacion">
+							</div>
+						</div>	
+					</div>
+				</nav>
+			</header>
+			
+			
+			
+			
 			<div id="contador"></div>';
 	
 	// Conteo de las preguntas seleccionadas para establecer un limite del juego
 	
+	$conect = mysqli_connect("localhost","root","","prueba");
 	$count = count($_SESSION);
 	if($count < 10)
 	{
@@ -22,7 +61,7 @@ echo '<!DOCTYPE html>
 		{
 echo		'<form action="juegopru.php" method="POST">
 				<select name="materia">
-					<option> Matematicas </option>
+					<option> MATEMATICASIV</option>
 				</select>
 				<input type="submit" value="Empezar"/>
 			</form>';
@@ -53,23 +92,27 @@ echo			'var segundos = 0;
 						segundos++;
 						document.getElementById("contador").innerHTML = "Tienes: " + segundos + " segundos.";
 					}
-				}';
-echo 		'</script>';
+				}
+				</script>';
 			// Coneccion a la base de datos
 			$conr = 0;
-			$conect = mysqli_connect("localhost","root");
 			$cat = $_POST['materia'];
 			
 			// Verifica la procedencia de la base de datos
 			
-			if(mysqli_select_db($conect,"juego"))
+			if($conect)
 			{
-			  if($conr == 0)
-			  {
+			  //if($conr == 0)
+			  //{
 				$max = 1;
 				$sabe = array();
 					$si = 0;
-					$c = rand(1,12);
+					
+					$crenglones = "select * from ".$cat;
+					$reng = mysqli_query($conect, $crenglones);
+					$renglones = mysqli_num_rows($reng);
+					
+					$c = rand(1,$renglones);
 					foreach($sabe as $value)
 						if($value == $c)
 							$si = 1;
@@ -102,10 +145,10 @@ echo 		'</script>';
 						if($comprob == 1)
 						{
 							// Despliega las preguntas
-						$arresp=array ();
-						$pip1=0;
-						$b=0;
-						do {
+						  $arresp=array ();
+						  $pip1=0;
+						  $b=0;
+						  do {
 							$pip1=0;
 							$i43=count($arresp);
 							$x43=rand (1,4);
@@ -162,12 +205,13 @@ echo 		'</script>';
 									$arresp[$b]=4;
 								}
 							}
-						}
-						while ($b!=4);
-							print_r($arresp);
-							//echo $pregunta;
+						  }
+						  while ($b!=4);
+							$comprob = 0;
+							
 							echo $_SESSION['pregunta'.$c.''];
-							echo '<br/>';
+							echo "<br/>";
+							
 							foreach ($arresp as $hola){
 								if ($hola==1)
 								{
@@ -191,11 +235,12 @@ echo 		'</script>';
 									echo '<input type="radio" name="res" value="n" class="res"/>'.$cuatro.'<br/>';
 								}
 							}
+							
 							$ñ = 0;
 							
 							// Va agregando los valores de repetición
+							
 							$c = count($_SESSION);
-							echo $c;
 							if($c < 10)
 								$conr = 0;
 							else
@@ -204,6 +249,7 @@ echo 		'</script>';
 							// Despliega las preguntas y llama un ayax para guardar la informacion
 							
 echo						'<script>
+							$(document).ready(function(){
 								$(".res").change(function(){
 									
 										$.ajax({
@@ -220,6 +266,7 @@ echo						'<script>
 										});
 									location.reload(true);
 								});
+							});
 							</script>';
 							$ñ++;
 							$max++;
@@ -231,22 +278,24 @@ echo						'<script>
 							</script>';
 						}
 					}
-			  }
+					else
+					{
+echo					'<script>
+							location.reload(true);
+						</script>';
+					}
+			  //}
 			}
 			// Error al establecer la conexión
 			
 			else
 				echo "algo no va bien";
-			
-				print_r($_SESSION);
-				echo $_COOKIE["select"];
 		}
 	}
 	else
 	{
 		// Juego terminado
 		
-		session_destroy();
 		echo "Terminaste";
 		if(isset($_COOKIE["select"]))
 		{
@@ -256,10 +305,38 @@ echo						'<script>
 			echo "Errores: ".$errors;
 		}
 		else
-			echo "No respondiste nada";
+			echo "<br/>No respondiste nada";
+			
+		if(isset($_COOKIE['userjuego']))
+		{
+			
+			if(isset($_COOKIE['name']))
+			{
+				include_once("subir.php");
+				$name = $_COOKIE['name'];
+				$ussel = $_COOKIE['user'];
+				corre($aciertos,$name,$ussel);
+				
+				setcookie("name",0,time()-1);
+				setcookie("user",0,time()-1);
+		
+				/*
+				$as = (int) $aciertos;*/
+			}
+		}
+echo	'<br/><a href="usuario.php"><button type="button"> Volver </button></a>';	
+		
+		mysqli_close($conect);
+		session_destroy();
 		setcookie("select",0,time()-1);
-		header("location : terminaste");
+		session_start();
+		$_SESSION['usuario'] = $_COOKIE['userjuego'];
+		$_SESSION['tipo'] = $_COOKIE['usertipo'];
+		$_SESSION['key'] = $_COOKIE['userllave'];
+		$_SESSION['color'] = $_COOKIE['usercolor'];	
 	}
-echo	'</body>
-	</html>';
+		}
+echo'</div>
+	</body>
+</html>';
 ?>
