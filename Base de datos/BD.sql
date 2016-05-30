@@ -98,7 +98,7 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `matematicas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `matematicas` (
+CREATE TABLE `matematicasIV` (
   `UNIDAD` char(1) DEFAULT NULL,
   `INDICADOR` int(11) NOT NULL AUTO_INCREMENT,
   `PREGUNTA` varchar(100) DEFAULT NULL,

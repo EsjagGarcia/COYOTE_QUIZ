@@ -1,0 +1,11 @@
+INSERT INTO `matematicasiv` VALUES ('4',1,'??Cu?Ìl de los siguentes es un conjunto vac?°o?','{}','vac?°o','{f}','{{}}');
+INSERT INTO `matematicasiv` VALUES ('4',2,'??Cual es el nombre de la \"chicharronera\"?','Fromula general para la factorizacion de','NO se','no existe en matematicas','Producto notable de segundo grado');
+INSERT INTO `matematicasiv` VALUES ('4',3,'??Cu?Ìl de los siguetes incisos es el producto notable  de (a + b) (a ‘«Ù b)?','a2?·‘«Ù b2','a+b','a-b','2a+2b');
+INSERT INTO `matematicasiv` VALUES ('4',4,'??Cu?Ìl es un numero imaginario?','imaginario','ai^2','ai','a');
+INSERT INTO `matematicasiv` VALUES ('4',5,'Se dice que ____ son densos en los enteros','Reales','Enteros','Imaginarios','Negativos');
+INSERT INTO `matematicasiv` VALUES ('4',6,'El conjunto a tine a numeros del 1 al 1323 y el conjunto b tiene las letras a y b,??cual es su inter','{ }','a yb','todos los numeros','Imaginarios');
+INSERT INTO `matematicasiv` VALUES ('4',7,'??Cual es el producto de notable de (a+b)^2?','a^2+2ab+b^2','a^2+b^2','a+b+a+b','a*2+b*2');
+INSERT INTO `matematicasiv` VALUES ('4',8,'Valor de : 4!','24','96','16','8'),('4',9,'El valor de : a^2/a','a','a^2','1','0');
+INSERT INTO `matematicasiv` VALUES ('4',10,'El siguente es un numero entero positivo','8','8.333','-8','01-feb');
+INSERT INTO `matematicasiv` VALUES ('4',11,'Un numero irracional','Pi','4','8.33313213','8.33333');
+INSERT INTO `matematicasiv` VALUES ('4',12,'??Qu?Æ es un numero imaginario?','numero que piensas','una raiz negativa','un numero con un denominador mayor al di','un numero con un divisor mayor al denomi');
