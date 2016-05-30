@@ -32,6 +32,7 @@
 			$busqueda = mysqli_query($connect,$seleccion);
 			$user2 = mysqli_fetch_array($busqueda);
 			$ussel = $user2['USUARIO_NOMBRE'];
+			
 			// Verifica si el usuario es la misma persona que el usuario electo
 			
 			if($ussel == $name)
@@ -53,14 +54,13 @@ echo			'<script>
 				setcookie("usertipo",$tipo,time()+48000);
 				setcookie("userllave",$llave,time()+48000);
 				setcookie("usercolor",$color,time()+48000);
-				setcookie("name",$name,time()+48000);
+				setcookie("name",$name	,time()+48000);
 				setcookie("user",$ussel,time()+48000);
-				if(!isset($_COOKIE["user"]))
+				
+				/*if(!isset($_COOKIE["user"]))
 				{
-echo				'<script>
-						location.reload(true);
-					</script>';
-				}
+					header(location:"juego_menu.php");
+				}*/
 			}
 		}
 	}
