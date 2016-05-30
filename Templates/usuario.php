@@ -133,7 +133,7 @@
 									<span class="icon-bar"></span>
 								</button>
 								<a href="./usuario.php" class="navbar-brand" id="imag-unam"><img alt="Brand" src="../Sources/Resources/esc-unam.png" height="140%"/></a>
-								<p class="navbar-text">'.$_SESSION['usuario'].'</p>
+								<p id="text" class="navbar-text">'.$_SESSION['usuario'].'</p>
 							</div>	
 						</div>	
 						<div class="col-lg-5 col-lg-offset-1 col-md-7 col-sm-7">
