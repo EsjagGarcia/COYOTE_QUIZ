@@ -13,7 +13,6 @@ echo '<!DOCTYPE html>
 	
 	// Conteo de las preguntas seleccionadas para establecer un limite del juego
 	
-	$conect = mysqli_connect("localhost","root","","prueba");
 	$count = count($_SESSION);
 	if($count < 10)
 	{
@@ -23,7 +22,7 @@ echo '<!DOCTYPE html>
 		{
 echo		'<form action="juegopru.php" method="POST">
 				<select name="materia">
-					<option> MATEMATICASIV</option>
+					<option> Matematicas </option>
 				</select>
 				<input type="submit" value="Empezar"/>
 			</form>';
@@ -54,27 +53,23 @@ echo			'var segundos = 0;
 						segundos++;
 						document.getElementById("contador").innerHTML = "Tienes: " + segundos + " segundos.";
 					}
-				}
-				</script>';
+				}';
+echo 		'</script>';
 			// Coneccion a la base de datos
 			$conr = 0;
+			$conect = mysqli_connect("localhost","root");
 			$cat = $_POST['materia'];
 			
 			// Verifica la procedencia de la base de datos
 			
-			if($conect)
+			if(mysqli_select_db($conect,"juego"))
 			{
-			  //if($conr == 0)
-			  //{
+			  if($conr == 0)
+			  {
 				$max = 1;
 				$sabe = array();
 					$si = 0;
-					
-					$crenglones = "select * from ".$cat;
-					$reng = mysqli_query($conect, $crenglones);
-					$renglones = mysqli_num_rows($reng);
-					
-					$c = rand(1,$renglones);
+					$c = rand(1,12);
 					foreach($sabe as $value)
 						if($value == $c)
 							$si = 1;
@@ -107,10 +102,10 @@ echo			'var segundos = 0;
 						if($comprob == 1)
 						{
 							// Despliega las preguntas
-						  $arresp=array ();
-						  $pip1=0;
-						  $b=0;
-						  do {
+						$arresp=array ();
+						$pip1=0;
+						$b=0;
+						do {
 							$pip1=0;
 							$i43=count($arresp);
 							$x43=rand (1,4);
@@ -167,13 +162,12 @@ echo			'var segundos = 0;
 									$arresp[$b]=4;
 								}
 							}
-						  }
-						  while ($b!=4);
-							$comprob = 0;
-							
+						}
+						while ($b!=4);
+							print_r($arresp);
+							//echo $pregunta;
 							echo $_SESSION['pregunta'.$c.''];
-							echo "<br/>";
-							
+							echo '<br/>';
 							foreach ($arresp as $hola){
 								if ($hola==1)
 								{
@@ -197,12 +191,11 @@ echo			'var segundos = 0;
 									echo '<input type="radio" name="res" value="n" class="res"/>'.$cuatro.'<br/>';
 								}
 							}
-							
 							$ñ = 0;
 							
 							// Va agregando los valores de repetición
-							
 							$c = count($_SESSION);
+							echo $c;
 							if($c < 10)
 								$conr = 0;
 							else
@@ -238,24 +231,22 @@ echo						'<script>
 							</script>';
 						}
 					}
-					else
-					{
-echo					'<script>
-							location.reload(true);
-						</script>';
-					}
-			  //}
+			  }
 			}
 			// Error al establecer la conexión
 			
 			else
 				echo "algo no va bien";
+			
+				print_r($_SESSION);
+				echo $_COOKIE["select"];
 		}
 	}
 	else
 	{
 		// Juego terminado
 		
+		session_destroy();
 		echo "Terminaste";
 		if(isset($_COOKIE["select"]))
 		{
@@ -265,35 +256,9 @@ echo					'<script>
 			echo "Errores: ".$errors;
 		}
 		else
-			echo "<br/>No respondiste nada";
-			
-		if(isset($_COOKIE['userjuego']))
-		{
-			
-			if(isset($_COOKIE['name']))
-			{
-				include_once("subir.php");
-				$name = $_COOKIE['name'];
-				$ussel = $_COOKIE['user'];
-				corre($aciertos,$name,$ussel);
-				
-				setcookie("name",0,time()-1);
-				setcookie("user",0,time()-1);
-		
-				/*
-				$as = (int) $aciertos;*/
-			}
-		}
-echo	'<br/><a href="usuario.php"><button type="button"> Volver </button></a>';	
-		
-		mysqli_close($conect);
-		session_destroy();
+			echo "No respondiste nada";
 		setcookie("select",0,time()-1);
-		session_start();
-		$_SESSION['usuario'] = $_COOKIE['userjuego'];
-		$_SESSION['tipo'] = $_COOKIE['usertipo'];
-		$_SESSION['key'] = $_COOKIE['userllave'];
-		$_SESSION['color'] = $_COOKIE['usercolor'];	
+		header("location : terminaste");
 	}
 echo	'</body>
 	</html>';
