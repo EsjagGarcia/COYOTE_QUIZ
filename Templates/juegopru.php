@@ -13,7 +13,7 @@ echo '<!DOCTYPE html>
 	
 	// Conteo de las preguntas seleccionadas para establecer un limite del juego
 	
-	$conect = mysqli_connect("localhost","root");
+	$conect = mysqli_connect("localhost","root","","prueba");
 	$count = count($_SESSION);
 	if($count < 10)
 	{
@@ -23,7 +23,7 @@ echo '<!DOCTYPE html>
 		{
 echo		'<form action="juegopru.php" method="POST">
 				<select name="materia">
-					<option> Matematicas </option>
+					<option> MATEMATICASIV</option>
 				</select>
 				<input type="submit" value="Empezar"/>
 			</form>';
@@ -54,15 +54,15 @@ echo			'var segundos = 0;
 						segundos++;
 						document.getElementById("contador").innerHTML = "Tienes: " + segundos + " segundos.";
 					}
-				}';
-echo 		'</script>';
+				}
+				</script>';
 			// Coneccion a la base de datos
 			$conr = 0;
 			$cat = $_POST['materia'];
 			
 			// Verifica la procedencia de la base de datos
 			
-			if(mysqli_select_db($conect,"prueba"))
+			if($conect)
 			{
 			  //if($conr == 0)
 			  //{
@@ -70,8 +70,8 @@ echo 		'</script>';
 				$sabe = array();
 					$si = 0;
 					
-					$crenglones = "select * from $cat;";
-					$reng = mysqli_query($conect,$crenglones);
+					$crenglones = "select * from ".$cat;
+					$reng = mysqli_query($conect, $crenglones);
 					$renglones = mysqli_num_rows($reng);
 					
 					$c = rand(1,$renglones);
