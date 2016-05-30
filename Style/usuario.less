@@ -1,4 +1,15 @@
 @col1:#c79810;
+#text,#part-bottom
+{
+	& when (luma(@col1)<56%)
+	{
+		color:white;
+	}
+	& when (luma(@col1)>55%)
+	{
+		color:black;
+	}
+}
 #izquierda{
 	border:1px solid black;
 	height:500px;
