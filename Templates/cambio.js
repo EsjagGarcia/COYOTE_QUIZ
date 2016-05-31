@@ -8,6 +8,7 @@ $("#alum,#profe,#cordi").click(function(){
 		dataType:"text",
 		success:function(data){
 			$("#ejecucion").html(data);
+			console.log($("tr:eq(1) td:eq(1)").html());
 		}
 	});
 });
@@ -21,7 +22,7 @@ function eliminare(x){
 		$.ajax({
 			url:"./eliminar.php",
 			data:{
-				tex:$("tr:eq("+lugar+") td:eq(0)").html()
+				tex:$("tr:eq("+lugar+") td:eq(1)").html()
 			},
 			type:"POST",
 			dataType:"text",

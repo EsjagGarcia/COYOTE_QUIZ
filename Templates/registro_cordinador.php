@@ -66,9 +66,10 @@
 
 if($contra==$sena)
 {
+	$fecha=date('Y/m/d');
 	$link=mysqli_connect("localhost","root","","prueba");
 	$tildes = $link->query("SET NAMES 'utf8'");
-	$SQL='INSERT INTO USUARIOS(USUARIOS_TYPE,USUARIO_NOMBRE,USUARIO_KEY,USUARIO_CONTRASENIA,COLOR,IMAGEN) values (3,"'.$usuario.'",'.$numero.',"'.$contrasena.'","#c79810",0)';
+	$SQL='INSERT INTO USUARIOS(USUARIOS_TYPE,USUARIO_NOMBRE,USUARIO_KEY,USUARIO_CONTRASENIA,COLOR,IMAGEN,FECHA_CONECT) values (3,"'.$usuario.'",'.$numero.',"'.$contrasena.'","#c79810",0,"'.$fecha.'")';
 	$SQL2='INSERT INTO COORDINADORES(USUARIO_NOMBRE,USUARIO_KEY,ASIGNATURA,COORDINADOR_NOMBRE) VALUES ("'.$usuario.'",'.$numero.',"'.$asig.'","'.$nom.'")';
 	mysqli_query($link,$SQL);
 	mysqli_query($link,$SQL2);
