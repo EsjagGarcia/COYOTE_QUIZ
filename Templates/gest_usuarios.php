@@ -10,9 +10,9 @@
 		else
 		{
 			$tildes = $enlace -> query("SET NAMES 'utf8'");
-			$consulta='SELECT USUARIO_NOMBRE,USUARIO_KEY,ESTUDIANTE_NOMBRE,ALUMNO_GRUPO,ALUMNO_PARTIDAS FROM usuarios NATURAL JOIN alumnos WHERE USUARIOS_TYPE=1';
+			$consulta='SELECT FECHA_CONECT,USUARIO_NOMBRE,USUARIO_KEY,ESTUDIANTE_NOMBRE,ALUMNO_GRUPO,ALUMNO_PARTIDAS FROM usuarios NATURAL JOIN alumnos WHERE USUARIOS_TYPE=1 ORDER BY FECHA_CONECT';
 			$res=mysqli_query($enlace, $consulta);
-			$variable="<table class='table table-hover table-bordered'><tr class='info'><th>Nombre de usuario</th><th>Clave</th><th>Nombre del estudiante</th><th>Grupo</th><th>Partidas</th><th>Eliminar</th></tr>";
+			$variable="<table class='table table-hover table-bordered'><tr class='info'><th>Última conexión</th><th>Nombre de usuario</th><th>Clave</th><th>Nombre del estudiante</th><th>Grupo</th><th>Partidas</th><th>Eliminar</th></tr>";
 			$n=0;
 			while($row=mysqli_fetch_assoc($res))
 			{
@@ -36,9 +36,9 @@
 		else
 		{
 			$tildes = $enlace -> query("SET NAMES 'utf8'");
-			$consulta='SELECT USUARIO_NOMBRE,USUARIO_KEY,PROFESOR_NOMBRE,PROFESOR_ASIGNATURA,PROFESOR_PREPA FROM usuarios NATURAL JOIN profesores WHERE USUARIOS_TYPE=2';
+			$consulta='SELECT FECHA_CONECT,USUARIO_NOMBRE,USUARIO_KEY,PROFESOR_NOMBRE,PROFESOR_ASIGNATURA,PROFESOR_PREPA FROM usuarios NATURAL JOIN profesores WHERE USUARIOS_TYPE=2  ORDER BY FECHA_CONECT';
 			$res=mysqli_query($enlace, $consulta);
-			$variable="<table class='table table-hover table-bordered'><tr class='info'><th>Nombre de usuario</th><th>Clave</th><th>Nombre del Profesor</th><th>Asignatura</th><th># Preparatoria</th><th>Eliminar</th></tr>";
+			$variable="<table class='table table-hover table-bordered'><tr class='info'><th>Última conexión</th><th>Nombre de usuario</th><th>Clave</th><th>Nombre del Profesor</th><th>Asignatura</th><th># Preparatoria</th><th>Eliminar</th></tr>";
 			$n=0;
 			while($row=mysqli_fetch_assoc($res))
 			{
@@ -64,9 +64,9 @@
 		else
 		{
 			$tildes = $enlace -> query("SET NAMES 'utf8'");
-			$consulta='SELECT USUARIO_NOMBRE,USUARIO_KEY,COORDINADOR_NOMBRE,ASIGNATURA FROM usuarios NATURAL JOIN coordinadores WHERE USUARIOS_TYPE=3';
+			$consulta='SELECT FECHA_CONECT,USUARIO_NOMBRE,USUARIO_KEY,COORDINADOR_NOMBRE,ASIGNATURA FROM usuarios NATURAL JOIN coordinadores WHERE USUARIOS_TYPE=3  ORDER BY FECHA_CONECT';
 			$res=mysqli_query($enlace, $consulta);
-			$variable="<table class='table table-hover table-bordered'><tr class='info'><th>Nombre de usuario</th><th>Clave</th><th>Nombre del Coordinador</th><th>Asignatura</th><th>Eliminar</th></tr>";
+			$variable="<table class='table table-hover table-bordered'><tr class='info'><th>Última conexión</th><th>Nombre de usuario</th><th>Clave</th><th>Nombre del Coordinador</th><th>Asignatura</th><th>Eliminar</th></tr>";
 			$n=0;
 			while($row=mysqli_fetch_assoc($res))
 			{
