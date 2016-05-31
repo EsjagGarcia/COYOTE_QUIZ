@@ -54,8 +54,8 @@ echo '<!DOCTYPE html>
 	
 	$conect = mysqli_connect("localhost","root","","prueba");
 	$count = count($_SESSION);
-	if($count < 10)
-	{
+	
+	
 		// Seleccionar materia
 		
 		if(!isset($_POST['materia']))
@@ -67,8 +67,9 @@ echo		'<form action="juegopru.php" method="POST">
 				<input type="submit" value="Empezar"/>
 			</form>';
 		}
-		else
+		elseif($count < 10)
 		{
+			echo "HHH";
 			// Intervalos del tiempo
 			
 echo 		'<script>';
@@ -107,20 +108,21 @@ echo			'var segundos = 0;
 			  //{
 				$max = 1;
 				$sabe = array();
-					$si = 0;
+				$si = 0;
 					
-					$crenglones = "select * from ".$cat;
-					$reng = mysqli_query($conect, $crenglones);
-					$renglones = mysqli_num_rows($reng);
+				$crenglones = "select * from ".$cat;
+				$reng = mysqli_query($conect, $crenglones);
+				$renglones = mysqli_num_rows($reng);
 					
-					$c = rand(1,$renglones);
-					foreach($sabe as $value)
-						if($value == $c)
-							$si = 1;
-					
+				$c = rand(1,$renglones);
+				
+				foreach($sabe as $value)
+					if($value == $c)
+						$si = 1;
+				
 					// Valida la repetición de preguntas
 						
-					if($si < 1)
+					if($si == 0)
 					{
 						if(!isset($_SESSION['preguntas'.$c.'']))
 								$_SESSION['pregunta'.$c.''] = 0;
@@ -136,8 +138,17 @@ echo			'var segundos = 0;
 						$na = mysqli_fetch_array($search);
 						$pregunta = $na['PREGUNTA'];
 						$_SESSION['pregunta'.$c.''] = $pregunta;
+
+						
 						$comprob = 0;
-						foreach($_SESSION as $xa)
+						if (!isset($_SESSION['indi']))
+						{
+							$abc=array(0);
+							$_SESSION['indi']=$abc;
+						}
+						$indis=$_SESSION['indi'];
+						$indis[]=$c;
+						foreach($indis as $xa)
 							if($xa == $pregunta)
 								$comprob = 1;
 						
@@ -146,68 +157,68 @@ echo			'var segundos = 0;
 						if($comprob == 1)
 						{
 							// Despliega las preguntas
-						  $arresp=array ();
-						  $pip1=0;
-						  $b=0;
-						  do {
+							$_SESSION['indi'] = $indis;
+							$arresp=array ();
 							$pip1=0;
-							$i43=count($arresp);
-							$x43=rand (1,4);
-							if ($x43==1)
+							$b=0;
+							do 
 							{
-								foreach ($arresp as $lel)
+								$pip1=0;
+								$i43=count($arresp);
+								$x43=rand (1,4);
+								if ($x43==1)
 								{
-									if ($lel==1)
-									$pip1=1;
+									foreach ($arresp as $lel)
+									{
+										if ($lel == 1)
+											$pip1 = 1;
+									}
+									if ($pip1!=1)
+									{
+										$b++;
+										$arresp[$b]=1;
+									}
+								}	
+								else if ($x43==2)
+								{
+									foreach ($arresp as $lel)
+									{
+										if ($lel == 2)
+											$pip1= 1;
+										
+									}
+									if ($pip1 != 1)
+									{
+										$b++;
+										$arresp[$b] = 2;
+									}
 								}
-								if ($pip1!=1)
+								else if ($x43 == 3)
 								{
-									$b++;
-									$arresp[$b]=1;
-								}
-							}	
-							else if ($x43==2)
-							{
-								foreach ($arresp as $lel)
-								{
-									if ($lel==2)
-										$pip1=1;
+									foreach ($arresp as $lel)
+										if ($lel == 3)
+											$pip1 = 1;
 									
+									if ($pip1 != 1)
+									{
+										$b++;
+										$arresp[$b] = 3;
+									}
 								}
-								if ($pip1!=1)
-								{
-									$b++;
-									$arresp[$b]=2;
-								}
-							}
-							else if ($x43==3)
+							else if ($x43 == 4)
 							{
 								foreach ($arresp as $lel)
-								{
-									if ($lel==3)
-										$pip1=1;
-								}
-								if ($pip1!=1)
-								{
-									$b++;
-									$arresp[$b]=3;
-								}
-							}
-							else if ($x43==4)
-							{
-								foreach ($arresp as $lel)
-								{
-									if ($lel==4)
-										$pip1=1;
-								}
-								if ($pip1!=1)
+									if ($lel == 4)
+										$pip1 = 1;
+								
+								if ($pip1 != 1)
 								{
 									$b++;
-									$arresp[$b]=4;
+									$arresp[$b] = 4;
 								}
 							}
 						  }
-						  while ($b!=4);
+						  while ($b != 4);
 							$comprob = 0;
 							
 							echo $_SESSION['pregunta'.$c.''];
@@ -236,7 +247,7 @@ echo			'var segundos = 0;
 									echo '<input type="radio" name="res" value="n" class="res"/>'.$cuatro.'<br/>';
 								}
 							}
-							
+							echo $na['INDICADOR'];
 							$ñ = 0;
 							
 							// Va agregando los valores de repetición
@@ -291,8 +302,8 @@ echo					'<script>
 			
 			else
 				echo "algo no va bien";
+		
 		}
-	}
 	else
 	{
 		// Juego terminado
@@ -316,7 +327,8 @@ echo					'<script>
 				include_once("subir.php");
 				$name = $_COOKIE['name'];
 				$ussel = $_COOKIE['user'];
-				corre($aciertos,$name,$ussel);
+				if(isset($aciertos))
+					corre($aciertos,$name,$ussel);
 				
 				setcookie("name",0,time()-1);
 				setcookie("user",0,time()-1);
@@ -325,7 +337,7 @@ echo					'<script>
 				$as = (int) $aciertos;*/
 			}
 		}
-echo	'<br/><a href="juego_menu.php"><button type="button"> Volver </button></a>';	
+echo	'<br/><a href="juego_menu1.php"><button type="button"> Volver </a>';	
 		
 		mysqli_close($conect);
 		session_destroy();
