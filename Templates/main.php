@@ -12,11 +12,7 @@
 		<link href="../Style/stylemain.css"  rel="stylesheet" type="text/css">
 	</head>
 	<body data-spy="scroll" data-target="#navegacion">
-	<?php
-		SESSION_START();
-		SESSION_UNSET();
-		SESSION_DESTROY();
-	?>
+	
 		<div class="container">
 			<header>
 				<nav class="navbar navbar-default navbar-fixed-top" role="navegation" id="part-top">
@@ -49,7 +45,9 @@
 								<ol class="carousel-indicators">
 									<li data-target="#carouselimg" data-slide-to="0" class="active"></li>
 									<li data-target="#carouselimg" data-slide-to="1"></li>
-									<!--<li data-target="#carousel-example-generic" data-slide-to="2"></li>-->
+									
+								<!--<li data-target="#carousel-example-generic" data-slide-to="2"></li>-->
+								
 								</ol>
 								<div class="carousel-inner" role="listbox" id="carrusel">
 									<div class="item active" height="90px">

@@ -17,6 +17,7 @@
 	});
 	
 	/*Ya que son muchas asignaturas y eso generaría un select de asignatura muy grande, se decidió clasificarlas según el grado y que apareciera otro select dependiendo del grado y en caso de sexto grado el área*/
+	
 	$("#grado").change(function() {
 				var grado=$("#grado").val();
 				if (grado == 1)
@@ -75,11 +76,8 @@
 		var nom = new RegExp("^[a-zA-Z]{3,20}");
 		var unom = $("#nomu").val();
 		var comp = unom.search(nom);
-		if(comp == false)
-			console.log("Bien");
-		else
+		if(comp != false)
 		{
-			console.log("Mal");
 			$("#f1").click(function(event){
 				event.preventDefault();
 			});
@@ -89,11 +87,8 @@
 		var nom = new RegExp("^[a-zA-Z0-9_\.\-\@]{8,15}");
 		var unom = $("#con").val();
 		var comp = unom.search(nom);
-		if(comp == false)
-			console.log("Bien");
-		else
+		if(comp != false)
 		{
-			console.log("Mal");
 			$("#f1").click(function(event){
 				event.preventDefault();
 			});
@@ -107,7 +102,6 @@
 			console.log("Bien");
 		else
 		{
-			console.log("Mal");
 			$("#f1").click(function(event){
 				event.preventDefault();
 			});
@@ -121,7 +115,6 @@
 			console.log("Bien");
 		else
 		{
-			console.log("Mal");
 			$("#f1").click(function(event){
 				event.preventDefault();
 			});
@@ -135,7 +128,6 @@
 			console.log("Bien");
 		else
 		{
-			console.log("Mal");
 			$("#f1").click(function(event){
 				event.preventDefault();
 			});
@@ -146,10 +138,7 @@
 		var unom = $("#contra").val();
 		var comp = unom.search(nom);
 		if(comp == false)
-			console.log("Bien");
-		else
 		{
-			console.log("Mal");
 			$("#f1").click(function(event){
 				event.preventDefault();
 			});
@@ -159,11 +148,8 @@
 		var nom = new RegExp("^[a-zA-Z0-9_\.\-\@]{8,17}");
 		var unom = $("#sena").val();
 		var comp = unom.search(nom);
-		if(comp == false)
-			console.log("Bien");
-		else
+		if(comp != false)
 		{
-			console.log("Mal");
 			$("#f1").click(function(event){
 				event.preventDefault();
 			});

@@ -102,7 +102,7 @@
 					<div class="text-center col-lg-6" id="menujuego">
 						
 						<h2> Modo de juego: </h2><br/>
-						<a href="juegopru.php" id="aleat"><button class="btn btn-lg btn-primary"> Jugador aleatorio </button></a><br/><br/>
+						<a href="#" id="aleat"><button class="btn btn-lg btn-primary"> Jugador aleatorio </button></a><br/><br/>
 						<a href="#" id="select" class="active"><button class="btn btn-lg btn-primary"> Seleccionar amigo </button></a>
 					
 					</div>
