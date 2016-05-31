@@ -143,6 +143,9 @@
 								$imagen[]=$re;
 							}
 						}
+					$fecha=date('Y/m/d');
+					$nuevafecha='UPDATE usuarios SET FECHA_CONECT="'.$fecha.'" WHERE USUARIO_NOMBRE="'.$_SESSION['usuario'].'"';
+					mysqli_query($enlace,$nuevafecha);
 				}
 				mysqli_close($enlace);
 				echo '<header>

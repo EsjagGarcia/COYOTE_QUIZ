@@ -30,6 +30,24 @@
 			
 			if(isset($_SESSION['tipo']) && isset($_SESSION['usuario']) && isset($_SESSION['key']))
 			{
+				$enlace=mysqli_connect("localhost","root","","prueba");
+				if(!$enlace)
+					echo 'hubo un error';
+				else
+				{
+					$lectura = 'SELECT IMAGEN FROM USUARIOS WHERE USUARIO_NOMBRE="'.$_SESSION['usuario'].'"';
+					$image = mysqli_query($enlace,$lectura);
+					$arr = array();
+					if($image != false)
+						while($row = mysqli_fetch_assoc($image))
+						{
+							foreach($row as $re)
+							{
+								$imagen[]=$re;
+							}
+						}
+				}
+				mysqli_close($enlace);
 				echo '<header>
 					<nav class="navbar navbar-default navbar-fixed-top" role="navegation" id="part-top">
 						<div class="row">
@@ -41,8 +59,19 @@
 										<span class="icon-bar"></span>
 										<span class="icon-bar"></span>
 									</button>
-									<a href="./usuario.php" class="navbar-brand" id="imag-unam"><img alt="Brand" src="../Sources/Resources/esc-unam.png" height="140%"/></a>
-									<p class="navbar-text">'.$_SESSION['usuario'].'</p>
+									<a href="./usuario.php" class="navbar-brand" id="imag-unam">';
+									if(isset($imagen))
+									{
+										if($imagen[0]=='0')
+										{
+											echo '<img src="../Sources/Resources/sombra.jpg" alt="sombra" height="140%"/>';
+										}
+										else
+										{
+											echo '<img src="data:image/jpg;base64,'.base64_encode($imagen[0]).'" height="140%"/>';
+										}
+									}
+									echo '</a><p id="text" class="navbar-text">'.$_SESSION['usuario'].'</p>
 								</div>	
 							</div>	
 							<div class="col-lg-5 col-lg-offset-1 col-md-6 col-sm-6">
