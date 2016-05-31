@@ -123,7 +123,6 @@
 				$_SESSION['usuario'] = $arr[1];
 				$_SESSION['key'] = $arr[2];
 				$_SESSION['color'] = $arr[4];
-				$_SESSION['imagen'] <= $arr[4];
 			}
 			}
 			if(isset($_SESSION['tipo']) && isset($_SESSION['usuario']) && isset($_SESSION['key']))

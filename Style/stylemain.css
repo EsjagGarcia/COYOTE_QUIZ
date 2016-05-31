@@ -24,10 +24,7 @@ nav#part-top{
 	 height:60%;
 }
 #conten-main{
-	padding-top:10%;
-}
-#fr, #fa{
-	height:500px;
+	padding-top:60px;
 }
 #text{
 	color:black;
@@ -37,7 +34,11 @@ nav#part-top{
 }
 #carruselc{
 	border:5px solid black;
-	padding:20px;
+	padding:2%;
 	border-radius:10px;
 	box-shadow:7px 7px grey;
+	height:400px;
+}
+#carrusel,#fr,#fa{
+	height:350px;
 }
