@@ -86,32 +86,37 @@
 				
 				$res = mysqli_query($enlace, $confi);
 				$arre = array();
-				$row = array("mario","mariomario");
-				
-				while($row = mysqli_fetch_assoc($res))
+				//$row = array("mario","mariomario");
+				if(!empty($res))
 				{
-					foreach($row as $re)
-					{
-						$arre[]=$re;
-					}
-				}
-				$arre = substr($arre[0],5);
-				// Checa si la contraseña que enviaste es la misma que esta en la base de datos
-				
-				if($contrasena == $arre)
-				{
-					echo "Todo bien";
-					$nomb = $_POST['nom-usuario'];
-					echo $nomb;
-					$consulta =  'SELECT * FROM usuarios WHERE USUARIO_NOMBRE="'.$nomb.'"';
-					$res = mysqli_query($enlace, $consulta);
-					//$ra = mysqli_fetch_array($enlace,);
-					$arr = array();
 					while($row = mysqli_fetch_assoc($res))
 					{
 						foreach($row as $re)
 						{
-							$arr[]=$re;
+							$arre[]=$re;
+						}
+					}
+					if(!empty($arre))
+						$arre = substr($arre[0],5);
+					else
+						$arre='273464&?¡¿%';
+					// Checa si la contraseña que enviaste es la misma que esta en la base de datos
+					
+					if($contrasena == $arre)
+					{
+						echo "Todo bien";
+						$nomb = $_POST['nom-usuario'];
+						echo $nomb;
+						$consulta =  'SELECT * FROM usuarios WHERE USUARIO_NOMBRE="'.$nomb.'"';
+						$res = mysqli_query($enlace, $consulta);
+						//$ra = mysqli_fetch_array($enlace,);
+						$arr = array();
+						while($row = mysqli_fetch_assoc($res))
+						{
+							foreach($row as $re)
+							{
+								$arr[]=$re;
+							}
 						}
 					}
 				}
