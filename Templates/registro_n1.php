@@ -8,8 +8,6 @@ if(preg_match('/^[A-ZÑÁÉÍÓÚ][a-zñáéíóú]{1,10} ([A-ZÑÁÉÍÓÚ][a-z
 	$contra=$_POST['contra'];
 	$sena=$_POST['sena'];
 }
-
-
 $ch=str_split($contra);
 	$contrasena="";
 	for($x=0;$x<5;$x++)
@@ -70,9 +68,10 @@ $ch=str_split($contra);
 
 if($contra==$sena)
 {
+	$fecha=date('Y/m/d');
 	$link=mysqli_connect("localhost","root","","prueba");
 	$tildes = $link->query("SET NAMES 'utf8'");
-	$SQL='INSERT INTO usuarios (USUARIOS_TYPE,USUARIO_NOMBRE,USUARIO_KEY,USUARIO_CONTRASENIA,COLOR,IMAGEN) values (1,"'.$usuario.'",'.$numero.',"'.$contrasena.'","#c79810",0)';
+	$SQL='INSERT INTO usuarios (USUARIOS_TYPE,USUARIO_NOMBRE,USUARIO_KEY,USUARIO_CONTRASENIA,COLOR,IMAGEN,FECHA_CONECT) values (1,"'.$usuario.'",'.$numero.',"'.$contrasena.'","#c79810",0,"'.$fecha.'")';
 	$SQL2='INSERT INTO alumnos (ESTUDIANTE_NOMBRE,USUARIO_NOMBRE,USUARIO_KEY,ALUMNO_GRUPO,ALUMNO_PUNTAJE,ALUMNO_PARTIDAS) VALUES ("'.$nombre.'","'.$usuario.'",'.$numero.','.$grupo.',0,0)';
 	mysqli_query($link,$SQL);
 	mysqli_query($link,$SQL2);

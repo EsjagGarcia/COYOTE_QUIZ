@@ -67,9 +67,10 @@ $ch=str_split($contra);//proceso de codificación
 
 if($contra==$sena)//proceso de guardado de información
 {
+	$fecha=date('Y/m/d');
 	$link=MySQLi_connect("localhost","root","","prueba");
 	$tildes = $link->query("SET NAMES 'utf8'");
-	$SQL="INSERT INTO USUARIOS (`USUARIOS_TYPE`,`USUARIO_NOMBRE`,`USUARIO_KEY`,`USUARIO_CONTRASENIA`,`IMAGEN`,`COLOR`) VALUES ('2','$usuario','$numero','$contrasena',0,'#c79810');";
+	$SQL="INSERT INTO USUARIOS (`USUARIOS_TYPE`,`USUARIO_NOMBRE`,`USUARIO_KEY`,`USUARIO_CONTRASENIA`,`IMAGEN`,`COLOR`,`FECHA_CONECT`) VALUES ('2','$usuario','$numero','$contrasena',0,'#c79810','$fecha');";
 	$SQL2="INSERT INTO PROFESORES (`USUARIO_NOMBRE`,`USUARIO_KEY`,`PROFESOR_ASIGNATURA`,`PROFESOR_PREPA`,`PROFESOR_NOMBRE`) VALUES ('$usuario','$numero','$asignatura','$prepa','$nom');";
 	MySQLi_query($link,$SQL);
 	MySQLi_query($link,$SQL2);
