@@ -8,7 +8,6 @@ $("#alum,#profe,#cordi").click(function(){
 		dataType:"text",
 		success:function(data){
 			$("#ejecucion").html(data);
-			console.log($("tr:eq(1) td:eq(1)").html());
 		}
 	});
 });
