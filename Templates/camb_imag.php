@@ -121,12 +121,12 @@
 				<div class="main" id="conten-main">
 					<div class="row">
 						<div class="col-lg-12">
-							<form class="form-color" method="POST" action="./cambiar.php">
+							<form class="form-color" method="POST" action="./cambio_perfil.php"  enctype="multipart/form-data">
 								<div class="form-group">
 									<div class="col-lg-4">
-										<label for="colores"><h1>Color: </h1></label>
+										<label for="imagen"><h1>Nueva imagen de perfil: </h1></label>
 									</div>
-										<input type="color" class="form-control" id="colores" name="color"/>
+										<input type="file" class="form-control" id="imagen" name="imag"/>
 								</div>
 								<button class="btn btn-block btn-primary" type="submit" id="colca">Aceptar</button>
 							</form>

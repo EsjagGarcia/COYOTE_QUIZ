@@ -72,7 +72,7 @@ if($contra==$sena)
 {
 	$link=mysqli_connect("localhost","root","","prueba");
 	$tildes = $link->query("SET NAMES 'utf8'");
-	$SQL='INSERT INTO usuarios (USUARIOS_TYPE,USUARIO_NOMBRE,USUARIO_KEY,USUARIO_CONTRASENIA,COLOR) values (1,"'.$usuario.'",'.$numero.',"'.$contrasena.'","#c79810")';
+	$SQL='INSERT INTO usuarios (USUARIOS_TYPE,USUARIO_NOMBRE,USUARIO_KEY,USUARIO_CONTRASENIA,COLOR,IMAGEN) values (1,"'.$usuario.'",'.$numero.',"'.$contrasena.'","#c79810",0)';
 	$SQL2='INSERT INTO alumnos (ESTUDIANTE_NOMBRE,USUARIO_NOMBRE,USUARIO_KEY,ALUMNO_GRUPO,ALUMNO_PUNTAJE,ALUMNO_PARTIDAS) VALUES ("'.$nombre.'","'.$usuario.'",'.$numero.','.$grupo.',0,0)';
 	mysqli_query($link,$SQL);
 	mysqli_query($link,$SQL2);
