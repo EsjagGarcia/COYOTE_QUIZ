@@ -140,7 +140,7 @@
 							<div class="collapse navbar-collapse" id="navegacion">';
 								if($_SESSION['tipo']=='1') //Pone distintos navs para cada tipo de usuario
 								{
-									echo '<a href="juego_menu1.php" style="color:white;"> <button type="button" class="btn btn-primary navbar-btn dropdow"> Jugar </button> </a>';
+									echo '<a href="juego_menu1.php" style="color:white;"><button type="button" class="btn btn-primary navbar-btn dropdow"> Jugar </button></a>';
 									echo ' <button type="button" class="btn btn-primary navbar-btn"> Puntajes </button>';
 								}
 								else

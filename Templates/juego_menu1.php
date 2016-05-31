@@ -42,7 +42,7 @@
 							<div class="collapse navbar-collapse" id="navegacion">';
 								if($_SESSION['tipo']=='1') //Pone distintos navs para cada tipo de usuario
 								{
-									echo '<a href="juego_menu1.php" style="color:white;"> <button type="button" class="btn btn-primary navbar-btn dropdow"> Jugar </button> </a>';
+									echo '<a href="juego_menu1.php" style="color:white;"><button type="button" class="btn btn-primary navbar-btn dropdow"> Jugar </button></a>';
 									echo ' <button type="button" class="btn btn-primary navbar-btn"> Puntajes </button>';
 								}
 								else
@@ -85,15 +85,12 @@
 					</div>
 				</nav>
 			</header>
-			
-			
-			
 			<div id="cuadro" class="row">
-				<div> <h3> Modo de juego: </h3> </div>
-				<ul class="nav nav-pills">
-					<li><a href="juegopru.php" id="aleat" class="active"> Jugador aleatorio </a></li>
-					<li><a href="#" id="select" class="active"> Seleccionar amigo </a></li>
-				</ul>
+				<div class="text-center col-lg-6" id="menujuego">
+					<h2> Modo de juego: </h2><br/>
+					<a href="juegopru.php" id="aleat"><button class="btn btn-lg btn-primary"> Jugador aleatorio </button></a><br/><br/>
+					<a href="#" id="select" class="active"><button class="btn btn-lg btn-primary"> Seleccionar amigo </button></a>
+				</div>
 			</div>';
 		}
 			?>
@@ -106,8 +103,6 @@
 				<div class="row">
 					<div class="col-xs-12">
 					Hecho en México. Todos los derechos reservados.
-					<br/>
-					Créditos.
 					</div>
 				</div>
 				</footer>
@@ -118,18 +113,20 @@
 			<script type="text/javascript" src="main.js"></script>
 			<script type="text/javascript" src="colorChange.js"></script>
 				<script>
-					$("a").click(function(){
-						$.ajax({
-							url: "aleatorio.php",
-							data: {
-								id: this.id,
-							},
-							type: "POST",
-							dataType: "text",
-							success: function(id){
-								console.log("Hecho");
-								$("#u").html(id);
-							}
+					$(document).ready(function(){
+						$("a").click(function(){
+							$.ajax({
+								url: "aleatorio.php",
+								data: {
+									id: this.id,
+								},
+								type: "POST",
+								dataType: "text",
+								success: function(id){
+									console.log("Hecho");
+									$("#u").html(id);
+								}
+							});
 						});
 					});
 				</script>
