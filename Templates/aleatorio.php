@@ -46,9 +46,11 @@
 				$reng  = mysqli_query($connect,$crenglones);
 				$renglones = mysqli_num_rows($reng);
 				echo $renglones;
+				
 				// Cuenta los números de renglones y escoge un random que se conecta con el indice del usuario
 				
 				$count = rand(1,$renglones);
+				echo $count;
 				
 				$seleccion = "select * from alumnos where estudiante_indice = $count";
 				$busqueda = mysqli_query($connect,$seleccion);
@@ -76,5 +78,5 @@
 			}
 		}
 	}
-	session_destroy();
+	//session_destroy();
 ?>
