@@ -408,7 +408,7 @@
 					<div class="modal-body">
 						<div class="row">
 							<div class="col-lg-12 col-xs-12">
-								<form class="form-horizontal" method="POST" action="registro_preguntas.php" >
+								<form class="form-horizontal" method="POST" action="./registro_preguntas.php" >
 									<div class="form-group">
 									<label for="grado" class="col-lg-3 control-label">Grado: </label>
 										<div class="col-lg-9">
@@ -469,7 +469,7 @@
 											<input type="text" class="form-control" id="tres" name="tres" placeholder="Respuesta"  required pattern="^[a-zA-Z0-9 ÑÁÉÍÓÚñáéíóú]{1,40}"/>
 										</div>
 									</div>
-									<button class="btn btn-lg btn-block btn-primary" id="registrarse"type="submit">Respuesta</button>
+									<button class="btn btn-lg btn-block btn-primary" id="registrarse"type="submit">Enviar</button>
 									</form>
 							</div>
 						</div>

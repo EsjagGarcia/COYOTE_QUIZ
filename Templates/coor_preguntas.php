@@ -30,6 +30,22 @@
 			
 			if(isset($_SESSION['tipo']) && isset($_SESSION['usuario']) && isset($_SESSION['key']))
 			{
+				$enlace=mysqli_connect("localhost","root","","prueba");
+				if(!$enlace)
+					echo 'hubo un error';
+				else
+				{
+					$lectura='SELECT IMAGEN FROM USUARIOS WHERE USUARIO_NOMBRE="'.$_SESSION['usuario'].'"';
+					$image=mysqli_query($enlace,$lectura);
+					$arr = array();
+					while($row = mysqli_fetch_assoc($image))
+					{
+						foreach($row as $re)
+						{
+							$imagen[]=$re;
+						}
+					}
+				}
 				echo '<header>
 					<nav class="navbar navbar-default navbar-fixed-top" role="navegation" id="part-top">
 						<div class="row">
@@ -41,8 +57,16 @@
 										<span class="icon-bar"></span>
 										<span class="icon-bar"></span>
 									</button>
-									<a href="./usuario.php" class="navbar-brand" id="imag-unam"><img alt="Brand" src="../Sources/Resources/esc-unam.png" height="140%"/></a>
-									<p id="text" class="navbar-text">'.$_SESSION['usuario'].'</p>
+									<a href="./usuario.php" class="navbar-brand" id="imag-unam">';
+									if($imagen[0]=='0')
+									{
+										echo '<img src="../Sources/Resources/sombra.jpg" alt="sombra" height="140%"/>';
+									}
+									else
+									{
+										echo '<img src="data:image/jpg;base64,'.base64_encode($imagen[0]).'" height="140%"/>';
+									}
+									echo '</a><p id="text" class="navbar-text">'.$_SESSION['usuario'].'</p>
 								</div>	
 							</div>	
 							<div class="col-lg-5 col-lg-offset-1 col-md-5 col-sm-6">
@@ -102,7 +126,7 @@
 
 						echo "<div class='row'><div class='col-lg-12 col-md-12 col-xs-12' id='tablapreg'>";
 						echo "<table class='table table-hover table-bordered'><tr class='info'>";
-						echo "<th>Asignatura</th><th> Unidad</th><th>Pregunta</th><th>Respuesta correcta</th><th>Respuesta1</th><th>Respuesta2</th><th>Respuesta3</th><th>Eliminar</th><th>Agregar</th><br></tr>";
+						echo "<th>Asignatura</th><th> Unidad</th><th>Pregunta</th><th>Respuesta correcta</th><th>Respuesta1</th><th>Respuesta2</th><th>Respuesta3</th><th>Profesor</th><th>Eliminar</th><th>Agregar</th><br></tr>";
 						while ($renglon=mysqli_fetch_assoc($result))
 						{
 						echo "<tr>";
@@ -113,6 +137,7 @@
 						echo "<td>". $renglon['RES_UNO']. "</td>";
 						echo "<td>". $renglon['RES_DOS']. "</td>";
 						echo "<td>". $renglon['RES_TRES']. "</td>";
+						echo "<td>". $renglon['USUARIO_DO']. "</td>";
 						echo '<td><button class="btn btn-danger btn-xs" id="n'.$n.'" onclick="quitare(this)">Eliminar</button></td>';
 						echo '<td><button class="btn btn-success btn-xs" id="n'.$n.'" onclick="agregare(this)">Agregar</button></td>';
 						echo "</tr>";
@@ -142,23 +167,29 @@
 					<div class="modal-body">
 						<div class="row">
 							<div class="col-lg-12 col-xs-12">
-								<form class="form-horizontal" method="POST" action="registro_profesor.php" >
+								<form class="form-horizontal" method="POST" action="./registro_profesor.php" >
 									<div class="form-group">
-									<label for="nom" class="col-lg-3 control-label">Nombre usuario: </label>
+									<label for="nombre" class="col-lg-3 control-label">Nombre completo: </label>
+										<div class="col-lg-9">
+											<input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre Completo"  required pattern="^^[A-ZÑÁÉÍÓÚ][a-zñáéíóú]{1,10} ([A-ZÑÁÉÍÓÚ][a-zñáéíóú]{1,10} ){1,3}[A-ZÑÁÉÍÓÚ][a-záéíóúñ]{2,10}$"/>
+										</div>
+									</div>
+									<div class="form-group">
+									<label for="usuario" class="col-lg-3 control-label">Nombre usuario: </label>
 										<div class="col-lg-9">
 											<input type="text" class="form-control" id="usuario" name="usuario" placeholder="Nombre de Usuario"  required pattern="^[a-zA-Z0-9_/./-/@]{3,20}"/>
 										</div>
 									</div>
 									<div class="form-group">
-										<label for="num" class="col-lg-3 control-label">Clave de profesor(RFC):</label>
+										<label for="numero" class="col-lg-3 control-label">Clave de profesor(RFC):</label>
 										<div class="col-lg-9">
 											<input type="text" class="form-control" id="numero" name="numero" placeholder="RFC"  required pattern="^[a-zA-Z0-9]{12,13}"/>
 										</div>
 									</div>
 									<div class="form-group">
-										<label for="num" class="col-lg-3 control-label">Asignatura:</label>
+										<label for="asignatura" class="col-lg-3 control-label">Asignatura:</label>
 										<div class="col-lg-9">
-											<input type="text" class="form-control" id="asignatura" name="asignatura" placeholder="Clave de la asignatura"  required pattern="^[a-zA-Z ñáéíóú]{5,15}"/>
+											<input type="text" class="form-control" id="asignatura" name="asignatura" placeholder="Asignatura"  required pattern="^[a-zA-Zñáéíóú]{5,15}$"/>
 										</div>
 									</div>
 									<div class="form-group">

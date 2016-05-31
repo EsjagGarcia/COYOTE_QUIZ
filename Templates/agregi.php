@@ -6,7 +6,14 @@
 	Y al igual que en elimi.php la pregunta agregada será eleminada de la tabla preguntas*/
 	$cons='SELECT * FROM PREGUNTAS WHERE PREGUNTA="'.$ex.'"';
 	$consu=mysqli_query($con,$cons);
-	$consulta= mysqli_fetch_row($consu);
+	$consulta=array();
+	while($row = mysqli_fetch_assoc($consu))
+	{
+		foreach($row as $re)
+		{
+			$consulta[]=$re;
+		}
+	}
 	$sel="";
 	
 	
@@ -24,7 +31,6 @@
 		echo"Lo sentimos la tabla de esta materia aun no existe";
 		echo $consulta[0];
 	}
-	}
 	
 	mysqli_query($con,$agre);
 	$queria= "SELECT * FROM preguntas";
@@ -32,7 +38,7 @@
 	$n=0;		
 	$sel="";
 	$sel=$sel."<table class='table table-hover table-bordered'><tr class='info'>";
-	$sel=$sel."<th>Asignatura</th><th> Unidad</th><th>Pregunta</th><th>Respuesta correcta</th><th>Respuesta1</th><th>Respuesta2</th><th>Respuesta3</th><th>Eliminar</th><th>Agregar</th><br></tr>";
+	$sel=$sel."<th>Asignatura</th><th> Unidad</th><th>Pregunta</th><th>Respuesta correcta</th><th>Respuesta1</th><th>Respuesta2</th><th>Respuesta3</th><th>Profesor</th><th>Eliminar</th><th>Agregar</th><br></tr>";
 	while ($renglon=mysqli_fetch_assoc($result))
 	{
 	$sel=$sel."<tr>";
@@ -43,6 +49,7 @@
 	$sel=$sel."<td>". $renglon['RES_UNO']. "</td>";
 	$sel=$sel."<td>". $renglon['RES_DOS']. "</td>";
 	$sel=$sel."<td>". $renglon['RES_TRES']. "</td>";
+	$sel=$sel."<td>". $renglon['USUARIO_DO']. "</td>";
 	$sel=$sel.'<td><button class="btn btn-danger btn-xs" id="n'.$n.'" onclick="quitare(this)">Eliminar</button></td>';
 	$sel=$sel.'<td><button class="btn btn-success btn-xs" id="n'.$n.'" onclick="agregare(this)">Agregar</button></td>';
 	$sel=$sel."</tr>";
