@@ -67,7 +67,7 @@ echo		'<form action="juegopru.php" method="POST">
 				<input type="submit" value="Empezar"/>
 			</form>';
 		}
-		elseif($count < 10)
+		elseif($count < 11)
 		{
 			echo "HHH";
 			// Intervalos del tiempo
@@ -147,16 +147,30 @@ echo			'var segundos = 0;
 							$_SESSION['indi']=$abc;
 						}
 						$indis=$_SESSION['indi'];
-						$indis[]=$c;
+						/*$ion=0;
+						$ono=0;
+						foreach($_SESSION as $xa)
+						{
+							$ion++;
+							if($xa != $pregunta && $ion == $count && $ono!==0)
+							{
+								$comprob=1;
+							}
+							else if ($xa==$pregunta)
+							{
+								$ono=1;
+							}
+						}*/
 						foreach($indis as $xa)
-							if($xa == $pregunta)
+							if($xa == $c)
 								$comprob = 1;
 						
 						// Valida otra vez las preguntas, por si ya las pregunto
 							
-						if($comprob == 1)
+						if($comprob == 0)
 						{
 							// Despliega las preguntas
+							$indis[]=$c;
 							$_SESSION['indi'] = $indis;
 							$arresp=array ();
 							$pip1=0;
