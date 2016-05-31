@@ -23,20 +23,7 @@
 	$comprob = "select * from partidas where jugador_1 = $name";
 	$result = mysqli_query($connect,$comprob);
 	
-	var_dump($result);
-	if($result != false)
-	{
-		$cambio = mysqli_num_rows($result);
-		echo $cambio;
-	}
-	
-	if(isset($cambio) > 0)
-	{
-		echo "Ya jugaste, adios";
-	}
-	else
-	{
-		// Verifica si el rival tiene que ser aleatorio o elegido
+	// Verifica si el rival tiene que ser aleatorio o elegido
 		
 		if($que == "aleat")
 		{
@@ -70,17 +57,11 @@
 				}
 				while($jugador2 == $name);
 				
-				echo "Hola ".$jugador2;
-				echo "<br/>".$name;
-				
 				// Crea las cookies para guardar los usuarios 1 y 2
 				
 				setcookie("user1",$name,time()+48000);
 				setcookie("user2",$jugador2,time()+48000);
-				
-				print_r($_COOKIE);
 			}
 		}
-	}
 	//session_destroy();
 ?>

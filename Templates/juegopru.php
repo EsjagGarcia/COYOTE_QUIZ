@@ -69,7 +69,6 @@ echo		'<form action="juegopru.php" method="POST">
 		}
 		elseif($count < 11)
 		{
-			echo "HHH";
 			// Intervalos del tiempo
 			
 echo 		'<script>';
@@ -331,24 +330,18 @@ echo				'<script>
 			echo "Errores: ".$errors;
 		}
 		else
-			echo "<br/>No respondiste nada";
-			
+			echo "<br/> No respondiste nada";
+		
+		print_r($_COOKIE);		
 		if(isset($_COOKIE['userjuego']))
 		{
-			
 			if(isset($_COOKIE['name']))
 			{
 				include_once("subir.php");
-				$name = $_COOKIE['name'];
-				$ussel = $_COOKIE['user'];
+				$name = $_COOKIE['user1'];
+				$ussel = $_COOKIE['user2'];
 				if(isset($aciertos))
 					corre($aciertos,$name,$ussel);
-				
-				setcookie("name",0,time()-1);
-				setcookie("user",0,time()-1);
-		
-				/*
-				$as = (int) $aciertos;*/
 			}
 		}
 echo	'<br/><a href="juego_menu1.php"><button type="button"> Volver </a>';	
@@ -356,12 +349,14 @@ echo	'<br/><a href="juego_menu1.php"><button type="button"> Volver </a>';
 		mysqli_close($conect);
 		session_destroy();
 		setcookie("select",0,time()-1);
+		setcookie("user1",0,time()-1);
+		setcookie("user2",0,time()-1);
 		session_start();
 			
-		/*$_SESSION['usuario'] = $_COOKIE['userjuego'];
+		$_SESSION['usuario'] = $_COOKIE['userjuego'];
 		$_SESSION['tipo'] = $_COOKIE['usertipo'];
 		$_SESSION['key'] = $_COOKIE['userllave'];
-		$_SESSION['color'] = $_COOKIE['usercolor'];*/
+		$_SESSION['color'] = $_COOKIE['usercolor'];
 	}
 		//}
 echo'</div>

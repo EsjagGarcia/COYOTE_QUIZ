@@ -4,6 +4,9 @@
 -- ------------------------------------------------------
 -- Server version	10.1.10-MariaDB
 
+CREATE DATABASE prueba;
+USE prueba;
+
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
@@ -222,7 +225,7 @@ CREATE TABLE `usuarios` (
   `FECHA_CONECT` varchar(10) DEFAULT NULL,
   `IMAGEN` blob,
   PRIMARY KEY (`USUARIO_NOMBRE`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+); ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
