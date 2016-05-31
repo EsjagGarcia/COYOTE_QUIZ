@@ -306,7 +306,7 @@ echo						'<script>
 					}
 					else
 					{
-echo					'<script>
+echo				'<script>
 							location.reload(true);
 						</script>';
 					}

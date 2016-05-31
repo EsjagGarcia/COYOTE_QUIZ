@@ -17,20 +17,23 @@
 	setcookie("userllave",$llave,time()+48000);
 	setcookie("usercolor",$color,time()+48000);
 	
-	//setcookie("user",$ussel,time()+48000);
-	
-	print_r($_SESSION);
-	echo "<br/>";
-	print_r($_COOKIE);
-	echo $name."<br/>";
-	
 	// Checa si el jugador ya ha jugado antes
 	
 	$connect = mysqli_connect("localhost","root","","prueba");
 	$comprob = "select * from partidas where jugador_1 = $name";
 	$result = mysqli_query($connect,$comprob);
-	if($result  !=  false)
+	
+	var_dump($result);
+	if($result != false)
+	{
+		$cambio = mysqli_num_rows($result);
+		echo $cambio;
+	}
+	
+	if(isset($cambio) > 0)
+	{
 		echo "Ya jugaste, adios";
+	}
 	else
 	{
 		// Verifica si el rival tiene que ser aleatorio o elegido
@@ -42,39 +45,40 @@
 			$connect = mysqli_connect("localhost","root");
 			if(mysqli_select_db($connect,"prueba"))
 			{
-				$crenglones = "select * from alumnos";
-				$reng  = mysqli_query($connect,$crenglones);
-				$renglones = mysqli_num_rows($reng);
-				echo $renglones;
+				// Extrae todos los nombres de usuarios
 				
-				// Cuenta los números de renglones y escoge un random que se conecta con el indice del usuario
+				$search = "SELECT usuario_nombre  FROM alumnos";
+				$buscar = mysqli_query($connect,$search);
+				$encontrado = mysqli_fetch_all($buscar);
 				
-				$count = rand(1,$renglones);
-				echo $count;
+				// Introduce los nombres en un arrglo indexado
 				
-				$seleccion = "select * from alumnos where estudiante_indice = $count";
-				$busqueda = mysqli_query($connect,$seleccion);
-				$user2 = mysqli_fetch_array($busqueda);
-				$ussel = $user2['USUARIO_NOMBRE'];
+				foreach($encontrado as $x)
+					foreach($x as $y)
+						$jugador[] = $y;
+				
+				do
+				{
+					// Cuenta los elementos en un arreglo y selecciona un random, para extraer un usuario para jugar
 					
-				if($name == $ussel)
-				{
-					echo "ÑO";
-	echo			'<script>
-						console.log("aqui toy");
-						location.reload(true);
-					</script>';
+					$count = count($jugador);
+					$rand = rand(0,$count-1);
+					
+					// Escoge un indice con el random
+					
+					$jugador2 = $jugador[$rand];
 				}
-				else
-				{
-					$seleccion = "select * from alumnos where estudiante_indice = $count";
-					$busqueda = mysqli_query($connect,$seleccion);
-					$user2 = mysqli_fetch_array($busqueda);
-					$ussel = $user2['USUARIO_NOMBRE'];
-					echo $name."<br/>";
-					echo $ussel."<br/>";
+				while($jugador2 == $name);
 				
-				}
+				echo "Hola ".$jugador2;
+				echo "<br/>".$name;
+				
+				// Crea las cookies para guardar los usuarios 1 y 2
+				
+				setcookie("user1",$name,time()+48000);
+				setcookie("user2",$jugador2,time()+48000);
+				
+				print_r($_COOKIE);
 			}
 		}
 	}
