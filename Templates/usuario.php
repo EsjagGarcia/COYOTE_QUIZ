@@ -128,17 +128,15 @@
 			}
 			if(isset($_SESSION['tipo']) && isset($_SESSION['usuario']) && isset($_SESSION['key']))
 			{
-				$enlace = mysqli_connect("localhost","root","","prueba");
+				$enlace=mysqli_connect("localhost","root","","prueba");
 				if(!$enlace)
 					echo 'hubo un error';
 				else
 				{
-					$nom = $_SESSION['usuario'];
-					$lectura = 'SELECT IMAGEN FROM USUARIOS WHERE USUARIO_NOMBRE="'.$nom.'"';
+					$lectura = 'SELECT IMAGEN FROM USUARIOS WHERE USUARIO_NOMBRE="'.$_SESSION['usuario'].'"';
 					$image = mysqli_query($enlace,$lectura);
 					$arr = array();
 					if($image != false)
-					{
 						while($row = mysqli_fetch_assoc($image))
 						{
 							foreach($row as $re)
@@ -146,7 +144,6 @@
 								$imagen[]=$re;
 							}
 						}
-					}
 				}
 				mysqli_close($enlace);
 				echo '<header>
@@ -161,13 +158,16 @@
 										<span class="icon-bar"></span>
 									</button>
 									<a href="./usuario.php" class="navbar-brand" id="imag-unam">';
-									if(isset($imagen[0])=='0')
+									if(isset($imagen))
 									{
-										echo '<img src="../Sources/Resources/sombra.jpg" alt="sombra" height="140%"/>';
-									}
-									else
-									{
-										echo '<img src="data:image/jpg;base64,'.base64_encode($imagen[0]).'" height="140%"/>';
+										if($imagen[0]=='0')
+										{
+											echo '<img src="../Sources/Resources/sombra.jpg" alt="sombra" height="140%"/>';
+										}
+										else
+										{
+											echo '<img src="data:image/jpg;base64,'.base64_encode($imagen[0]).'" height="140%"/>';
+										}
 									}
 									echo '</a><p id="text" class="navbar-text">'.$_SESSION['usuario'].'</p>
 								</div>	
@@ -209,7 +209,7 @@
 										</button>
 										<ul class="dropdown-menu">
 											<li><a href="./camb_dis.php">Diseño de página</a></li>
-											<li><a href="#">Información personal</a></li>
+											<li><a href="./camb_imag.php">Información personal</a></li>
 											<li role="separator" class="divider"></li>
 											<li><a href="./main.php"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Cerrar Sesión</a></li>
 										</ul>

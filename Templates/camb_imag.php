@@ -59,13 +59,16 @@
 										<span class="icon-bar"></span>
 									</button>
 									<a href="./usuario.php" class="navbar-brand" id="imag-unam">';
-									if(isset($imagen[0])=='0')
+									if(isset($imagen))
 									{
-										echo '<img src="../Sources/Resources/sombra.jpg" alt="sombra" height="140%"/>';
-									}
-									else
-									{
-										echo '<img src="data:image/jpg;base64,'.base64_encode($imagen[0]).'" height="140%"/>';
+										if($imagen[0]=='0')
+										{
+											echo '<img src="../Sources/Resources/sombra.jpg" alt="sombra" height="140%"/>';
+										}
+										else
+										{
+											echo '<img src="data:image/jpg;base64,'.base64_encode($imagen[0]).'" height="140%"/>';
+										}
 									}
 									echo '</a>
 									<p id="text" class="navbar-text">'.$_SESSION['usuario'].'</p>
@@ -75,7 +78,7 @@
 								<div class="collapse navbar-collapse" id="navegacion">';
 									if($_SESSION['tipo']=='1')
 									{
-										echo '<button type="button" class="btn btn-primary navbar-btn"> Jugar </button>';
+										echo '<a href="juego_menu1.php" style="color:white;"><button type="button" class="btn btn-primary navbar-btn dropdow"> Jugar </button></a>';
 										echo ' <button type="button" class="btn btn-primary navbar-btn"> Puntajes </button>';
 									}
 									else

@@ -54,13 +54,16 @@
 									<!-- Nav del usuario -->
 									
 									<a href="./usuario.php" class="navbar-brand" id="imag-unam">';
-									if(isset($imagen[0])=='0')
+									if(isset($imagen))
 									{
-										echo '<img src="../Sources/Resources/sombra.jpg" alt="sombra" height="140%" class="img-rounded"/>';
-									}
-									else
-									{
-										echo '<img src="data:image/jpg;base64,'.base64_encode($imagen[0]).'" height="140%" class="img-rounded"/>';
+										if($imagen[0]=='0')
+										{
+											echo '<img src="../Sources/Resources/sombra.jpg" alt="sombra" height="140%"/>';
+										}
+										else
+										{
+											echo '<img src="data:image/jpg;base64,'.base64_encode($imagen[0]).'" height="140%"/>';
+										}
 									}
 									echo '</a>
 									<p id="text" class="navbar-text">'.$_SESSION['usuario'].'</p>
@@ -84,7 +87,7 @@
 										
 										<ul class="dropdown-menu">
 											<li><a href="./camb_dis.php">Diseño de página</a></li>
-											<li><a href="#">Información personal</a></li>
+											<li><a href="./camb_imag.php">Información personal</a></li>
 											<li role="separator" class="divider"></li>
 											<li><a href="./main.php"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Cerrar Sesión</a></li>
 										</ul>
