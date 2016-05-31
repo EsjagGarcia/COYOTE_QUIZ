@@ -44,7 +44,7 @@
 			</header>
 			<div class="main" id="conten-main">
 				<div class="row">
-					<div class="col-lg-10 col-lg-offset-1">
+					<div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1" id="carruselc">
 							<div id="carouselimg" class="carousel slide" data-ride="carousel">
 								<ol class="carousel-indicators">
 									<li data-target="#carouselimg" data-slide-to="0" class="active"></li>
@@ -54,15 +54,12 @@
 								<div class="carousel-inner" role="listbox" id="carrusel">
 									<div class="item active" height="90px">
 										<div style="text-align:center;">
-											<img src="../Sources/Resources/fond-rojo.jpg" height="60px" alt="fondo rojo" id="fr"/>
-										</div>
-										<div class="carousel-caption">
-											<h2>Pantalla de color rojo</h2>
+											<img src="../Sources/Resources/enp2.png" height="60px" alt="fondo rojo" id="fr"/>
 										</div>
 									</div>
 									<div class="item">
 										<div style="text-align:center;">
-											<img src="../Sources/Resources/fond-amarillo.jpg" alt="fondo amarillo" id="fa"/> 
+											<img src="../Sources/Resources/unam_edi.jpg" alt="fondo amarillo" id="fa" class="img-rounded"/> 
 										</div>
 										<div class="carousel-caption">
 											<h2>Pantalla de color amarillo</h2>

@@ -52,11 +52,11 @@
 									<a href="./usuario.php" class="navbar-brand" id="imag-unam">';
 									if($imagen[0]=='0')
 									{
-										echo '<img src="../Sources/Resources/sombra.jpg" alt="sombra" height="140%"/>';
+										echo '<img src="../Sources/Resources/sombra.jpg" alt="sombra" height="140%" class="img-rounded"/>';
 									}
 									else
 									{
-										echo '<img src="data:image/jpg;base64,'.base64_encode($imagen[0]).'" height="140%"/>';
+										echo '<img src="data:image/jpg;base64,'.base64_encode($imagen[0]).'" height="140%" class="img-rounded"/>';
 									}
 									echo '</a>
 									<p id="text" class="navbar-text">'.$_SESSION['usuario'].'</p>

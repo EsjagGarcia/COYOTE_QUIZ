@@ -24,7 +24,7 @@ nav#part-top{
 	 height:60%;
 }
 #conten-main{
-	padding-top:50px;
+	padding-top:10%;
 }
 #fr, #fa{
 	height:500px;
@@ -34,4 +34,10 @@ nav#part-top{
 }
 .texblack{
 	color:black;
+}
+#carruselc{
+	border:5px solid black;
+	padding:20px;
+	border-radius:10px;
+	box-shadow:7px 7px grey;
 }
