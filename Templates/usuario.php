@@ -29,32 +29,32 @@
 			}
 			else
 			{	//proceso de codificación de la contraseña
-				$contra=$_POST['contra'];
-				$ch=str_split($contra);
-				$contrasena="";
+				$contra = $_POST['contra'];
+				$ch = str_split($contra);
+				$contrasena = "";
 				$carac=0;
 				foreach($ch as $p)
 				{
 					$nu=ord($p);
-					$carac+=$nu;
+					$carac += $nu;
 				}
-				$contrasena=$contrasena.$carac;
+				$contrasena = $contrasena.$carac;
 				for($x=0;$x<strlen($contra);$x++)
 				{
-					$wi=(ord($ch[$x])>>1)-4;
+					$wi = (ord($ch[$x])>>1)-4;
 					$contrasena=$contrasena.chr($wi);
 				}
 				
-				$cad=array();
-				$arreglo=array();
-				$cont=strlen($contra);
+				$cad = array();
+				$arreglo = array();
+				$cont = strlen($contra);
 				for($i=0;$i<$cont;$i++)
 				{
-					$car=substr($contra,$i,1);
+					$car = substr($contra,$i,1);
 					array_push($cad,$car);
 				}
-				$mul=ceil($cont/5);
-				$contadorpal=0;
+				$mul = ceil($cont/5);
+				$contadorpal = 0;
 				for($x=0;$x<$mul;$x++)
 				{
 					$eje=array();
@@ -67,17 +67,17 @@
 						$contadorpal++;
 					}
 					array_push($arreglo,$eje);
-					for($g=0;$g<5;$g++)
+					for($g = 0;$g<5;$g++)
 						if($cad!='\0')
 							array_shift($cad);
 				}
-				$grr=array();
+				$grr = array();
 				for($y=0;$y<5;$y++)
 					for($x=0;$x<$mul;$x++)
 						array_push($grr,$arreglo[$x][$y]);
-				$grr=implode("",$grr);
-				$h='Texto: '.$contra.'<br/>playfair("'.$grr.'",5)';
-				$cant=ceil(strlen($grr)/2);
+				$grr = implode("",$grr);
+				$h = 'Texto: '.$contra.'<br/>playfair("'.$grr.'",5)';
+				$cant = ceil(strlen($grr)/2);
 				$contrasena=$contrasena.substr($grr,0,$cant);
 				
 				$tildes = $enlace -> query("SET NAMES 'utf8'");
@@ -86,6 +86,8 @@
 				
 				$res = mysqli_query($enlace, $confi);
 				$arre = array();
+				$row = array("mario","mariomario");
+				
 				while($row = mysqli_fetch_assoc($res))
 				{
 					foreach($row as $re)
@@ -93,11 +95,17 @@
 						$arre[]=$re;
 					}
 				}
-				//checa si la contraseña que enviaste es la misma que esta en la base de datos
-				if($contrasena==substr($arre[0],5))
+				$arre = substr($arre[0],5);
+				// Checa si la contraseña que enviaste es la misma que esta en la base de datos
+				
+				if($contrasena == $arre)
 				{
-					$consulta =  'SELECT * FROM usuarios WHERE USUARIO_NOMBRE="'.$_POST['nom-usuario'].'"';
+					echo "Todo bien";
+					$nomb = $_POST['nom-usuario'];
+					echo $nomb;
+					$consulta =  'SELECT * FROM usuarios WHERE USUARIO_NOMBRE="'.$nomb.'"';
 					$res = mysqli_query($enlace, $consulta);
+					//$ra = mysqli_fetch_array($enlace,);
 					$arr = array();
 					while($row = mysqli_fetch_assoc($res))
 					{
@@ -107,33 +115,36 @@
 						}
 					}
 				}
-				
 				mysqli_close($enlace);
 			}
 			if(!empty($arr))
 			{
-				$_SESSION['tipo']=$arr[0];
-				$_SESSION['usuario']=$arr[1];
-				$_SESSION['key']=$arr[2];
-				$_SESSION['color']=$arr[4];
-				$_SESSION['imagen']=$arr[4];
+				$_SESSION['tipo'] = $arr[0];
+				$_SESSION['usuario'] = $arr[1];
+				$_SESSION['key'] = $arr[2];
+				$_SESSION['color'] = $arr[4];
+				$_SESSION['imagen'] <= $arr[4];
 			}
 			}
 			if(isset($_SESSION['tipo']) && isset($_SESSION['usuario']) && isset($_SESSION['key']))
 			{
-				$enlace=mysqli_connect("localhost","root","","prueba");
+				$enlace = mysqli_connect("localhost","root","","prueba");
 				if(!$enlace)
 					echo 'hubo un error';
 				else
 				{
-					$lectura='SELECT IMAGEN FROM USUARIOS WHERE USUARIO_NOMBRE="'.$_SESSION['usuario'].'"';
-					$image=mysqli_query($enlace,$lectura);
+					$nom = $_SESSION['usuario'];
+					$lectura = 'SELECT IMAGEN FROM USUARIOS WHERE USUARIO_NOMBRE="'.$nom.'"';
+					$image = mysqli_query($enlace,$lectura);
 					$arr = array();
-					while($row = mysqli_fetch_assoc($image))
+					if($image != false)
 					{
-						foreach($row as $re)
+						while($row = mysqli_fetch_assoc($image))
 						{
-							$imagen[]=$re;
+							foreach($row as $re)
+							{
+								$imagen[]=$re;
+							}
 						}
 					}
 				}
@@ -150,7 +161,7 @@
 										<span class="icon-bar"></span>
 									</button>
 									<a href="./usuario.php" class="navbar-brand" id="imag-unam">';
-									if($imagen[0]=='0')
+									if(isset($imagen[0])=='0')
 									{
 										echo '<img src="../Sources/Resources/sombra.jpg" alt="sombra" height="140%"/>';
 									}
@@ -198,7 +209,7 @@
 										</button>
 										<ul class="dropdown-menu">
 											<li><a href="./camb_dis.php">Diseño de página</a></li>
-											<li><a href="./camb_imag.php">Información personal</a></li>
+											<li><a href="#">Información personal</a></li>
 											<li role="separator" class="divider"></li>
 											<li><a href="./main.php"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Cerrar Sesión</a></li>
 										</ul>

@@ -62,7 +62,7 @@
 											<img src="../Sources/Resources/unam_edi.jpg" alt="fondo amarillo" id="fa" class="img-rounded"/> 
 										</div>
 										<div class="carousel-caption">
-											<h2>Pantalla de color amarillo</h2>
+											<p> </p>
 										</div>
 									</div>
 								</div>

@@ -59,7 +59,7 @@
 										<span class="icon-bar"></span>
 									</button>
 									<a href="./usuario.php" class="navbar-brand" id="imag-unam">';
-									if($imagen[0]=='0')
+									if(isset($imagen[0])=='0')
 									{
 										echo '<img src="../Sources/Resources/sombra.jpg" alt="sombra" height="140%"/>';
 									}

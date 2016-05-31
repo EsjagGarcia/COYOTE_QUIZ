@@ -14,13 +14,14 @@ echo '<!DOCTYPE html>
 			<link rel="shortcut icon" href="../Sources/Resources/prepa 6.jpg" type="image/png"/>
 			<link href="../Style/usuario.less"  rel="stylesheet/less" type="text/css">
 			<script src="../Documents/less.js" type="text/javascript"></script>
+			<script src="../Documents/jquery.js" type="text/javascript"></script>
 		</head>
 		<body data-spy="scroll" data-target="#navegacion">
 		<div class="container" id="cuer">';
 		
 		
-		if(isset($_SESSION['tipo']) && isset($_SESSION['usuario']) && isset($_SESSION['key']))
-		{
+		/*if(isset($_SESSION['tipo']) && isset($_SESSION['usuario']) && isset($_SESSION['key']))
+		{*/
 			echo '<header style="padding-bottom:70px;">
 				<nav class="navbar navbar-default navbar-fixed-top" role="navegation" id="part-top">
 					<div class="row">
@@ -324,18 +325,19 @@ echo					'<script>
 				$as = (int) $aciertos;*/
 			}
 		}
-echo	'<br/><a href="usuario.php"><button type="button"> Volver </button></a>';	
+echo	'<br/><a href="juego_menu.php"><button type="button"> Volver </button></a>';	
 		
 		mysqli_close($conect);
 		session_destroy();
 		setcookie("select",0,time()-1);
 		session_start();
-		$_SESSION['usuario'] = $_COOKIE['userjuego'];
+			
+		/*$_SESSION['usuario'] = $_COOKIE['userjuego'];
 		$_SESSION['tipo'] = $_COOKIE['usertipo'];
 		$_SESSION['key'] = $_COOKIE['userllave'];
-		$_SESSION['color'] = $_COOKIE['usercolor'];	
+		$_SESSION['color'] = $_COOKIE['usercolor'];*/
 	}
-		}
+		//}
 echo'</div>
 	</body>
 </html>';
