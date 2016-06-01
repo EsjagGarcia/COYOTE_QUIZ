@@ -29,8 +29,8 @@
 									<span class="icon-bar"></span>
 									<span class="icon-bar"></span>
 								</button>
-								<a href="./main.php" class="navbar-brand" id="imag-unam"><img alt="Brand" src="../Sources/Resources/esc-unam.png" height="140%"/></a>
-								<p class="navbar-text" id="text">PUMA QUIZ</p>
+								<a href="https://www.unam.mx/" class="navbar-brand" id="imag-unam"><img alt="Brand" src="../Sources/Resources/esc-unam.png" height="140%"/></a>
+								<a href="./main.php"><p class="navbar-text" id="text">PUMA QUIZ</p></a>
 							</div>	
 						</div>	
 						<div class="col-lg-4 col-lg-offset-2 col-md-4 col-sm-4">
