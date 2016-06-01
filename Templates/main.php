@@ -86,9 +86,9 @@
 				<footer class="texblack text-center" id="part-bottom">
 				<div class="row">
 					<div class="col-xs-6 col-xs-offset-2">
-					Hecho en México. Todos los derechos reservados.
+						Hecho en México. Todos los derechos reservados.
 					<br/>
-					Créditos.
+					<a style="color:black; text-decoration:underline;" data-toggle="modal" data-target="#creditos">Créditos<a>
 					</div>
 					<div class="col-xs-3">
 						<script type="text/javascript" src="http://counter10.freecounter.ovh/private/countertab.js?c=be4eea864ac19ffe185b34c27b8e1bf6"> </script>
@@ -180,6 +180,34 @@
 									</div>
 									<button class="btn btn-lg btn-block btn-primary" id="registrarse" type="submit">Registrarse</button>
 								</form>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal fade" id="creditos" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header text-center">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h3 class="modal-title" id="myModalLabel">Equipo de Desarrollo</h3>
+					</div>
+					<div class="modal-body">
+						<div class="row">
+							<div class="col-lg-12 col-xs-12">
+								<div class="text-center">
+									<h4><u>Alumnos de la opcion tecnica en computacion de la prepa 6</u></h4>
+									<br/>
+									<p>Avalos Ramón</p> 
+									<p>García Domínguez Mario Angel</p>
+									<p>Martinez Martos Arturo Cesar</p> 
+									<p>Hernández González Adriana</p> 
+									<p>Rodriguez Cabo Gerardo Trejo</p>
+								</div>
 							</div>
 						</div>
 					</div>
