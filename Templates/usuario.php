@@ -255,9 +255,9 @@
 								<br/><p>*Ptsss,ptsss*<br/>
 								¿Tienes dificultades al responder las preguntas?</p>
 								<p>Checa los enlaces de aqui abajo :)<br/>
-								Saber UNAM: <a href="https://www.saber.unam.mx:6061/saber/faces/alumno/autoevaluacion/Temario.jsp" target="_blank">Click aqui</a><br/>
-								Objetos UNAM: <a href="http://objetos.unam.mx/" target="_blank">Click aqui</a><br/>
-								DGENP: <a href="http://dgenp.unam.mx/" target="_blank">Click aqui</a></p>
+								<i title="SABER UNAM es una página que tiene evaluaciones, guias y examenes diagnosticos que te puede servir como apoyo para tus materias">SABER UNAM:</i> <a href="https://www.saber.unam.mx:6061/saber/faces/home/login.jsp" target="_blank">Click aqui</a><br/>
+								<i title="OBJETOS UNAM ofrece guias interactivas que explican los temas visto en clase de manera agradable">OBJETOS UNAM:</i> <a href="http://objetos.unam.mx/" target="_blank">Click aqui</a><br/>
+								<i title="En los colegios de cada materia, se encuentran guías de todo el curso de una materia">DGENP:</i> <a href="http://dgenp.unam.mx/" target="_blank">Click aqui</a></p>
 							</div>
 						</div>
 				</div>';
