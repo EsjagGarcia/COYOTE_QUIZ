@@ -252,6 +252,12 @@
 							echo '<div class="jumbotron col-lg-7 col-lg-offset-1 col-md-7 col-md-offset-1 col-sm-7 col-sm-offset-1 col-xs-7 col-xs-offset-1">
 								<h1>Hola, '.$_SESSION['usuario'].'.</h1>
 								<p>Bienvenido al portal de alumnos de la Escuela Nacional Preparatoria más famosa</p>
+								<br/><p>*Ptsss,ptsss*<br/>
+								¿Tienes dificultades al responder las preguntas?</p>
+								<p>Checa los enlaces de aqui abajo :)<br/>
+								Saber UNAM: <a href="https://www.saber.unam.mx:6061/saber/faces/alumno/autoevaluacion/Temario.jsp" target="_blank">Click aqui</a><br/>
+								Objetos UNAM: <a href="http://objetos.unam.mx/" target="_blank">Click aqui</a><br/>
+								DGENP: <a href="http://dgenp.unam.mx/" target="_blank">Click aqui</a></p>
 							</div>
 						</div>
 				</div>';
