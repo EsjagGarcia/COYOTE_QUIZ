@@ -260,7 +260,6 @@ echo			'var segundos = 0;
 									echo '<input type="radio" name="res" value="n" class="res"/>'.$cuatro.'<br/>';
 								}
 							}
-							echo $na['INDICADOR'];
 							$ñ = 0;
 							
 							// Va agregando los valores de repetición
@@ -332,10 +331,9 @@ echo				'<script>
 		else
 			echo "<br/> No respondiste nada";
 		
-		print_r($_COOKIE);		
-		if(isset($_COOKIE['userjuego']))
+		if(isset($_COOKIE['user1']))
 		{
-			if(isset($_COOKIE['name']))
+			if(isset($_COOKIE['user2']))
 			{
 				include_once("subir.php");
 				$name = $_COOKIE['user1'];
@@ -348,15 +346,20 @@ echo	'<br/><a href="juego_menu1.php"><button type="button"> Volver </a>';
 		
 		mysqli_close($conect);
 		session_destroy();
-		setcookie("select",0,time()-1);
-		setcookie("user1",0,time()-1);
-		setcookie("user2",0,time()-1);
 		session_start();
 			
 		$_SESSION['usuario'] = $_COOKIE['userjuego'];
 		$_SESSION['tipo'] = $_COOKIE['usertipo'];
 		$_SESSION['key'] = $_COOKIE['userllave'];
 		$_SESSION['color'] = $_COOKIE['usercolor'];
+		
+		setcookie("select",0,time()-1);
+		setcookie("user1",0,time()-1);
+		setcookie("user2",0,time()-1);
+		setcookie("userjuego",0,time()-1);
+		setcookie("usertipo",0,time()-1);
+		setcookie("userllave",0,time()-1);
+		setcookie("usercolor",0,time()-1);
 	}
 		//}
 echo'</div>

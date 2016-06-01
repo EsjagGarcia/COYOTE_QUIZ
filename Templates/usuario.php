@@ -261,6 +261,7 @@
 					echo '<div class="row">
 								<div class="jumbotron col-lg-7 col-lg-offset-1">
 									<h1>Inicie sesión correctamente.</h1>
+									<a href="main.php"> REGRESAR </a>
 								</div>
 						</div>';
 				}
