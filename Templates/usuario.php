@@ -184,7 +184,7 @@
 									if($_SESSION['tipo']=='1') //Pone distintos navs para cada tipo de usuario
 									{
 										echo '<a href="juego_menu1.php" style="color:white;"><button type="button" class="btn btn-primary navbar-btn dropdow"> Jugar </button></a>';
-										echo ' <button type="button" class="btn btn-primary navbar-btn"> Puntajes </button>';
+										echo ' <a href="puntajes.php"><button type="button" class="btn btn-primary navbar-btn"> Puntajes </button></a>';
 									}
 									else
 									{
@@ -267,7 +267,6 @@
 					echo '<div class="row">
 								<div class="jumbotron col-lg-7 col-lg-offset-1">
 									<h1>Inicie sesión correctamente.</h1>
-									<a href="main.php"> REGRESAR </a>
 								</div>
 						</div>';
 				}
